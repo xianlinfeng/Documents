@@ -1,0 +1,10 @@
+#!/bin/bash
+alpha=10
+
+echo alpha = $alpha ";" > data.dzn
+so="solution = "$(head -n 1 solution)" ;"
+echo $so >> data.dzn
+
+cat 11data.dzn >> data.dzn
+minizinc 0color.mzn data.dzn --time-limit 3000 > solution	
+

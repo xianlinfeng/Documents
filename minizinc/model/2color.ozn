@@ -1,0 +1,4 @@
+output [show(obj),"\n",show(c)];
+int: n = 33;
+array [1..n] of int: c;
+int: obj = max(c);

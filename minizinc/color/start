@@ -1,0 +1,38 @@
+#!/bin/bash
+
+cat s > solution 
+
+alpha=10
+
+while :
+do
+	alpha=`expr $alpha - 1`
+
+	if [ $alpha -ge 1 ]
+	then
+		echo alpha = $alpha ";" > 0data.dzn
+                so="solution = "$(egrep ',' solution | tail -1)" ;"
+                echo $so >> 0data.dzn
+                cat 2data.dzn >> 0data.dzn
+		time minizinc --solver CPLEX  --cplex-dll /home/ubuntu/Applications/ibm/cplex/bin/x86-64_linux/libcplex1280.so -a --solver-time-limit 40000 -n 20 0color.mzn 0data.dzn > solution
+		
+		egrep 'max' solution | tail -1
+		egrep 'alpha' solution | tail -1
+		egrep 'distance' solution | tail -1
+		egrep ',' solution | tail -1 
+
+	else
+		so="solution ="$(egrep ',' solution | tail -1)" ;"
+		echo $so >> 0data.dzn
+		cat 2data.dzn >> 0data.dzn
+		time minizinc --solver CPLEX  --cplex-dll /home/ubuntu/Applications/ibm/cplex/bin/x86-64_linux/libcplex1280.so  1color.mzn 0data.dzn > solution
+		cat solution
+
+		break
+	fi
+
+done
+
+
+
+

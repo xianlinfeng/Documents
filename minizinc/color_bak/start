@@ -1,0 +1,32 @@
+#!/bin/bash
+alpha=10
+
+while :
+do
+	alpha=`expr $alpha - 2`
+
+	if [ $alpha -ge 1 ]
+	then
+		echo alpha = $alpha ";" > 0data.dzn
+                so="solution = "$(head -n 1 solution)" ;"
+                echo $so >> 0data.dzn
+                cat 2data.dzn >> 0data.dzn
+                time  minizinc --solver CPLEX 0color.mzn 0data.dzn  --cplex-dll /home/ubuntu/Applications/ibm/cplex/bin/x86-64_linux/libcplex1280.so -p 8 -n 8 --workmem 10 >  solution
+		cat solution 
+
+	else
+		echo alpha = $alpha ";" > 0data.dzn
+		so="solution = "$(head -n 1 solution)" ;"
+		echo $so >> 0data.dzn
+		cat 2data.dzn >> 0data.dzn
+		time minizinc --solver CPLEX 0color.mzn 0data.dzn  --cplex-dll  /home/ubuntu/Applications/ibm/cplex/bin/x86-64_linux/libcplex1280.so -p 8 -n 8 --workmem 10  > solution
+		cat solution
+		
+		break
+	fi
+
+done
+
+
+
+

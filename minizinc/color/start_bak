@@ -1,0 +1,34 @@
+#!/bin/bash
+alpha=10
+
+while :
+do
+	alpha=`expr $alpha - 1`
+
+	if [ $alpha -ge 1 ]
+	then
+		echo alpha = $alpha ";" > 0data.dzn
+                so="solution = "$(head -n 1 solution)" ;"
+                echo $so >> 0data.dzn
+                cat 11data.dzn >> 0data.dzn
+                minizinc 0color.mzn 0data.dzn --time-limit 1000 > solution
+		echo $alpha
+		cat solution 
+
+	else
+		echo alpha = $alpha ";" > 0data.dzn
+		so="solution = "$(head -n 1 solution)" ;"
+		echo $so >> 0data.dzn
+		cat 11data.dzn >> 0data.dzn
+		minizinc 0color.mzn 0data.dzn
+		echo $alpha
+		cat solution
+		
+		break
+	fi
+
+done
+
+
+
+

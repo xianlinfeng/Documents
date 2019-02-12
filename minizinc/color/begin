@@ -1,0 +1,23 @@
+#!/bin/bash
+cat s > solution
+
+alpha=20
+
+while [ $alpha -ge 2 ]
+do
+	alpha=`expr $alpha - 2`
+
+	echo alpha = $alpha ";" > 0data.dzn
+        so="solution = "$(egrep ',' solution | tail -1)" ;"
+        echo $so >> 0data.dzn
+        cat 2data.dzn >> 0data.dzn
+	time minizinc --solver CPLEX  --cplex-dll /home/ubuntu/Applications/ibm/cplex/bin/x86-64_linux/libcplex1280.so -a  0color.mzn 0data.dzn > solution
+	egrep 'alpha' solution | tail -1
+	egrep 'max' solution | tail -1
+	egrep ',' solution | tail -1
+
+done
+
+
+
+
