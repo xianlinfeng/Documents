@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>US Mobile Homes choropleth map</title>
+    </head>
+    <body>
+        <svg></svg>
+        
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+        <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+        
+        <script>
+            var width = 960;
+            var height = 500;
+            
+            var svg = d3.select("svg")
+                .attr("width", width)
+                .attr("height", height)
+                .style("border", "1px solid");
+            
+             // Map projection
+            var projection = d3.geoAlbersUsa()
+              // move the center of the map to the center of our canvas
+              .translate([width / 2, height / 2]) 
+              // scale things down so see entire US
+              .scale([1000]); 
+            
+            // Define path generator
+            // path generator that will convert GeoJSON to SVG paths
+            var path = d3.geoPath() 
+              // tell path generator to use the previous map projection
+              .projection(projection); 
+                
+            
+            d3.json("us-states.txt", function(mapData){
+               
+                var states = svg.selectAll("path")
+                  // bind the geographic data to svg elements
+                  .data(mapData.features) 
+                  // create one "path" svg element for each datum
+                  .enter().append("path") 
+                  // using the map projection to convert geographic 
+                  // information to screen coordinates
+                  .attr("d", path) 
+                  // change the style properties for the svg 
+                  .style("stroke", "black") 
+                  .style("stroke-width", "1")
+                  .style("fill", "white");
+                
+                d3.csv("MobileHomes.csv", function(data) {
+                    
+                    var country2value = {};
+                    var minValue = Infinity;
+                    var maxValue = -1;
+                    data.forEach(function(d){
+                        var thisValue = d["MobileHomes"];
+                        country2value[d["States"]] = thisValue;
+                        
+                        minValue = Math.min(minValue, thisValue);
+                        maxValue = Math.max(maxValue, thisValue);
+                    });
+                    
+                    var value2range = d3.scaleLinear()
+                        .domain([minValue, maxValue])
+                        .range([0, 1])
+                    
+                    var range2color = d3.interpolateBlues;
+                    
+                    states.style("fill", function(d){
+                        return range2color(
+                          value2range(country2value[d.properties.name])
+                        );
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>
