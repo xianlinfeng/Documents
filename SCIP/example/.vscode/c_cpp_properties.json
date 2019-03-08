@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "name": "WSL",
+            "includePath": [
+                "${workspaceFolder}",
+                "${workspaceFolder}/scip"
+                
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard":"c11",
+            "cppStandard":"c++17",
+            "intelliSenseMode":"gcc-x64"
+        }
+    ],
+    "version": 4
+}
