@@ -1,0 +1,1 @@
+extern double sumup(int a, int b);

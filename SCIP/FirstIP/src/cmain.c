@@ -20,7 +20,7 @@
 #include <assert.h>
 
 /* access to the most important SCIP methods */
-#include "scip/scip.h"
+#include "FirstIP/src/scip/scip.h"
 
 /* necessary to include default plugins */
 #include "scip/scipdefplugins.h"

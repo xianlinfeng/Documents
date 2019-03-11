@@ -5,7 +5,6 @@
             "includePath": [
                 "${workspaceFolder}",
                 "${workspaceFolder}/**"
-                
             ],
             "defines": [
                 "_DEBUG",
@@ -13,9 +12,9 @@
                 "_UNICODE"
             ],
             "compilerPath": "/usr/bin/gcc",
-            "cStandard":"c11",
-            "cppStandard":"c++17",
-            "intelliSenseMode":"gcc-x64"
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "gcc-x64"
         }
     ],
     "version": 4
