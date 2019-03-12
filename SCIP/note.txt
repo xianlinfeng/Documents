@@ -25,3 +25,16 @@ Question:
 
 
 
+
+how to debug
+how to testing 
+test instances
+
+# hot to install SCIP
+
+cmake .. -DCMAKE_INSTALL_PREFIX=~/opt/gregors-temp-directory
+make
+make install
+
+
+
