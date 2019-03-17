@@ -2,7 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="07804aec-afd1-4894-bf94-49d9aab2fd61" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FIT5147/week 1/.RData" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FIT5147/week 1/.Rhistory" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FIT5147/week 1/Cultural-Exchange-International-Program-LA-Dept-of-Cultural-Affairs1.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FIT5147/week 1/D3_project/MobileHomes.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FIT5147/week 1/D3_project/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FIT5147/week 1/D3_project/javaScript.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FIT5147/week 1/D3_project/us-states.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FIT5147/week 1/Household-heating-by-Congressional-District-2008.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FIT5147/week 1/Household-heating-by-State-2008.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FIT5147/week 1/R-script.R" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FIT5147/week 1/Shape-of-US-Congressional-District-Boundaries-110th-Congress.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FIT5147/week 2/.RData" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FIT5147/week 2/EconomistData.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FIT5147/week 2/sample-data-for-r-plot.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FIT5147/week 2/shinyApp.R" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FIT5147/week 2/tutorial4.2.r" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FIT5147/week 2/tutorial4.3.r" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FIT5147/week 2/tutorial5.1.2.R" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/week3/FIT5148 - Parallel_Search_Algorithms.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/week3/FIT5148 - Parallel_Search_Algorithms.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/week3/practise_week3.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/week3/practise_week3.ipynb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,10 +35,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/week2/vscode.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" lean-forward="true" selection-end-line="5" />
+        <entry file="file://$PROJECT_DIR$/FIT5148 - Python_Instruction.ipynb">
+          <provider selected="true" editor-type-id="ipnb-editor">
+            <state>
+              <selected id="0" />
             </state>
           </provider>
         </entry>
@@ -39,7 +58,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="667" />
     <option name="width" value="1253" />
-    <option name="height" value="1054" />
+    <option name="height" value="1035" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -47,7 +66,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -59,6 +77,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -143,17 +162,17 @@
       <workItem from="1552205939479" duration="340000" />
       <workItem from="1552206741748" duration="27000" />
       <workItem from="1552281623469" duration="86000" />
+      <workItem from="1552782828910" duration="5000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1199000" />
+    <option name="totallyTimeSpent" value="1204000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="667" y="0" width="1253" height="1054" extended-state="0" />
-    <editor active="true" />
+    <frame x="667" y="0" width="1253" height="1035" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2911497" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29608005" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -181,10 +200,11 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/week2/vscode.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" lean-forward="true" selection-end-line="5" />
+    <entry file="file://$PROJECT_DIR$/week2/vscode.py" />
+    <entry file="file://$PROJECT_DIR$/FIT5148 - Python_Instruction.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="0" />
         </state>
       </provider>
     </entry>
