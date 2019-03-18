@@ -1,28 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="07804aec-afd1-4894-bf94-49d9aab2fd61" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../FIT5147/week 1/.RData" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FIT5147/week 1/.Rhistory" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FIT5147/week 1/Cultural-Exchange-International-Program-LA-Dept-of-Cultural-Affairs1.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FIT5147/week 1/D3_project/MobileHomes.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FIT5147/week 1/D3_project/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FIT5147/week 1/D3_project/javaScript.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FIT5147/week 1/D3_project/us-states.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FIT5147/week 1/Household-heating-by-Congressional-District-2008.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FIT5147/week 1/Household-heating-by-State-2008.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FIT5147/week 1/R-script.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FIT5147/week 1/Shape-of-US-Congressional-District-Boundaries-110th-Congress.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FIT5147/week 2/.RData" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FIT5147/week 2/EconomistData.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FIT5147/week 2/sample-data-for-r-plot.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FIT5147/week 2/shinyApp.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FIT5147/week 2/tutorial4.2.r" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FIT5147/week 2/tutorial4.3.r" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FIT5147/week 2/tutorial5.1.2.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/week3/FIT5148 - Parallel_Search_Algorithms.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/week3/FIT5148 - Parallel_Search_Algorithms.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week3/practise_week3.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/week3/practise_week3.ipynb" afterDir="false" />
-    </list>
+    <list default="true" id="07804aec-afd1-4894-bf94-49d9aab2fd61" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,16 +142,17 @@
       <workItem from="1552206741748" duration="27000" />
       <workItem from="1552281623469" duration="86000" />
       <workItem from="1552782828910" duration="5000" />
+      <workItem from="1552864068188" duration="624000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1204000" />
+    <option name="totallyTimeSpent" value="1828000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="667" y="0" width="1253" height="1035" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29608005" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.30108425" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />

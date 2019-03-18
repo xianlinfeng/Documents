@@ -1,0 +1,12 @@
+Steps for Reoptimization:
+1. read a .lp file
+2. add a penalty function
+3. write a method to decrease the coefficient of the penalty function and enable the Reoptimization function
+4. get the result
+
+scip commands:
+
+
+
+
+
