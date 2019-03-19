@@ -1,0 +1,27 @@
+1. warm start (read the solution):
+    a) read the problem first(.lp file)
+    b) read the solution from a .sol file.
+
+2. manipulate variables
+    a) SCIPcreateVar()
+    b) SCIPaddVar()
+    c) SCIPreleaseVar()
+
+3. memory management
+    a) Block Memory --> for array 
+            nparams = SCIPgetNParams(scip);
+            SCIP_CALL( SCIPallocBlockMemoryArray(scip, &array, nparams) );
+            /*  do something */ 
+            SCIPfreeBlockMemoryArray(scip, &array, nparams);
+    
+    b) Buffer Memory --> use within a function
+        SCIPallocBuffer(), SCIPallocBufferArray()   to allocate memory,
+        SCIPfreeBuffer(), SCIPfreeBufferArray()     to free memory.
+        --> clearn buffer memory
+        SCIPallocCleanBufferArray（）分配内存，
+        SCIPfreeCleanBufferArray（）释放内存。
+
+    c) increase memory allocate
+        SCIPcalcMemGrowSize（）
+
+
