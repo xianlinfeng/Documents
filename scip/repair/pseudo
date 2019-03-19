@@ -7,27 +7,25 @@
 
 
 
-*** Solve the problem N1 from scratch *** 
-1. read the problem P1
-2. add the added constraints C1
+*** Solve the problem P1 from scratch *** 
+1. read the problem P1. (add more constraints C1 to P0 to get P1)
 3. solve it from scratch with the default setting scip 
-4. get the solving time T1 and the result SN1
+4. get the solving time T1 and the result S1
 
 
 
 *** solve the problem P1 with reoptimization *** 
-read the problem P0 
-add the added constraints C1 to it
+read the problem P1 
 read S0
     if S0 is feasiable to P1: 
         S0 is optimal for P1
     elif distance rate is too big (#1):
         no need to reoptimize it, just solve it from scratch
     else
-        generate P1:
+        generate P1`:
             -> add penalty variable: -- #2
             -> add penalty coefficient -- #3
-        fix S0 (get S0`)as a start point for P1 #4 
+        fix S0 (get S0`)as a start point for P1` #4 
         reoptimization process start:
             within each iteration:
                 use S0` as a input to force the solver go the the direction of S0`. 
@@ -36,13 +34,11 @@ read S0
         Stop when:
             1. optimal solution is found
             2. meet the stop criterion
+        get the solving time T2 and the result S2 
 
 
-*** start solving P1 with reoptimization ***
-1. decrease coefficient of penalty function  --> generate a sequence of sub-MIP P2 .... Pn
-2. until it goes to zero  --> the same as N1
-3. get the solving time T2 
-4. get the result SP1
+
+compare T1,T2 and S1,S2
 
 
 #1 Distance
@@ -57,7 +53,7 @@ read S0
     ?? is there any good idea on this?
 
 #4 fix S0 for P1
-    -- with penalty function, P1 maybe quite far from S0
+    -- with penalty function, the solution of P1` maybe quite far from S0
     -- Another idea is: we fix S0, and add it into the sub-MIP at the first n iterations to force the solver go the the direction of S0`. 
         in this process.
         if (new solution < S0`):

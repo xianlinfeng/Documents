@@ -1,0 +1,20 @@
+# CMake generated Testfile for 
+# Source directory: /home/arthur/Documents/scip/applications/CycleClustering/check
+# Build directory: /home/arthur/Documents/scip/applications/CycleClustering/build/check
+# 
+# This file includes the relevant testing commands required for 
+# testing this directory and lists subdirectories to be tested as well.
+add_test(applications-cycleclustering-build "/usr/bin/cmake" "--build" "/home/arthur/Documents/scip/applications/CycleClustering/build" "--target" "cycleclustering")
+set_tests_properties(applications-cycleclustering-build PROPERTIES  RESOURCE_LOCK "libscip")
+add_test(applications-cycleclustering-Pot/3Cycle/Pot3_T_20.txt_3cluster-default "/home/arthur/Documents/scip/applications/CycleClustering/build/cycleclustering" "-f" "/home/arthur/Documents/scip/applications/CycleClustering/check/../instances/Pot/3Cycle/Pot3_T_20.txt_3cluster.cyc" "-s" "/home/arthur/Documents/scip/applications/CycleClustering/check/../settings/default.set")
+set_tests_properties(applications-cycleclustering-Pot/3Cycle/Pot3_T_20.txt_3cluster-default PROPERTIES  DEPENDS "applications-cycleclustering-build" PASS_REGULAR_EXPRESSION "optimal solution found")
+add_test(applications-cycleclustering-Pot/3Cycle/Pot3_T_20.txt_3cluster-nosepa "/home/arthur/Documents/scip/applications/CycleClustering/build/cycleclustering" "-f" "/home/arthur/Documents/scip/applications/CycleClustering/check/../instances/Pot/3Cycle/Pot3_T_20.txt_3cluster.cyc" "-s" "/home/arthur/Documents/scip/applications/CycleClustering/check/../settings/nosepa.set")
+set_tests_properties(applications-cycleclustering-Pot/3Cycle/Pot3_T_20.txt_3cluster-nosepa PROPERTIES  DEPENDS "applications-cycleclustering-build" PASS_REGULAR_EXPRESSION "optimal solution found")
+add_test(applications-cycleclustering-Pot/4Cycle/Pot4_T_20.txt_4cluster-default "/home/arthur/Documents/scip/applications/CycleClustering/build/cycleclustering" "-f" "/home/arthur/Documents/scip/applications/CycleClustering/check/../instances/Pot/4Cycle/Pot4_T_20.txt_4cluster.cyc" "-s" "/home/arthur/Documents/scip/applications/CycleClustering/check/../settings/default.set")
+set_tests_properties(applications-cycleclustering-Pot/4Cycle/Pot4_T_20.txt_4cluster-default PROPERTIES  DEPENDS "applications-cycleclustering-build" PASS_REGULAR_EXPRESSION "optimal solution found")
+add_test(applications-cycleclustering-Pot/4Cycle/Pot4_T_20.txt_4cluster-nosepa "/home/arthur/Documents/scip/applications/CycleClustering/build/cycleclustering" "-f" "/home/arthur/Documents/scip/applications/CycleClustering/check/../instances/Pot/4Cycle/Pot4_T_20.txt_4cluster.cyc" "-s" "/home/arthur/Documents/scip/applications/CycleClustering/check/../settings/nosepa.set")
+set_tests_properties(applications-cycleclustering-Pot/4Cycle/Pot4_T_20.txt_4cluster-nosepa PROPERTIES  DEPENDS "applications-cycleclustering-build" PASS_REGULAR_EXPRESSION "optimal solution found")
+add_test(applications-cycleclustering-Pot/6Cycle/Pot6_T_20.txt_6cluster-default "/home/arthur/Documents/scip/applications/CycleClustering/build/cycleclustering" "-f" "/home/arthur/Documents/scip/applications/CycleClustering/check/../instances/Pot/6Cycle/Pot6_T_20.txt_6cluster.cyc" "-s" "/home/arthur/Documents/scip/applications/CycleClustering/check/../settings/default.set")
+set_tests_properties(applications-cycleclustering-Pot/6Cycle/Pot6_T_20.txt_6cluster-default PROPERTIES  DEPENDS "applications-cycleclustering-build" PASS_REGULAR_EXPRESSION "optimal solution found")
+add_test(applications-cycleclustering-Pot/6Cycle/Pot6_T_20.txt_6cluster-nosepa "/home/arthur/Documents/scip/applications/CycleClustering/build/cycleclustering" "-f" "/home/arthur/Documents/scip/applications/CycleClustering/check/../instances/Pot/6Cycle/Pot6_T_20.txt_6cluster.cyc" "-s" "/home/arthur/Documents/scip/applications/CycleClustering/check/../settings/nosepa.set")
+set_tests_properties(applications-cycleclustering-Pot/6Cycle/Pot6_T_20.txt_6cluster-nosepa PROPERTIES  DEPENDS "applications-cycleclustering-build" PASS_REGULAR_EXPRESSION "optimal solution found")

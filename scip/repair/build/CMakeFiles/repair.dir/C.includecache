@@ -7,14 +7,30 @@
 #IncludeRegexTransform: 
 
 /home/arthur/Documents/scip/repair/src/cmain.c
-stdio.h
--
-assert.h
--
 scip/scip.h
 /home/arthur/Documents/scip/repair/src/scip/scip.h
 scip/scipdefplugins.h
 /home/arthur/Documents/scip/repair/src/scip/scipdefplugins.h
+scip/scipshell.h
+/home/arthur/Documents/scip/repair/src/scip/scipshell.h
+scip/message_default.h
+/home/arthur/Documents/scip/repair/src/scip/message_default.h
+scip/scip_reader.h
+/home/arthur/Documents/scip/repair/src/scip/scip_reader.h
+scip/reader_lp.h
+/home/arthur/Documents/scip/repair/src/scip/reader_lp.h
+scip/reader_mps.h
+/home/arthur/Documents/scip/repair/src/scip/reader_mps.h
+scip/pub_reader.h
+/home/arthur/Documents/scip/repair/src/scip/pub_reader.h
+string.h
+-
+windows.h
+-
+unistd.h
+-
+scip/debug.h
+/home/arthur/Documents/scip/repair/src/scip/debug.h
 
 /home/arthur/opt/scipoptsuite-6.0.1/scip/build/scip/config.h
 
@@ -1403,6 +1419,12 @@ scip/def.h
 /home/arthur/opt/scipoptsuite-6.0.1/scip/src/scip/scip/def.h
 
 /home/arthur/opt/scipoptsuite-6.0.1/scip/src/scip/message.h
+
+/home/arthur/opt/scipoptsuite-6.0.1/scip/src/scip/message_default.h
+scip/def.h
+/home/arthur/opt/scipoptsuite-6.0.1/scip/src/scip/scip/def.h
+scip/type_message.h
+/home/arthur/opt/scipoptsuite-6.0.1/scip/src/scip/scip/type_message.h
 
 /home/arthur/opt/scipoptsuite-6.0.1/scip/src/scip/misc.h
 scip/def.h
