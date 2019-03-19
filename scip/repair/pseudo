@@ -1,0 +1,90 @@
+*** solve the P0 ***
+1. read the .lp file 
+    a) only contain the binary variables
+
+2. optimize it with scip and default setting get result S0
+3. write the solution to the file
+
+
+
+*** Solve the problem N1 from scratch *** 
+1. read the problem P1
+2. add the added constraints C1
+3. solve it from scratch with the default setting scip 
+4. get the solving time T1 and the result SN1
+
+
+
+*** solve the problem P1 with reoptimization *** 
+read the problem P0 
+add the added constraints C1 to it
+read S0
+    if S0 is feasiable to P1: 
+        S0 is optimal for P1
+    elif distance rate is too big (#1):
+        no need to reoptimize it, just solve it from scratch
+    else
+        generate P1:
+            -> add penalty variable: -- #2
+            -> add penalty coefficient -- #3
+        fix S0 (get S0`)as a start point for P1 #4 
+        reoptimization process start:
+            within each iteration:
+                use S0` as a input to force the solver go the the direction of S0`. 
+                if (S1 is better than S0`)
+                    discard S0`
+        Stop when:
+            1. optimal solution is found
+            2. meet the stop criterion
+
+
+*** start solving P1 with reoptimization ***
+1. decrease coefficient of penalty function  --> generate a sequence of sub-MIP P2 .... Pn
+2. until it goes to zero  --> the same as N1
+3. get the solving time T2 
+4. get the result SP1
+
+
+#1 Distance
+    ?? distance rate = (Ei * Si)/(objective value in P0)
+                Ei * Si for varialbe i in C1 which coefficient is not zero, and Ei is the coefficient in objective 
+                function and Si is the corresponding value in S0;
+
+#2 Penalty variable
+    penalty variable = sum(the effect variables in C1)
+
+#3 penalty coefficient
+    ?? is there any good idea on this?
+
+#4 fix S0 for P1
+    -- with penalty function, P1 maybe quite far from S0
+    -- Another idea is: we fix S0, and add it into the sub-MIP at the first n iterations to force the solver go the the direction of S0`. 
+        in this process.
+        if (new solution < S0`):
+            discard S0`
+            get new incumbent 
+        else continue.
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
