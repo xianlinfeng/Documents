@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "debug.h": "c"
+        "debug.h": "c",
+        "type_reader.h": "c",
+        "scip_reader.h": "c"
     }
 }

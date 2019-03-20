@@ -25,8 +25,6 @@
 #include "scip/message_default.h"
 #include "scip/scip_reader.h"
 #include "scip/reader_lp.h"
-#include "scip/reader_mps.h"
-#include "scip/pub_reader.h"
 #include <string.h>
 
 #if defined(_WIN32) || defined(_WIN64)
@@ -38,6 +36,10 @@
 #include "scip/debug.h"
 
 #define COL_MAX_LINELEN 1024
+
+
+
+
 
 /** Read the parameters from the command Line */
 static
@@ -80,7 +82,10 @@ SCIP_RETCODE fromCommandLine(
    SCIPinfoMessage(scip, NULL, "\n");
    
    /* read the problem */
-   SCIP_CALL( SCIPreadProb(scip, filename, NULL) );
+
+   SCIPcall( SCIPincludeReaderLp(scip) );
+   SCIP_READER* reader;
+   retcode = SCIPreadProb(scip, filename, reader);
 
    // SCIPcall( SCIPincludeReaderLp(scip) );
    // SCIPcall( SCIPreadLp(scip, NULL ,filename,NULL)); 
