@@ -1,0 +1,23 @@
+\documentclass{beamer}
+
+\usetheme{Warsaw}
+
+\title[Short Title]{The title of the Slides}
+\subtitle{Short Subtitle}
+\author{Arthur Feng}
+\institute{Institute}
+\date{\today}
+
+
+\begin{document}
+\begin{frame}
+\titlepage
+\end{frame}
+
+
+\begin{frame}
+Hello
+\end{frame}
+
+
+\end{document}

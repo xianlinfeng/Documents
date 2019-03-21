@@ -1,10 +1,8 @@
 *** solve the P0 ***
 1. read the .lp file 
     a) only contain the binary variables
-
 2. optimize it with scip and default setting get result S0
 3. write the solution to the file
-
 
 
 *** Solve the problem P1 from scratch *** 
@@ -15,6 +13,7 @@
 
 
 *** solve the problem P1 with reoptimization *** 
+read the setting file (which enable reoptimization)
 read the problem P1 
 read S0
     if S0 is feasiable to P1: 
@@ -22,9 +21,9 @@ read S0
     elif distance rate is too big (#1):
         no need to reoptimize it, just solve it from scratch
     else
-        generate P1`:
-            -> add penalty variable: -- #2
-            -> add penalty coefficient -- #3
+        generate P1`:   #5
+             -> add penalty variable: -- #2
+             -> add penalty coefficient -- #3
         fix S0 (get S0`)as a start point for P1` #4 
         reoptimization process start:
             within each iteration:
@@ -61,13 +60,15 @@ compare T1,T2 and S1,S2
             get new incumbent 
         else continue.
     
+# different method to update the objective function
+    --> change the variables coefficients in objective function
+    --> https://scip.zib.de/doc-6.0.1/html/REOPT.php
 
 
 
-
-
-
-
+S0 is the solution to P0
+In P0, we maximise 
+We denote 
 
 
 

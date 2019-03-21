@@ -1,0 +1,43 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\title{Pseudo Code for Repair Algorithm}
+\author{Arthur Feng}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{Input}
+\begin{itemize}
+    \item A problem $P^0$ with $n$ binary variables $x$, objective function $c x$ (min), constraint set $C^0$ with an optimal solution $x^0$.
+    \item A problem $P^1$ with $n$ binary variables $x$, objective function $c x$ (min), constraint set $C^1$, such that $C^0 \subsetneq C^1$.
+\end{itemize}							
+
+\section{Output}
+\begin{itemize}	
+    \item An optimal solution $x^1$ to $P^1$.
+\end{itemize}
+
+\section{General Idea}
+We propose to solve $P^1$ by reusing the optimal solution $x^0$ to $P^0$.
+In order to achieve this, we define a new problem $Q$ with constraint set $C^1$ and objective function
+\begin{align*}
+    \min c x + \alpha \lvert x - x^0 \rvert,					
+\end{align*}
+where $\lvert x - x^0 \rvert = \sum_{i=0}^{n-1}\lvert x_i - x^0_i \rvert$, and $\alpha$ is a \emph{penalty} term for deviating from the input solution $x^0$.
+This would tentatively help the search for a good solution to $P^1$.
+However, unless $x^0$ is feasible for $P^1$, an optimal solution to $Q$ will in general not be optimal for $P^1$.
+
+To remedy this problem, we will instead solve a sequence of problems $Q^0, Q^1, \dots$, where the penalty factor $\alpha$ will gradually decrease until it reaches 0, say at iteration $k$, in which case $Q^k = P^1$.
+This sequence of problems can be efficiently solved using a technique called \emph{reoptimisation}, which is implemented in the MIP solver SCIP.
+
+\section{Pseudo Code}
+
+
+\section{Practice}
+
+\end{document}
