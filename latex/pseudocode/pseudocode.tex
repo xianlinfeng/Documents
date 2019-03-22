@@ -3,6 +3,11 @@
 
 \usepackage{amssymb}
 \usepackage{amsmath}
+\usepackage{amsthm}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section] % add the section number in front of the definition number
+% \newtheorem*{definition}{Definition} % remove the index number of the definition
 
 \title{Pseudo Code for Repair Algorithm}
 \author{Arthur Feng}
@@ -38,6 +43,23 @@ This sequence of problems can be efficiently solved using a technique called \em
 \section{Pseudo Code}
 
 
-\section{Practice}
+\section{MIP}
+\subsection{Mixed Integer Programming}
+\begin{definition}
+(Mixed Integer Programming)\\
+Let $m,n \in \mathbb{N}$, The given matrix $A\in \mathbb{R}^{m \times n}$, vectors $b\in \mathbb{R}^m$, and the vector $c \in \mathbb{R}^n$, and a set $\mathcal{I} \subseteq N = \{ 1,\dots,n \} $. the problem 
+\begin{align*}
+\text{(MIP)} \hspace{5mm} &c^* = \text{min}\,c^Tx& \\
+&s.t.\hspace{5mm} Ax \geq b  \\
+&\hspace{11mm} x_i \in \mathbb{Z}_{\geq0} \hspace{3mm} \forall_i \in \mathcal{I}\\ 
+&\hspace{11mm} x_j \in \mathbb{R}_{\geq0} \hspace{3mm} \forall_i \in \mathcal{N}\,\backslash\,  \mathcal{I}
+\end{align*}
+is called $mixed integer program$ with the objective function $c^Tx$ and constraints $A_ix \geq b_i$ for all $i = 1,\dots ,m$.
+A vector $x\in X_{MIP} = \{x \in \mathbb{R}_\geq0^n\,|\,A_x \geq b, \, x_i \in \mathbb{Z}_{\geq0}\,\forall i \in \mathcal{I}  \}$ is called $feasiable solution$ and $X_{MIP}$ the set of feasible solutions. A feasible $x^*$ is called optimal, if $x^*$ satisfies $c^*=c^Tx^*$.
+
+\end{definition}
+
+
+
 
 \end{document}

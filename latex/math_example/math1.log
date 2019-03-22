@@ -1,0 +1,552 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.3.22)  22 MAR 2019 10:55
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**math1.tex
+(./math1.tex
+LaTeX2e <2018-12-01>
+(/usr/share/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2018/09/03 v1.4i Standard LaTeX document class
+(/usr/share/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2018/09/03 v1.4i Standard LaTeX file (size option)
+)
+\c@part=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/share/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2018/11/13 3.27 The Babel package
+
+(/usr/share/texmf-dist/tex/generic/babel/switch.def
+File: switch.def 2018/11/13 3.27 Babel switching mechanism
+)
+(/usr/share/texmf-dist/tex/generic/babel-german/german.ldf
+Language: german 2018/12/08 v2.11 German support for babel (pre-1996 orthograph
+y)
+
+(/usr/share/texmf-dist/tex/generic/babel-german/germanb.ldf
+Language: germanb 2018/12/08 v2.11 German support for babel (pre-1996 orthograp
+hy)
+
+(/usr/share/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2018/11/13 3.27 Babel common definitions
+\babel@savecnt=\count88
+\U@D=\dimen103
+
+(/usr/share/texmf-dist/tex/generic/babel/txtbabel.def)
+\bbl@dirlevel=\count89
+)
+Package babel Info: Making " an active character on input line 135.
+)))
+(/usr/share/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2018/08/11 v1.3c Input encoding file
+\inpenc@prehook=\toks14
+\inpenc@posthook=\toks15
+)
+(/usr/share/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2018/12/01 v2.17b AMS math features
+\@mathmargin=\skip43
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(/usr/share/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks16
+\ex@=\dimen104
+))
+(/usr/share/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen105
+)
+(/usr/share/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count90
+LaTeX Info: Redefining \frac on input line 223.
+\uproot@=\count91
+\leftroot@=\count92
+LaTeX Info: Redefining \overline on input line 385.
+\classnum@=\count93
+\DOTSCASE@=\count94
+LaTeX Info: Redefining \ldots on input line 482.
+LaTeX Info: Redefining \dots on input line 485.
+LaTeX Info: Redefining \cdots on input line 606.
+\Mathstrutbox@=\box27
+\strutbox@=\box28
+\big@size=\dimen106
+LaTeX Font Info:    Redeclaring font encoding OML on input line 729.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 730.
+\macc@depth=\count95
+\c@MaxMatrixCols=\count96
+\dotsspace@=\muskip10
+\c@parentequation=\count97
+\dspbrk@lvl=\count98
+\tag@help=\toks17
+\row@=\count99
+\column@=\count100
+\maxfields@=\count101
+\andhelp@=\toks18
+\eqnshift@=\dimen107
+\alignsep@=\dimen108
+\tagshift@=\dimen109
+\tagwidth@=\dimen110
+\totwidth@=\dimen111
+\lineht@=\dimen112
+\@envbody=\toks19
+\multlinegap=\skip44
+\multlinetaggap=\skip45
+\mathdisplay@stack=\toks20
+LaTeX Info: Redefining \[ on input line 2844.
+LaTeX Info: Redefining \] on input line 2845.
+)
+(/usr/share/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/usr/share/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(/usr/share/texmf-dist/tex/latex/esvect/esvect.sty
+Package: esvect 
+\symesvector=\mathgroup6
+)
+(/usr/share/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks21
+)
+(/usr/share/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/share/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 99.
+
+(/usr/share/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen113
+\Gin@req@width=\dimen114
+)
+(/usr/share/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count102
+\float@exts=\toks22
+\float@box=\box29
+\@float@everytoks=\toks23
+\@floatcapt=\box30
+)
+(/usr/share/texmf-dist/tex/latex/tools/verbatim.sty
+Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks24
+\verbatim@line=\toks25
+\verbatim@in@stream=\read1
+)
+No file math1.aux.
+\openout1 = `math1.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+(/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count103
+\scratchdimen=\dimen115
+\scratchbox=\box31
+\nofMPsegments=\count104
+\nofMParguments=\count105
+\everyMPshowfont=\toks26
+\MPscratchCnt=\count106
+\MPscratchDim=\dimen116
+\MPnumerator=\count107
+\makeMPintoPDFobject=\count108
+\everyMPtoPDFconversion=\toks27
+) (/usr/share/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+(/usr/share/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+(/usr/share/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+
+(/usr/share/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+
+(/usr/share/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)))
+(/usr/share/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+
+(/usr/share/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+
+(/usr/share/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+
+(/usr/share/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+(/usr/share/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2018/09/10 v0.29 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/share/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2018/09/07 v3.3 Provides the ifpdf switch
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+
+(/usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+LaTeX Font Info:    Try loading font information for U+msa on input line 19.
+
+(/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 19.
+
+(/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Try loading font information for U+esvect on input line 19.
+
+
+(/usr/share/texmf-dist/tex/latex/esvect/uesvect.fd
+File: uesvect.fd 
+)
+Overfull \hbox (24.46307pt too wide) in paragraph at lines 37--52
+ [][] 
+ []
+
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
+Overfull \hbox (54.16531pt too wide) detected at line 80
+[] \OMS/cmsy/m/n/10 ^^@ [] \OT1/cmr/m/n/10 = [] \OMS/cmsy/m/n/10 ^^@ [] \OT1/cm
+r/m/n/10 = [] + [] = [] []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 83--84
+
+ []
+
+[3]
+<images/teilmenge.png, id=24, 200.75pt x 200.75pt>
+File: images/teilmenge.png Graphic file (type png)
+<use images/teilmenge.png>
+Package pdftex.def Info: images/teilmenge.png  used on input line 146.
+(pdftex.def)             Requested size: 86.25pt x 86.25035pt.
+ [4]
+<images/schnittmenge.png, id=31, 155.58125pt x 113.42375pt>
+File: images/schnittmenge.png Graphic file (type png)
+<use images/schnittmenge.png>
+Package pdftex.def Info: images/schnittmenge.png  used on input line 152.
+(pdftex.def)             Requested size: 86.25pt x 62.87996pt.
+<images/vereinigungsmenge.png, id=32, 155.58125pt x 113.42375pt>
+File: images/vereinigungsmenge.png Graphic file (type png)
+<use images/vereinigungsmenge.png>
+Package pdftex.def Info: images/vereinigungsmenge.png  used on input line 158.
+(pdftex.def)             Requested size: 86.25pt x 62.87996pt.
+<images/differenzmenge.png, id=33, 155.58125pt x 113.42375pt>
+File: images/differenzmenge.png Graphic file (type png)
+<use images/differenzmenge.png>
+Package pdftex.def Info: images/differenzmenge.png  used on input line 164.
+(pdftex.def)             Requested size: 86.25pt x 62.87996pt.
+ [5 <./images/teilmenge.png> <./images/schnittmenge.png> <./images/vereinigungs
+menge.png>]
+<images/komplement.png, id=40, 155.58125pt x 113.42375pt>
+File: images/komplement.png Graphic file (type png)
+<use images/komplement.png>
+Package pdftex.def Info: images/komplement.png  used on input line 170.
+(pdftex.def)             Requested size: 86.25pt x 62.87996pt.
+
+Overfull \hbox (12.00064pt too wide) in paragraph at lines 178--179
+\OT1/cmr/m/n/10 In der klas-si-schen Aus-sa-gen-lo-gik sind die fol-gen-den Jun
+k-to-ren am ge-br[]auchlichsten: 
+ []
+
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 180.
+
+(/usr/share/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 180.
+
+Overfull \hbox (15.63145pt too wide) in paragraph at lines 186--195
+[] 
+ []
+
+[6 <./images/differenzmenge.png> <./images/komplement.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 203--205
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 209--210
+
+ []
+
+[7]
+<images/diskriminante.png, id=51, 642.4pt x 350.30875pt>
+File: images/diskriminante.png Graphic file (type png)
+<use images/diskriminante.png>
+Package pdftex.def Info: images/diskriminante.png  used on input line 233.
+(pdftex.def)             Requested size: 276.00105pt x 150.51222pt.
+ [8 <./images/diskriminante.png>]
+Overfull \hbox (0.81966pt too wide) in paragraph at lines 275--275
+[]\OT1/cmr/bx/n/14.4 Umrechnung zwi-schen Ko-or-di-na-ten-sy-ste-men 
+ []
+
+[9]
+<images/rwdreieck.png, id=60, 501.875pt x 290.08376pt>
+File: images/rwdreieck.png Graphic file (type png)
+<use images/rwdreieck.png>
+Package pdftex.def Info: images/rwdreieck.png  used on input line 300.
+(pdftex.def)             Requested size: 207.0021pt x 119.64774pt.
+ [10 <./images/rwdreieck.png>]
+<images/dreieck.png, id=65, 200.75pt x 179.67125pt>
+File: images/dreieck.png Graphic file (type png)
+<use images/dreieck.png>
+Package pdftex.def Info: images/dreieck.png  used on input line 312.
+(pdftex.def)             Requested size: 137.9979pt x 123.51544pt.
+ [11 <./images/dreieck.png>] [12] [13]
+[14]
+<images/vektor.png, id=81, 321.2pt x 157.58875pt>
+File: images/vektor.png Graphic file (type png)
+<use images/vektor.png>
+Package pdftex.def Info: images/vektor.png  used on input line 483.
+(pdftex.def)             Requested size: 103.50105pt x 50.78049pt.
+ [15 <./images/vektor.png>]
+<images/parameterdarstellung_gerade.png, id=87, 562.1pt x 401.5pt>
+File: images/parameterdarstellung_gerade.png Graphic file (type png)
+<use images/parameterdarstellung_gerade.png>
+Package pdftex.def Info: images/parameterdarstellung_gerade.png  used on input 
+line 538.
+(pdftex.def)             Requested size: 172.5pt x 123.21393pt.
+ [16 <./images/parameterdarstellung_gerade.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 583--585
+
+ []
+
+[17] [18] [19]
+Overfull \hbox (29.24983pt too wide) detected at line 701
+[]
+ []
+
+[20]
+<images/graph_quadr_ungleichung.png, id=108, 361.35pt x 210.7875pt>
+File: images/graph_quadr_ungleichung.png Graphic file (type png)
+<use images/graph_quadr_ungleichung.png>
+Package pdftex.def Info: images/graph_quadr_ungleichung.png  used on input line
+ 738.
+(pdftex.def)             Requested size: 241.49895pt x 140.87631pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 735--741
+
+ []
+
+[21 <./images/graph_quadr_ungleichung.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 763--765
+
+ []
+
+<images/extremstellen.png, id=113, 501.875pt x 374.39874pt>
+File: images/extremstellen.png Graphic file (type png)
+<use images/extremstellen.png>
+Package pdftex.def Info: images/extremstellen.png  used on input line 769.
+(pdftex.def)             Requested size: 172.5pt x 128.68782pt.
+
+Overfull \hbox (19.89865pt too wide) in paragraph at lines 788--797
+ [][] 
+ []
+
+Package epstopdf Info: Source file: <images/graph_transformation.eps>
+(epstopdf)                    date: 2019-03-21 23:54:18
+(epstopdf)                    size: 53516 bytes
+(epstopdf)             Output file: <images/graph_transformation-eps-converted-
+to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=images/graph_transformatio
+n-eps-converted-to.pdf images/graph_transformation.eps>
+(epstopdf)             \includegraphics on input line 802.
+runsystem(repstopdf --outfile=images/graph_transformation-eps-converted-to.pdf 
+images/graph_transformation.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <images/graph_transformation-eps-converted-
+to.pdf>
+(epstopdf)                    date: 2019-03-22 10:55:15
+(epstopdf)                    size: 9456 bytes.
+<images/graph_transformation-eps-converted-to.pdf, id=114, 361.35pt x 252.945pt
+>
+File: images/graph_transformation-eps-converted-to.pdf Graphic file (type pdf)
+<use images/graph_transformation-eps-converted-to.pdf>
+Package pdftex.def Info: images/graph_transformation-eps-converted-to.pdf  used
+ on input line 802.
+(pdftex.def)             Requested size: 345.0pt x 241.50058pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[22 <./images/extremstellen.png>] [23 <./images/graph_transformation-eps-conver
+ted-to.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 846--848
+
+ []
+
+[24]
+<images/exponentialfunktion.pdf, id=130, 845.04686pt x 597.50786pt>
+File: images/exponentialfunktion.pdf Graphic file (type pdf)
+<use images/exponentialfunktion.pdf>
+Package pdftex.def Info: images/exponentialfunktion.pdf  used on input line 860
+.
+(pdftex.def)             Requested size: 241.49895pt x 170.75648pt.
+<images/logarithmusfunktion.pdf, id=131, 845.04686pt x 597.50786pt>
+File: images/logarithmusfunktion.pdf Graphic file (type pdf)
+<use images/logarithmusfunktion.pdf>
+Package pdftex.def Info: images/logarithmusfunktion.pdf  used on input line 875
+.
+(pdftex.def)             Requested size: 241.49895pt x 170.75648pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (5.25056pt too wide) in paragraph at lines 879--880
+\OT1/cmr/m/n/10 Exponentielles Wachs-tum be-schreibt ein ma-the-ma-ti-sches Mo-
+dell f[]ur einen Wachs-
+ []
+
+[25 <./images/exponentialfunktion.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 896--899
+
+ []
+
+[26 <./images/logarithmusfunktion.pdf>]
+<images/einheitskreis.pdf, id=187, 597.23125pt x 845.1575pt>
+File: images/einheitskreis.pdf Graphic file (type pdf)
+<use images/einheitskreis.pdf>
+Package pdftex.def Info: images/einheitskreis.pdf  used on input line 928.
+(pdftex.def)             Requested size: 379.5021pt x 537.04305pt.
+
+Overfull \hbox (34.5021pt too wide) in paragraph at lines 928--928
+ [][] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 932--934
+
+ []
+
+[27]
+
+LaTeX Warning: Text page 28 contains only floats.
+
+[28 <./images/einheitskreis.pdf>] [29]
+Underfull \hbox (badness 10000) in paragraph at lines 979--982
+
+ []
+
+[30] [31]
+Underfull \hbox (badness 10000) in paragraph at lines 1051--1052
+
+ []
+
+[32]
+Underfull \hbox (badness 10000) in paragraph at lines 1064--1066
+
+ []
+
+
+Overfull \hbox (2.98056pt too wide) in paragraph at lines 1070--1071
+\OT1/cmr/m/n/10 de-nen das Pro-dukt an-stel-le der Sum-me in-ter-pre-tier-bar i
+st, z. B. von Verh[]altnissen
+ []
+
+[33] (./math1.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 3255 strings out of 492616
+ 43961 string characters out of 6135177
+ 128262 words of memory out of 5000000
+ 7070 multiletter control sequences out of 15000+600000
+ 16327 words of font info for 68 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 41i,18n,27p,719b,286s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr
+/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><
+/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/am
+sfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/esvect/vect
+10.pfb>
+Output written on math1.pdf (33 pages, 531054 bytes).
+PDF statistics:
+ 279 PDF objects out of 1000 (max. 8388607)
+ 176 compressed objects within 2 object streams
+ 0 named destinations out of 1000 (max. 500000)
+ 81 words of extra memory for PDF output out of 10000 (max. 10000000)
+
