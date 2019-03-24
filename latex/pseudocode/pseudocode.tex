@@ -21,9 +21,37 @@
 \begin{document}
 \maketitle
 
+\section{Introduction}
+\begin{definition}
+(Mixed Integer Programs)\\
+In this report, we denote the $Mixed\,Integer\, program$ (MIP) in the follow form $$\mathcal{Z}_{MIP} = \text{min} \{\, c^Tx : Ax \leq b, x \in \mathbb{Z}^k\,\text{x}\,\mathbb{R}^l \}  $$ 
+where $m,n \in \mathbb{N}$, and $n = k + l $,  $A$ is a matrix for $A \in \mathbb{R}^{m \,\text{x}\, n}$, and the vector $b \in \mathbb{R}^m$, the vector $c \in \mathbb{R}^n$. \par
+$S$ is a set of $feasible\,solution$ if $S$ satisfy all the constraints in the problem. If $s \in S$, $s$ is called a feasible solution to the problem $\mathcal{Z}_{MIP}$. The MIP is called infeasible when $S$ is empty, other wise, the MIP is called feasible. The feasible solution $s^\ast$ is called optimal when $s^\ast \in S $ and  $ c^Tx_{s^\ast} \leq c^Tx_s \text{ for } \forall s \in S $. \par
+% ref: https://eprint.iacr.org/2012/676.pdf
+% ref: Mixed-integer Linear Programming in the Analysis of Trivium and Ktantan
+\label{dif:def_MIP}
+\end{definition}
+
+\begin{definition}
+(Linear Programs and LP-relaxation)\\
+With the definition of MIP in \ref{dif:def_MIP}, there is a special case of MIP, which is called $Linear Problem $ (LP)
+$$\mathcal{Z}_{LP} = \text{min} \{\, c^Tx : Ax \leq b, x \in \mathbb{R}^l \}  $$ 
+A LP can also be obtained by removing all integrity constraints: $x_i\, \in\, x \text{ where } i \in n \setminus k $, this is called LP-$relaxation$. LP-$relaxation$ is the foundation of LP-based branch-and-bound technology. As the searching space is increase by removing integrity restrictions, the optimal solution in MIP could not better than LP-$relaxation$, which is  $s_{MIP}^\ast \geq s_{LP}^\ast $. This means the optimal solution found in LP could provide a lower or prime bound for MIP.
+\label{dif:def_lp}
+\end{definition}
+
+\begin{definition}
+(Binary Programs)\\
+This report we focus on Binary programs.
+
+\label{dif:def_bp}
+\end{definition}
+
+
+
 \section{Input}
 \begin{itemize}
-    \item A problem $P^0 = min \{ c^Tx\,|\, Ax \geq b,\, x_i \in \{0,1\},\, \forall i \in \mathcal{I}, \,\mathcal{I} \subseteq N = \{1,2,\dots,n \}   \}$ with $n$ binary variables $x$, objective function $c^T x$ (min), constraint set $C^0$ with an optimal solution $x^0$.
+    \item A problem $ = min \{ c^Tx\,|\, Ax \geq b,\, x_i \in \{0,1\},\, \forall i \in \mathcal{I}, \,\mathcal{I} \subseteq N = \{1,2,\dots,n \}   \}$ with $n$ binary variables $x$, objective function $c^T x$ (min), constraint set $C^0$ with an optimal solution $x^0$.
     \item A problem $P^1$ with $n$ binary variables $x$, objective function $c x$ (min), constraint set $C^1$, such that $C^0 \subsetneq C^1$.
 \end{itemize}							
 
@@ -123,7 +151,7 @@ Let $m,n \in \mathbb{N}$, The given matrix $A\in \mathbb{R}^{m \times n}$, vecto
 &\hspace{11mm} x_j \in \mathbb{R}_{\geq0} \hspace{3mm} \forall_i \in \mathcal{N}\,\backslash\,  \mathcal{I}
 \end{align*}
 is called $mixed integer program$ with the objective function $c^Tx$ and constraints $A_ix \geq b_i$ for all $i = 1,\dots ,m$.\par
-\label{dif:MIP_def}
+\label{dif:mip}
 \end{definition}
 A vector $x\in X_{MIP} = \{x \in \mathbb{R}_\geq0^n\,|\,A_x \geq b, \, x_i \in \mathbb{Z}_{\geq0}\,\forall i \in \mathcal{I}  \}$ is called $feasiable solution$ and $X_{MIP}$ the set of feasible solutions. A feasible $x^*$ is called optimal, if $x^*$ satisfies $c^*=c^Tx^*$. \par
 Common special cases of MIPs are $linear programs$ (LPs) for $\mathcal{I} = \emptyset $ and $integer program$ (IPs) for $\mathcal{I} = N$. Additional, an integer variable bounded by 0 and 1 is called $binary variable$. let $\mathcal{B} \subset \mathcal{I}$ denote the set of binary variables. An integer program with $\mathcal{B} = N $ is called $binary program$ (BP) or $mixed binary program$ (MBP), if $\mathcal{B} = \mathcal{I} \subsetneq N$. \par
@@ -136,7 +164,7 @@ Given a MIP as introduced in Definition \ref{dif:MIP_def}. The LP-$relaxation$ i
 	\text{(MIP)} \hspace{5mm} &c^* = \text{min}\,c^Tx& \\
 	&s.t.\hspace{5mm} Ax \geq b  \\
 	&\hspace{11mm} x \in \mathbb{R}_{\geq0}^n 
-	\label{dif:LP-relax}
+	\label{dif:LP}
 	\end{align*}
 Analogous to $X_{MIP}$ we can define $X_{LP}$ as the set of feasible solutions of the LP-relaxation. A feasible solution $x_{LP}^* \in X_{LP}$ is called LP-$optimal$ if $c_{LP}^* = c^Tx_{LP}^*$. In general solving MIPs is $NP$-hard. One common method for solving MIPs is LP-$based branch-and-bound$. This method splits the problem into smaller subproblems, and procedure is repeated on these subproblems. At any point a global upper or primal bound is given by the best known solution, if existent, and a local lower bound or dual bound is given by the respective LP-relaxation.\par
 
