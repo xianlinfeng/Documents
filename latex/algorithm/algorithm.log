@@ -1,0 +1,140 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.3.22)  23 MAR 2019 16:19
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**algorithm.tex
+(./algorithm.tex
+LaTeX2e <2018-12-01>
+(/usr/share/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2018/09/03 v1.4i Standard LaTeX document class
+(/usr/share/texmf-dist/tex/latex/base/size11.clo
+File: size11.clo 2018/09/03 v1.4i Standard LaTeX file (size option)
+)
+\c@part=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/share/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty
+Package: algorithm2e 2017/07/18 v5.2 algorithms environments
+\c@AlgoLine=\count88
+
+(/usr/share/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\algocf@hangindent=\skip43
+
+(/usr/share/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
+Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
+\c@checkoddpage=\count89
+)
+(/usr/share/texmf-dist/tex/latex/tools/xspace.sty
+Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
+)
+(/usr/share/texmf-dist/tex/latex/relsize/relsize.sty
+Package: relsize 2013/03/29 ver 4.1
+)
+\skiptotal=\skip44
+\skiplinenumber=\skip45
+\skiprule=\skip46
+\skiphlne=\skip47
+\skiptext=\skip48
+\skiplength=\skip49
+\algomargin=\skip50
+\skipalgocfslide=\skip51
+\algowidth=\dimen103
+\inoutsize=\dimen104
+\inoutindent=\dimen105
+\interspacetitleruled=\dimen106
+\interspacealgoruled=\dimen107
+\interspacetitleboxruled=\dimen108
+\algocf@ruledwidth=\skip52
+\algocf@inoutbox=\box27
+\algocf@inputbox=\box28
+\AlCapSkip=\skip53
+\AlCapHSkip=\skip54
+\algoskipindent=\skip55
+\algocf@nlbox=\box29
+\algocf@hangingbox=\box30
+\algocf@untilbox=\box31
+\algocf@skipuntil=\skip56
+\algocf@capbox=\box32
+\algocf@lcaptionbox=\skip57
+\algoheightruledefault=\skip58
+\algoheightrule=\skip59
+\algotitleheightruledefault=\skip60
+\algotitleheightrule=\skip61
+\c@algocfline=\count90
+\c@algocfproc=\count91
+\c@algocf=\count92
+\algocf@algoframe=\box33
+\algocf@algobox=\box34
+)
+No file algorithm.aux.
+\openout1 = `algorithm.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 12.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 12.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 12.
+
+LaTeX Warning: Command \textquoteright invalid in math mode on input line 14.
+
+
+LaTeX Warning: Command \textquoteright invalid in math mode on input line 14.
+
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 48.
+(/usr/share/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 48.
+ [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./algorithm.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 1242 strings out of 492616
+ 18551 string characters out of 6135177
+ 92807 words of memory out of 5000000
+ 5211 multiletter control sequences out of 15000+600000
+ 7342 words of font info for 26 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 42i,27n,44p,289b,573s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texmf-dist/font
+s/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/
+share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on algorithm.pdf (1 page, 77665 bytes).
+PDF statistics:
+ 36 PDF objects out of 1000 (max. 8388607)
+ 25 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+

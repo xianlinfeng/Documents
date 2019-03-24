@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.3.22)  22 MAR 2019 11:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.3.22)  23 MAR 2019 16:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -108,73 +108,139 @@ Package: amsthm 2017/10/31 v2.20.4
 \thm@headsep=\skip48
 \dth@everypar=\toks27
 )
-\c@definition=\count100
+(/usr/share/texmf-dist/tex/latex/preprint/fullpage.sty
+Package: fullpage 1999/02/23 1.1 (PWD)
+\FP@margin=\skip49
+)
+(/usr/share/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty
+Package: algorithm2e 2017/07/18 v5.2 algorithms environments
+\c@AlgoLine=\count100
+
+(/usr/share/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\algocf@hangindent=\skip50
+
+(/usr/share/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
+Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
+\c@checkoddpage=\count101
+)
+(/usr/share/texmf-dist/tex/latex/tools/xspace.sty
+Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
+)
+(/usr/share/texmf-dist/tex/latex/relsize/relsize.sty
+Package: relsize 2013/03/29 ver 4.1
+)
+\skiptotal=\skip51
+\skiplinenumber=\skip52
+\skiprule=\skip53
+\skiphlne=\skip54
+\skiptext=\skip55
+\skiplength=\skip56
+\algomargin=\skip57
+\skipalgocfslide=\skip58
+\algowidth=\dimen112
+\inoutsize=\dimen113
+\inoutindent=\dimen114
+\interspacetitleruled=\dimen115
+\interspacealgoruled=\dimen116
+\interspacetitleboxruled=\dimen117
+\algocf@ruledwidth=\skip59
+\algocf@inoutbox=\box29
+\algocf@inputbox=\box30
+\AlCapSkip=\skip60
+\AlCapHSkip=\skip61
+\algoskipindent=\skip62
+\algocf@nlbox=\box31
+\algocf@hangingbox=\box32
+\algocf@untilbox=\box33
+\algocf@skipuntil=\skip63
+\algocf@capbox=\box34
+\algocf@lcaptionbox=\skip64
+\algoheightruledefault=\skip65
+\algoheightrule=\skip66
+\algotitleheightruledefault=\skip67
+\algotitleheightrule=\skip68
+\c@algocfline=\count102
+\c@algocfproc=\count103
+\c@algocf=\count104
+\algocf@algoframe=\box35
+\algocf@algobox=\box36
+)
+\c@definition=\count105
  (./pseudocode.aux)
 \openout1 = `pseudocode.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Try loading font information for U+msa on input line 17.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Try loading font information for U+msa on input line 22.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 17.
+LaTeX Font Info:    Try loading font information for U+msb on input line 22.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 21.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 26.
 
 (/usr/share/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 21.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 26.
 
-Overfull \hbox (0.13832pt too wide) in paragraph at lines 40--42
-\OML/cmm/m/it/10.95 Q[]; Q[]; [] $\OT1/cmr/m/n/10.95 , where the penalty fac-to
-r $\OML/cmm/m/it/10.95 $ \OT1/cmr/m/n/10.95 will grad-u-ally de-crease un-til 
-it reaches
- []
+
+LaTeX Warning: Command \textquoteright invalid in math mode on input line 56.
+
+
+LaTeX Warning: Command \textquoteright invalid in math mode on input line 56.
 
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] (./pseudocode.aux) ) 
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
+Overfull \hbox (21.2872pt too wide) in paragraph at lines 144--144
+\OT1/cmr/m/n/10.95 In the sec-tion 2.4 we will present a spe-cial kind of a bi-
+nary prob-lem, a so-called $\OML/cmm/m/it/10.95 pseudo \OMS/cmsy/m/n/10.95 ^^@ 
+\OML/cmm/m/it/10.95 Booleanproblem$\OT1/cmr/m/n/10.95 .
+ []
+
+[4] (./pseudocode.aux) ) 
 Here is how much of TeX's memory you used:
- 1246 strings out of 492616
- 13972 string characters out of 6135177
- 76221 words of memory out of 5000000
- 5186 multiletter control sequences out of 15000+600000
- 11698 words of font info for 44 fonts, out of 8000000 for 9000
+ 2264 strings out of 492616
+ 30182 string characters out of 6135177
+ 109512 words of memory out of 5000000
+ 6181 multiletter control sequences out of 15000+600000
+ 12007 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 27i,10n,27p,296b,209s stack positions out of 5000i,500n,10000p,200000b,80000s
-</
-usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
-8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/sha
-re/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/c
-msy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr
-/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-d
-ist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on pseudocode.pdf (2 pages, 134362 bytes).
+ 42i,27n,44p,599b,575s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
+r/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pf
+b></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
+8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/sh
+are/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on pseudocode.pdf (4 pages, 165018 bytes).
 PDF statistics:
- 63 PDF objects out of 1000 (max. 8388607)
- 45 compressed objects within 1 object stream
+ 73 PDF objects out of 1000 (max. 8388607)
+ 52 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
