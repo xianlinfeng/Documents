@@ -2,12 +2,20 @@
 
 %\usepackage{fullpage} % this changes margins
 \usepackage[margin=1in]{geometry}  % change the margin size 
-\usepackage{amsfonts, amsmath, amssymb} % for the math 
+\usepackage{amsthm,amsfonts, amsmath, amssymb} % for the math 
 \usepackage{graphicx}   % for the graphic 
 \usepackage[none]{hyphenat} %prevent latex from using hyphenated words
 \usepackage{fancyhdr} % allow to create custom fancy header and footer  
 \usepackage{float}
 \usepackage[nottoc,notlot,notlof]{tocbibind} % package for table of content
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+
+
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section] % add the section number in front of the definition number
+% \newtheorem*{definition}{Definition} % remove the index number of the definition
+
 
 
 \pagestyle{fancy}
@@ -315,6 +323,51 @@ Alcosser, Howard.
 \textit{Internal Accessment: Mathmatical Exploration}.
 Web, 27 May 2018. 
 \end{thebibliography}
+
+
+
+
+\section{MIP}
+\subsection{Mixed Integer Programming}
+\begin{definition}
+(Mixed Integer Programming)\\
+Let $m,n \in \mathbb{N}$, The given matrix $A\in \mathbb{R}^{m \times n}$, vectors $b\in \mathbb{R}^m$, and the vector $c \in \mathbb{R}^n$, and a set $\mathcal{I} \subseteq N = \{ 1,\dots,n \} $. the problem 
+\begin{align*}
+\text{(MIP)} \hspace{5mm} &c^* = \text{min}\,c^Tx& \\
+&s.t.\hspace{5mm} Ax \geq b  \\
+&\hspace{11mm} x_i \in \mathbb{Z}_{\geq0} \hspace{3mm} \forall_i \in \mathcal{I}\\ 
+&\hspace{11mm} x_j \in \mathbb{R}_{\geq0} \hspace{3mm} \forall_i \in \mathcal{N}\,\backslash\,  \mathcal{I}
+\end{align*}
+is called $mixed integer program$ with the objective function $c^Tx$ and constraints $A_ix \geq b_i$ for all $i = 1,\dots ,m$.\par
+\label{dif:mip}
+\end{definition}
+A vector $x\in X_{MIP} = \{x \in \mathbb{R}_\geq0^n\,|\,A_x \geq b, \, x_i \in \mathbb{Z}_{\geq0}\,\forall i \in \mathcal{I}  \}$ is called $feasiable solution$ and $X_{MIP}$ the set of feasible solutions. A feasible $x^*$ is called optimal, if $x^*$ satisfies $c^*=c^Tx^*$. \par
+Common special cases of MIPs are $linear programs$ (LPs) for $\mathcal{I} = \emptyset $ and $integer program$ (IPs) for $\mathcal{I} = N$. Additional, an integer variable bounded by 0 and 1 is called $binary variable$. let $\mathcal{B} \subset \mathcal{I}$ denote the set of binary variables. An integer program with $\mathcal{B} = N $ is called $binary program$ (BP) or $mixed binary program$ (MBP), if $\mathcal{B} = \mathcal{I} \subsetneq N$. \par
+A lower or dual bound on a MIP can be computed by neglecting the intergrality constraints. the so-obtained problem is called the $LP\text{-}relaxation$ of the MIP. \par
+
+\begin{definition}
+(LP-relaxation)\\
+Given a MIP as introduced in Definition \ref{dif:MIP_def}. The LP-$relaxation$ is defined as
+	\begin{align*}
+	\text{(MIP)} \hspace{5mm} &c^* = \text{min}\,c^Tx& \\
+	&s.t.\hspace{5mm} Ax \geq b  \\
+	&\hspace{11mm} x \in \mathbb{R}_{\geq0}^n 
+	\label{dif:LP}
+	\end{align*}
+Analogous to $X_{MIP}$ we can define $X_{LP}$ as the set of feasible solutions of the LP-relaxation. A feasible solution $x_{LP}^* \in X_{LP}$ is called LP-$optimal$ if $c_{LP}^* = c^Tx_{LP}^*$. In general solving MIPs is $NP$-hard. One common method for solving MIPs is LP-$based branch-and-bound$. This method splits the problem into smaller subproblems, and procedure is repeated on these subproblems. At any point a global upper or primal bound is given by the best known solution, if existent, and a local lower bound or dual bound is given by the respective LP-relaxation.\par
+\end{definition}
+
+\subsection{Pseudo-Boolean optimization}
+ In the section 2.4 we will present a special kind of a binary problem, a so-called $pseudo-Boolean problem$. For this purpose we introduce the basic definition of a $pseudo-Boolean problem$ in this section.For more detail we refer to Hammer and Rubin and Boros and Hammer and the references therein.\par
+ Let us denote by $\mathbb{B} = \{0,1 \}$ the set of binary values and let $N = \{ 1, \dots ,n  \}$ be an index set, Reflecting to Boros and Hammer we consider functions in $n$ binary variables $x_1, x_2\dots ,x_n$ and denote the binary vector by $(x_1, x_2, \dots,x_n in \mathbb{B}^n)$. A function $f\,:\, \mathbb{B}^n \rightarrow\mathbb{R}$ of the form 
+ $$\displaystyle{f(x_1,x_2,\dots,x_n) = \sum \limits_{S \subseteq N} C_S  \prod \limits_{i \in S}x_i}$$
+ where $C_s \in \mathbb{R}$ for each $ S \subseteq N$, is called $pseudo-Boolean function$. see e.g., Hannmer et al. The degree of the function $deg(f)$ is given by the seize of the largest set $S \subseteq	N$ which$C_S \neq 0$.A pseudo-Boolean function $f$ is called linear, quadratic, cubic etc. if $deg(f) \leq 1,2,3 $ etc. repectively. Liu and Truszczynski defined a $pseudo-Boolean constraint $ as an integer inequality of the form 
+ $$\sum \limits_{i=1}^{n} a_ix_i \geq b$$
+ with $a_i,b in \mathbb{Z}$ and $xi\in \mathbb{B}$ for all $i in [n]$. A binary problem defined by a pseudo-Boolean objective function and a set of pseudo-Boolean constraints is called $pseudo-Boolean\, optimization\, problem$. \par
+
+ 
+
+
 
 
 

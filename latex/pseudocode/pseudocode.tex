@@ -71,139 +71,44 @@ Question: the two terminologies $Binary programming problem$ and $pseudo-Boolean
 \KwData{$r, \mathcal{P}^0 \text{,} \,  s^0 $ and  $ \mathcal{P}^1$ where $C^0 \subsetneq C^1$ , $O^0 = O^1$}
 \KwResult{ optimal solution $s^1 \text{ to } \mathcal{P}^1 $}
 \Begin{
-	\eIf{$s^0 \text{ is feasible to} \mathcal{P}^1$}{
+	\eIf{$s^0$ is feasible to $\mathcal{P}^1$}{
 			\textbf{return} $s^0$\;
  		} {
  			$C^+ \longleftarrow C^1 - C^0$\;
  			\For{$c \in C^+ $}{
 				add $v_i$ to the set $V$ where it's coefficient $c_i \neq 0$\;
-				% get the set of changed variables 
+				% get the set of effect variables 
  				}
- 			
  			% different function to test solve the problem from scratch or not  	
  			$y^0 = c^Tx \text{ for } x \in s^0$\;
- 			$y^p = c^Tx \text{ for } x \in s^0 \, \cap\, V^+$\;  % the biggest distance is when all x_i in V^+ are different from s^0
+ 			$y^p = c^Tx \text{ for } x \in V^+$\;  % the biggest distance is when all x_i in V^+ are different from s^0
 			$\Delta y =|Y^0 - Y^p | $ \;	
-			\eIf{$\Delta y / y^0 \geq r $ % when y is greater than distance rate }{	
+			\eIf{$\Delta y / y^0 \geq r $ }{    % when y is greater than distance rate	
 				solve $\mathcal{P}^1$ from scratch\;
 				} {
 				solve it with reoptimization\;	
 				$p \longleftarrow ( | y^0 | + |y^p|) $ \;% just set a penalty start number
 				$O^p \longleftarrow p * \sum x \text{ for } x \in V^+ $ \;
-								
-				
-				
-				
-				$\mathcal{P}^* \longleftarrow O^p + C1 $
-				
-				
-	 			% P^p <--- O^1 + O^p <--  generate the penalty function and coefficient 
-
-	 			% try to repair s^0 to P^P to get the first feasible solution
-	 				 			
-	 			% reoptimize the problem and every iteration to decrease the coefficient of O^p
-	 			% decrease reate: p = p // 1.2 
-	 			$V^+ \longleftarrow for v in C^+ where c$
+				$\mathcal{P}_0^* \longleftarrow O^p + C1 $\;
+				\While {$p \geq 0 $}{
+					$p = p // 1.2 $\;  % 1.2 could be adjusted to other number, this will change the decrease rato.
+					$\mathcal{P}_{i+1}^* \longleftarrow \text{ update } O^p$ \;					
+					\If{ i == 0} {  % the first iteration
+						input $s^i$ to find the first feasible solution \; 
+						\hspace{5mm} \textit{\emph{question}: do we need to fix $s^0$ ? }\;}
+					$s_i^* \longleftarrow $ reoptimize the sub-problem in SCIP \;
+					\uIf{$s_i^* $ don't change in $\textbf{n}$ iterations }{
+						$s^1 \longleftarrow s_i^* $\;						
+						\textbf{return} $s_1$ \;				
+					} 
+					\uElseIf{$p = 0 $}{
+						$s^1 \longleftarrow s_i^* $\;	
+						\textbf{return} $s_1$\;}		
+ 				}
 	 			}
-	 			
-	 			$V \longleftarrow U$\;
-$S \longleftarrow \emptyset$\;
-\For{$x\in X$}{
-    $NbSuccInS(x) \longleftarrow 0$\;
-    $NbPredInMin(x) \longleftarrow 0$\;
-    $NbPredNotInMin(x) \longleftarrow |ImPred(x)|$\;
-    }
-\For{$x \in X$}{
-    \If{$NbPredInMin(x) = 0$ {\bf and} $NbPredNotInMin(x) = 0$}{
-        $AppendToMin(x)$}
-    }
-    \While{$S \neq \emptyset$}{\label{InRes1}
-        remove $x$ from the list of $T$ of maximal index\;
-    \While{$|S \cap ImSucc(x)| \neq |S|$}{
-    \For{$ y \in S-ImSucc(x)$}{
-        \{ remove from $V$ all the arcs $zy$ : \}\;
-        \For{$z \in ImPred(y) \cap Min$}{
-            remove the arc $zy$ from $V$\;
-            $NbSuccInS(z) \longleftarrow NbSuccInS(z) - 1$\;
-            move $z$ in $T$ to the list preceding its present list\;
-            \{i.e. If $z \in T[k]$, move $z$ from $T[k]$ to
-                $T[k-1]$\}\;
-            }
-            $NbPredInMin(y) \longleftarrow 0$\;
-            $NbPredNotInMin(y) \longleftarrow 0$\;
-            $S \longleftarrow S - \{y\}$\;
-            $AppendToMin(y)$\;
-            }
-        }
-        $RemoveFromMin(x)$\;
-    }			
  		}
 }
- \caption{Solving Problem with Reoptimization}
+ \caption{Solving Problem with Reoptimization}}{\label{alg_reop}
 \end{algorithm}
-
-\begin{algorithm}[H]
-\SetAlgoLined
-\KwResult{Write here the result }
- initialization\;
- \While{While condition}{
-  instructions\;
-  \eIf{condition}{
-   instructions1\;
-   instructions2\;
-   }{
-   instructions3\;
-  }
- }
- \caption{How to write algorithms}
-\end{algorithm}
-
-
-
-
-
-\section{MIP}
-\subsection{Mixed Integer Programming}
-\begin{definition}
-(Mixed Integer Programming)\\
-Let $m,n \in \mathbb{N}$, The given matrix $A\in \mathbb{R}^{m \times n}$, vectors $b\in \mathbb{R}^m$, and the vector $c \in \mathbb{R}^n$, and a set $\mathcal{I} \subseteq N = \{ 1,\dots,n \} $. the problem 
-\begin{align*}
-\text{(MIP)} \hspace{5mm} &c^* = \text{min}\,c^Tx& \\
-&s.t.\hspace{5mm} Ax \geq b  \\
-&\hspace{11mm} x_i \in \mathbb{Z}_{\geq0} \hspace{3mm} \forall_i \in \mathcal{I}\\ 
-&\hspace{11mm} x_j \in \mathbb{R}_{\geq0} \hspace{3mm} \forall_i \in \mathcal{N}\,\backslash\,  \mathcal{I}
-\end{align*}
-is called $mixed integer program$ with the objective function $c^Tx$ and constraints $A_ix \geq b_i$ for all $i = 1,\dots ,m$.\par
-\label{dif:mip}
-\end{definition}
-A vector $x\in X_{MIP} = \{x \in \mathbb{R}_\geq0^n\,|\,A_x \geq b, \, x_i \in \mathbb{Z}_{\geq0}\,\forall i \in \mathcal{I}  \}$ is called $feasiable solution$ and $X_{MIP}$ the set of feasible solutions. A feasible $x^*$ is called optimal, if $x^*$ satisfies $c^*=c^Tx^*$. \par
-Common special cases of MIPs are $linear programs$ (LPs) for $\mathcal{I} = \emptyset $ and $integer program$ (IPs) for $\mathcal{I} = N$. Additional, an integer variable bounded by 0 and 1 is called $binary variable$. let $\mathcal{B} \subset \mathcal{I}$ denote the set of binary variables. An integer program with $\mathcal{B} = N $ is called $binary program$ (BP) or $mixed binary program$ (MBP), if $\mathcal{B} = \mathcal{I} \subsetneq N$. \par
-A lower or dual bound on a MIP can be computed by neglecting the intergrality constraints. the so-obtained problem is called the $LP\text{-}relaxation$ of the MIP. \par
-
-\begin{definition}
-(LP-relaxation)\\
-Given a MIP as introduced in Definition \ref{dif:MIP_def}. The LP-$relaxation$ is defined as
-	\begin{align*}
-	\text{(MIP)} \hspace{5mm} &c^* = \text{min}\,c^Tx& \\
-	&s.t.\hspace{5mm} Ax \geq b  \\
-	&\hspace{11mm} x \in \mathbb{R}_{\geq0}^n 
-	\label{dif:LP}
-	\end{align*}
-Analogous to $X_{MIP}$ we can define $X_{LP}$ as the set of feasible solutions of the LP-relaxation. A feasible solution $x_{LP}^* \in X_{LP}$ is called LP-$optimal$ if $c_{LP}^* = c^Tx_{LP}^*$. In general solving MIPs is $NP$-hard. One common method for solving MIPs is LP-$based branch-and-bound$. This method splits the problem into smaller subproblems, and procedure is repeated on these subproblems. At any point a global upper or primal bound is given by the best known solution, if existent, and a local lower bound or dual bound is given by the respective LP-relaxation.\par
-
-\subsection{Pseudo-Boolean optimization}
- In the section 2.4 we will present a special kind of a binary problem, a so-called $pseudo-Boolean problem$. For this purpose we introduce the basic definition of a $pseudo-Boolean problem$ in this section.For more detail we refer to Hammer and Rubin and Boros and Hammer and the references therein.\par
- Let us denote by $\mathbb{B} = \{0,1 \}$ the set of binary values and let $N = \{ 1, \dots ,n  \}$ be an index set, Reflecting to Boros and Hammer we consider functions in $n$ binary variables $x_1, x_2\dots ,x_n$ and denote the binary vector by $(x_1, x_2, \dots,x_n in \mathbb{B}^n)$. A function $f\,:\, \mathbb{B}^n \rightarrow\mathbb{R}$ of the form 
- $$\displaystyle{f(x_1,x_2,\dots,x_n) = \sum \limits_{S \subseteq N} C_S  \prod \limits_{i \in S}x_i}$$
- where $C_s \in \mathbb{R}$ for each $ S \subseteq N$, is called $pseudo-Boolean function$. see e.g., Hannmer et al. The degree of the function $deg(f)$ is given by the seize of the largest set $S \subseteq	N$ which$C_S \neq 0$.A pseudo-Boolean function $f$ is called linear, quadratic, cubic etc. if $deg(f) \leq 1,2,3 $ etc. repectively. Liu and Truszczynski defined a $pseudo-Boolean constraint $ as an integer inequality of the form 
- $$\sum \limits_{i=1}^{n} a_ix_i \geq b$$
- with $a_i,b in \mathbb{Z}$ and $xi\in \mathbb{B}$ for all $i in [n]$. A binary problem defined by a pseudo-Boolean objective function and a set of pseudo-Boolean constraints is called $pseudo-Boolean\, optimization\, problem$. \par
-
-
-	
-	 
- 
-\end{definition}
-
 
 \end{document}

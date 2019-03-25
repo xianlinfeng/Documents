@@ -18,3 +18,6 @@
 \contentsline {section}{\numberline {9}Graph}{9}% 
 \contentsline {section}{\numberline {10}Bibliography}{11}% 
 \contentsline {section}{References}{11}% 
+\contentsline {section}{\numberline {11}MIP}{11}% 
+\contentsline {subsection}{\numberline {11.1}Mixed Integer Programming}{11}% 
+\contentsline {subsection}{\numberline {11.2}Pseudo-Boolean optimization}{12}% 

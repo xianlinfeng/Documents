@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.3.22)  25 MAR 2019 15:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.3.22)  25 MAR 2019 17:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -202,54 +202,34 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 55.
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
-Overfull \vbox (194.68617pt too high) has occurred while \output is active []
-
-
-[3]
-
-LaTeX Warning: Reference `dif:MIP_def' on page 4 undefined on input line 181.
-
-[4]
-Overfull \hbox (21.2872pt too wide) in paragraph at lines 191--191
-\OT1/cmr/m/n/10.95 In the sec-tion 2.4 we will present a spe-cial kind of a bi-
-nary prob-lem, a so-called $\OML/cmm/m/it/10.95 pseudo \OMS/cmsy/m/n/10.95 ^^@ 
-\OML/cmm/m/it/10.95 Booleanproblem$\OT1/cmr/m/n/10.95 .
- []
-
-[5] (./pseudocode.aux)
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] (./pseudocode.aux)
  ) 
 Here is how much of TeX's memory you used:
- 2271 strings out of 492616
- 30262 string characters out of 6135177
- 112320 words of memory out of 5000000
- 6186 multiletter control sequences out of 15000+600000
- 12708 words of font info for 47 fonts, out of 8000000 for 9000
+ 2270 strings out of 492616
+ 30249 string characters out of 6135177
+ 107512 words of memory out of 5000000
+ 6184 multiletter control sequences out of 15000+600000
+ 13478 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 45i,30n,48p,599b,646s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,27n,45p,531b,591s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr
-/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><
-/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/ams
-fonts/symbols/msbm10.pfb>
-Output written on pseudocode.pdf (5 pages, 177085 bytes).
+/amsfonts/cm/cmbxti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
+usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
+></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbol
+s/msbm10.pfb>
+Output written on pseudocode.pdf (3 pages, 167192 bytes).
 PDF statistics:
- 80 PDF objects out of 1000 (max. 8388607)
- 57 compressed objects within 1 object stream
+ 78 PDF objects out of 1000 (max. 8388607)
+ 56 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
