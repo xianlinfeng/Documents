@@ -1,23 +1,23 @@
-\contentsline {section}{\numberline {1}Introduction}{1}% 
-\contentsline {section}{\numberline {2}Macros}{2}% 
-\contentsline {section}{\numberline {3}Math}{2}% 
-\contentsline {subsection}{\numberline {3.1}superscripts}{2}% 
-\contentsline {subsection}{\numberline {3.2}subscripts}{3}% 
-\contentsline {subsection}{\numberline {3.3}trig, log and square}{3}% 
-\contentsline {subsection}{\numberline {3.4}Fractions}{3}% 
-\contentsline {section}{\numberline {4}symbol}{4}% 
-\contentsline {subsection}{\numberline {4.1}Function}{4}% 
-\contentsline {subsection}{\numberline {4.2}Parentheses}{5}% 
-\contentsline {section}{\numberline {5}Table and Array}{6}% 
-\contentsline {section}{\numberline {6}List}{7}% 
-\contentsline {subsection}{\numberline {6.1}enumerated list}{7}% 
-\contentsline {subsection}{\numberline {6.2}lists}{7}% 
-\contentsline {subsection}{\numberline {6.3}with new index}{8}% 
-\contentsline {section}{\numberline {7}Font}{8}% 
-\contentsline {section}{\numberline {8}Text position}{8}% 
-\contentsline {section}{\numberline {9}Graph}{9}% 
-\contentsline {section}{\numberline {10}Bibliography}{11}% 
-\contentsline {section}{References}{11}% 
-\contentsline {section}{\numberline {11}MIP}{11}% 
-\contentsline {subsection}{\numberline {11.1}Mixed Integer Programming}{11}% 
-\contentsline {subsection}{\numberline {11.2}Pseudo-Boolean optimization}{12}% 
+\contentsline {section}{\numberline {1}Introduction}{1}
+\contentsline {section}{\numberline {2}Macros}{2}
+\contentsline {section}{\numberline {3}Math}{2}
+\contentsline {subsection}{\numberline {3.1}superscripts}{2}
+\contentsline {subsection}{\numberline {3.2}subscripts}{3}
+\contentsline {subsection}{\numberline {3.3}trig, log and square}{3}
+\contentsline {subsection}{\numberline {3.4}Fractions}{3}
+\contentsline {section}{\numberline {4}symbol}{4}
+\contentsline {subsection}{\numberline {4.1}Function}{4}
+\contentsline {subsection}{\numberline {4.2}Parentheses}{5}
+\contentsline {section}{\numberline {5}Table and Array}{6}
+\contentsline {section}{\numberline {6}List}{7}
+\contentsline {subsection}{\numberline {6.1}enumerated list}{7}
+\contentsline {subsection}{\numberline {6.2}lists}{7}
+\contentsline {subsection}{\numberline {6.3}with new index}{8}
+\contentsline {section}{\numberline {7}Font}{8}
+\contentsline {section}{\numberline {8}Text position}{8}
+\contentsline {section}{\numberline {9}Graph}{9}
+\contentsline {section}{\numberline {10}Bibliography}{11}
+\contentsline {section}{References}{11}
+\contentsline {section}{\numberline {11}MIP}{11}
+\contentsline {subsection}{\numberline {11.1}Mixed Integer Programming}{11}
+\contentsline {subsection}{\numberline {11.2}Pseudo-Boolean optimization}{12}

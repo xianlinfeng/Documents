@@ -22,43 +22,49 @@
 \maketitle
 
 \section{Introduction}
+In this section, we define some important definitions and algorithms....
 \begin{definition}
 (Mixed Integer Programming)\\
-In this report, we denote the $Mixed\,Integer\, programming$ (MIP) problem in the follow form $$\text{(MIP)}  \hspace{3mm} \text{min} \{\, c^Tx : Ax \leq b, x \in \mathbb{Z}^l\,\text{x}\,\mathbb{R}^k \}  $$ 
-where $m,n \in \mathbb{N}$, and $n = l + k $,  $A$ is a matrix for $A \in \mathbb{R}^{m \,\text{x}\, n}$, and the vector $b \in \mathbb{R}^m$, the vector $c \in \mathbb{R}^n$. \par
-$S$ is a set of $feasible\,solution$ if $S$ satisfy all the constraints in the problem. If $s \in S$, $s$ is called a feasible solution to the problem $\mathcal{Z}_{MIP}$. The MIP is called infeasible when $S$ is empty, other wise, the MIP is called feasible. The feasible solution $s^\ast$ is called optimal when $s^\ast \in S $ and  $ c^Tx_{s^\ast} \leq c^Tx_s \text{ for } \forall s \in S $. \par
+In this report we consider a generic mixed-integer programming problem (MIP) in the following form
+	\begin{align*}
+	\text{(MIP)} \hspace{4mm} &\min \hspace{1.5mm}c^Tx \\
+	s.t.\hspace{5mm} &Ax \geq b \\
+	&x_j \in \mathbb{Z} \hspace{4mm} \forall j \in \mathcal{I}\\
+	&x_j \in \mathbb{R} \hspace{4mm} \forall j \in \mathcal{N} \setminus \mathcal{I}\\
+	\end{align*}
+where the vector $b \in \mathbb{R}^m$ and the vector $c \in \mathbb{R}^n$ are input vectors.   $A$ is a input matrix of size $m \times n$, the variable input set $\mathcal{I} \subseteq \mathcal{N} = \lbrace 1,2,\dots,n\rbrace$. We denote $\mathcal{P}$ for this problem, which called a mixed-integer programming problem (MIP) with minimize objective function $c^Tx$ subject to the constraints $Ax \geq b$. Besides, some variables are restricted to integer values while the else of are restricted to real value. $S$ is a set of feasible solution if $S$ satisfy all the constraints in the problem. A vector $s^*$ with $s^* \in  S $ is called $optimal \, solution$ when $c^Tx_{s^*} \leq c^Tx_{s} \text{ for } \forall s \in S$.
+When all of the variables are restricted to integer, the problem is called $pure integer linear program$(IP) for $\mathcal{I} = \mathcal{N}$. If there is no  integrality constraint, the program is called $linear program$
+	\begin{align*}
+	\text{(MIP)} \hspace{5mm} &\min \hspace{1.5mm}c^Tx \\
+	s.t.\hspace{5mm} &Ax \geq b \\
+	&x_j \in \mathbb{R} \hspace{4mm} \forall j \in \mathcal{N} \\
+	\end{align*}
 % ref: https://eprint.iacr.org/2012/676.pdf
 % ref: Mixed-integer Linear Programming in the Analysis of Trivium and Ktantan
-\label{dif:def_MIP}
+% ref: Reoptimization techniques in MIP Solvers
+
+\citation{Mixed-Integer Programming}
+\label{def_MIP}
 \end{definition}
 
 \begin{definition}
-(Linear Programming and LP-relaxation)\\
-With the definition of MIP in \ref{dif:def_MIP}, there is a special case of MIP when all variables are continuous, which is called $Linear Programming $ (LP) problem
-$$\mathcal{Z}_{LP} = \text{min} \{\, c^Tx : Ax \leq b, x \in \mathbb{R}^k \}  $$ 
-A LP can also be obtained by removing all integrity constraints: $x_i\, \in\, x \text{ where } i \in n \setminus l $, this is called LP-$relaxation$. LP-$relaxation$ is the foundation of LP-based branch-and-bound technology. As the searching space is increase by removing integrity restrictions, the optimal solution in MIP could not better than LP-$relaxation$, which is  $s_{MIP}^\ast \geq s_{LP}^\ast $. This means the optimal solution found in LP could provide a lower or prime bound for MIP.
-\label{dif:def_lp}
+(LP-relaxation)\\
+Lp $relaxation$ is obtained by removing all integrity constraints $ \mathcal{I} \leftarrow \emptyset$. LP-$relaxation$ is the foundation of LP-based branch-and-bound technology. As the searching space is increase by removing integrity restrictions, the optimal solution in MIP problem could not better than LP-$relaxation$, which is  $s_{MIP}^\ast \geq s_{LP}^\ast $. This means the optimal solution found in LP problem could provide a lower or prime bound for MIP problem.
+\label{def_LP}
 \end{definition}
 
-\begin{definition}
-(Binary Programs)\\
-In the definition \ref{dif:def_MIP}, When all variables are integer
-$$\mathcal{Z}_{IP} = \text{min} \lbrace\, c^Tx : Ax \leq b, x \in \mathbb{Z}^l \rbrace $$ 
-The problem is call pure Integer Programming (IP) problem. And if we denote $\mathbb{B}$ be a set of binary values where $\mathbb{B} = \{0, 1 \} \text{ for } \forall x \in \mathbb{B}^l$, then we call this problem a Binary Programming problem.  This report we focus on Binary Programs.\\
-Question: the two terminologies $Binary programming problem$ and $pseudo-Boolean problem$ is same? or not?
-\label{dif:def_bp}
-\end{definition}
 
 
 \section{Input}
 \begin{itemize}
-    \item A problem $ \mathcal{P}^0 = min \{ c^Tx\,|\, Ax \geq b,\, x_i \in \mathbb{B}^n, \mathbb{B} = \lbrace 0,1\rbrace  \}$ with $n$ binary variables $x$, objective function $ O^0 = c^T x$ (min), constraint set $C^0$ with an optimal solution $s^0$.
-    \item A problem $\mathcal{P}^1$ with $n$ binary variables $x$, objective function $O^1 = O^0 = c^Tx$ (min), constraint set $C^1$, such that $C^0 \subsetneq C^1$.
+    \item A MIP problem $\mathcal{P}^0$ with $n$ variables $x$,constraint set $C^0$ with an optimal solution $s^0$, where $s^0$ is a n-vector.
+    \item A MIP problem $\mathcal{P}^1$ with $n$ variables $x$, constraint set $C^1$, such that $C^0 \subsetneq C^1$.
+    
 \end{itemize}							
 
 \section{Output}
 \begin{itemize}	
-    \item An optimal solution $s^1$ to $\mathcal{P}^1$.
+    \item An optimal solution $s^1$ to $\mathcal{P}^1$, where $s^1$ is a n-vector too.
 \end{itemize}
 
 \section{Pseudo Code}
@@ -68,44 +74,27 @@ Question: the two terminologies $Binary programming problem$ and $pseudo-Boolean
 \begin{algorithm}[H]
 \SetAlgoLined
 \DontPrintSemicolon
-\KwData{$r, \mathcal{P}^0 \text{,} \,  s^0 $ and  $ \mathcal{P}^1$ where $C^0 \subsetneq C^1$ , $O^0 = O^1$}
-\KwResult{ optimal solution $s^1 \text{ to } \mathcal{P}^1 $}
+\KwIn{$\mathcal{P}^0 \text{,} \,  s^0 $ and  $ \mathcal{P}^1$ where $C^0 \subsetneq C^1$}
+\KwOut{ optimal solution $s^1 \text{ to } \mathcal{P}^1 $}
 \Begin{
 	\eIf{$s^0$ is feasible to $\mathcal{P}^1$}{
 			\textbf{return} $s^0$\;
  		} {
- 			$C^+ \longleftarrow C^1 - C^0$\;
- 			\For{$c \in C^+ $}{
-				add $v_i$ to the set $V$ where it's coefficient $c_i \neq 0$\;
-				% get the set of effect variables 
+ 			$\alpha \longleftarrow 20 \times c^Ts^0$ \;	
+ 			create new variables $y$ where $y_j \in \mathbb{Z},\, \forall j \in \mathcal{I}$ \tcp*[r]{add new variables} 
+ 			\For{$j$ in $\mathcal{I}$} {  \tcp*[r]{add new constraints}
+ 				add constraint $y_j \geq x_j - s_j^0$\;
+ 				add constraint $y_j \geq s_j^0 - x_j$\;
+ 			}
+			$p^0 \longleftarrow \alpha \times \sum y_j, \,j\, \in\, \mathcal{I}$ \tcp*[r]{create penalty function}			
+ 			$p^1 = \min \{c^Tx + p^0 \} $ \;
+ 			\For{$\alpha \geq 0 $}{
+				$s^k \longleftarrow \text{ solve } \, p^1$ to optimal or stop criteria with reoptimization\;
+				$\alpha \longleftarrow \alpha - (\alpha\div20)$
  				}
- 			% different function to test solve the problem from scratch or not  	
- 			$y^0 = c^Tx \text{ for } x \in s^0$\;
- 			$y^p = c^Tx \text{ for } x \in V^+$\;  % the biggest distance is when all x_i in V^+ are different from s^0
-			$\Delta y =|Y^0 - Y^p | $ \;	
-			\eIf{$\Delta y / y^0 \geq r $ }{    % when y is greater than distance rate	
-				solve $\mathcal{P}^1$ from scratch\;
-				} {
-				solve it with reoptimization\;	
-				$p \longleftarrow ( | y^0 | + |y^p|) $ \;% just set a penalty start number
-				$O^p \longleftarrow p * \sum x \text{ for } x \in V^+ $ \;
-				$\mathcal{P}_0^* \longleftarrow O^p + C1 $\;
-				\While {$p \geq 0 $}{
-					$p = p // 1.2 $\;  % 1.2 could be adjusted to other number, this will change the decrease rato.
-					$\mathcal{P}_{i+1}^* \longleftarrow \text{ update } O^p$ \;					
-					\If{ i == 0} {  % the first iteration
-						input $s^i$ to find the first feasible solution \; 
-						\hspace{5mm} \textit{\emph{question}: do we need to fix $s^0$ ? }\;}
-					$s_i^* \longleftarrow $ reoptimize the sub-problem in SCIP \;
-					\uIf{$s_i^* $ don't change in $\textbf{n}$ iterations }{
-						$s^1 \longleftarrow s_i^* $\;						
-						\textbf{return} $s_1$ \;				
-					} 
-					\uElseIf{$p = 0 $}{
-						$s^1 \longleftarrow s_i^* $\;	
-						\textbf{return} $s_1$\;}		
- 				}
-	 			}
+ 			$s^1 \longleftarrow s^k$ \;
+ 			\textbf{return} $s^1$\;
+	 	
  		}
 }
  \caption{Solving Problem with Reoptimization}}{\label{alg_reop}
