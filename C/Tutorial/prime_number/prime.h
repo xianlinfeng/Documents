@@ -1,0 +1,1 @@
+extern int primeNo(unsigned int a);
