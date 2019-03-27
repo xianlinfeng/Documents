@@ -3,8 +3,8 @@
 
 int main()
 {
-    int range = 999999;
-    int i,j, prime[range + 1 ]; 
+    int range = 9999;
+    int i,j, prime[range + 1 ];
     prime[0] = prime[1] = 1;
     for( i= 2; i < range; i++){
         prime[i] = 0;
@@ -21,4 +21,3 @@ int main()
     }
     return 0;
 }
-

@@ -1,13 +1,10 @@
 #include <stdio.h>
 #include <math.h>
 // #include "one.h"
-
-
 int main()
 {
-    int x = 10;
-    double r = sqrt(1000);
-    printf("%lf\n",r);
+    int x = 63;
+    printf("%d\n",x );
+    printf("Hello world!\n");
     return 0;
 }
-
