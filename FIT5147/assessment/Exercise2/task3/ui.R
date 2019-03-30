@@ -20,8 +20,7 @@ fluidPage(
     
     # Show Word Cloud
     mainPanel(
-      plotOutput(outputId = "coralPlot"),
-      leafletOutput("siteMap")
+      plotOutput(outputId = "coralPlot")
     )
   )
 )

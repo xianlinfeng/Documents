@@ -1,4 +1,5 @@
 library(ggplot2)
+library(shiny)
 
 # task 1
 df <- read.csv('assignment-02-data-formated.csv',header = TRUE,stringsAsFactors = FALSE)
@@ -7,7 +8,9 @@ df$value <- as.numeric(df$value)
 df$value <- (df$value)/100
 df$location <- factor(df$location,levels = c("site04","site02","site06","site08","site07","site05","site01","site03"))
 str(df)
+df
 
+############################################################################################
 # task 2
 g0 <- ggplot(data = df, aes(x=year, y = value))
 g1 <- g0 + geom_point(aes(color = location))
@@ -18,15 +21,38 @@ g4 <- g3 + theme_bw() +
   scale_y_continuous("the bleaching of corals") +
   theme(legend.position = "buttom", legend.direction = "horizontal")
 g4 
-
+#########################################################################################
 # task 4
-# %>% means pip from left to right
-
-
 library(leaflet)
-m <- leaflet() %>% 
-  setView(lng = 145.0431, lat = -37.8773, zoom = 15) %>% 
-  addTiles()
-m %>% addProviderTiles("Stamen.Toner")
-m
+leaflet(data = df) %>% addTiles() %>%
+  addMarkers(~longitude, ~latitude, popup = ~as.character(location)  )
 
+#########################################################################################
+# task 5: key codes
+dd <- aggregate(value ~ coralType + location + longitude + latitude, data = df, mean) # aggregate the data
+
+getColor <- function(df) { # set the color
+  sapply(df$value, function(value) {
+    if(value <= 0.3) {
+      "green"
+    } else if(value <= 0.6) {
+      "orange"
+    } else if(value <= 0.9){
+      "red"
+    } else {
+      "black"
+    }
+  })
+}
+
+icons <- awesomeIcons( # set the icon
+  icon = 'ios-close',
+  iconColor = 'black',
+  library = 'ion',
+  markerColor = getColor(df)
+)  
+
+dr <- dd[which(dd$coralType == input$coral),]
+leaflet(dr) %>% addTiles() %>% addAwesomeMarkers(~longitude, ~latitude, icon=icons)
+   # it will change the color when choose the different coral 
+   # the color indicate the situation of the site for the choosen coral 

@@ -8,27 +8,6 @@ function(input, output) {
   df$value <- as.numeric(df$value)
   df$value <- (df$value)/100
   df$location <- factor(df$location,levels = c("site04","site02","site06","site08","site07","site05","site01","site03"))
-  dd <- aggregate(value ~ coralType + location + longitude + latitude, data = df, mean) # aggregate the data
-  
-  getColor <- function(df) { # set the color
-    sapply(df$value, function(value) {
-      if(value <= 0.3) {
-        "green"
-      } else if(value <= 0.6) {
-        "orange"
-      } else if(value <= 0.9){
-        "red"
-      } else {
-        "black"
-      }
-    })
-  }
-  
-  icons <- awesomeIcons( # set the icon
-    icon = 'ios-close',
-    iconColor = 'black',
-    library = 'ion',
-    markerColor = getColor(df))
   
   output$coralPlot <- renderPlot({
     g0 <- ggplot(data = df[which(df$coralType == input$coral),], aes(x=year, y = value)) + geom_point(aes(color = location)) + facet_wrap(~location,nrow = 2 )+theme_bw()
@@ -39,10 +18,6 @@ function(input, output) {
       g0
     }
 
-  })
-  
-  output$siteMap <- renderLeaflet({ # create leaflet map
-    leaflet(dd[which(dd$coralType == input$coral),]) %>% addTiles() %>% addAwesomeMarkers(~longitude, ~latitude, icon=icons)
   })
 }
 
