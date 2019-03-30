@@ -20,9 +20,13 @@ g4 <- g3 + theme_bw() +
 g4 
 
 # task 4
+# %>% means pip from left to right
+
+
 library(leaflet)
 m <- leaflet() %>% 
   setView(lng = 145.0431, lat = -37.8773, zoom = 15) %>% 
   addTiles()
+m %>% addProviderTiles("Stamen.Toner")
 m
 
