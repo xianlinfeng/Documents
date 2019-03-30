@@ -1,0 +1,3 @@
+cmake ..
+make 
+./repair bell5.lp bell5.sol

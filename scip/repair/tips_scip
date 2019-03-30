@@ -24,4 +24,13 @@
     c) increase memory allocate
         SCIPcalcMemGrowSize（）
 
+4. Pointer
+    a)  int var = 13;
+        int* a = &var; 
+        &var  // 访问var的内存地址
+        a   // 表示内存地址
+        *a   // 访问a的实际值
+
+
+
 

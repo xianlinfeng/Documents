@@ -7,14 +7,16 @@
 #IncludeRegexTransform: 
 
 /home/arthur/Documents/scip/repair/src/cmain.c
+stdio.h
+-
+string.h
+-
 scip/scip.h
 /home/arthur/Documents/scip/repair/src/scip/scip.h
 scip/scipdefplugins.h
 /home/arthur/Documents/scip/repair/src/scip/scipdefplugins.h
 scip/scip_reader.h
 /home/arthur/Documents/scip/repair/src/scip/scip_reader.h
-string.h
--
 
 /usr/local/lib/cmake/scip/../../../include/blockmemshell/memory.h
 limits.h
