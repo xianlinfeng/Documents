@@ -1,87 +1,31 @@
-*** solve the P0 ***
-1. read the .lp file 
-    a) only contain the binary variables
-2. optimize it with scip and default setting get result S0
-3. write the solution to the file
+input: k, s^0, P^1
+output: S^*
 
+begin:
+1.  read problem p^1, 
+2.  read solution s^0                               -->    SCIPreadSol()
+3.  check s^0 is feasible to P^1 or not .
+4.      if yes: return s^*
+5.  else: assign \alpha <-- k * c^Ts^0
+6.      create new variables y
+7.      p^2 <-- add new constraints to p^1
+8.      p^2 <-- add penalty function to p^2
+9.  start iteration:
+        get s^r on every r-th iteration.            --> solve the problem to stopping criation 
+                                                            SCIP_CALL( SCIPsetRealParam(scip, "limits/time", 3600) ) 
 
-*** Solve the problem P1 from scratch *** 
-1. read the problem P1. (add more constraints C1 to P0 to get P1)
-3. solve it from scratch with the default setting scip 
-4. get the solving time T1 and the result S1
-
-
-
-*** solve the problem P1 with reoptimization *** 
-read the setting file (which enable reoptimization)
-read the problem P1 
-read S0
-    if S0 is feasiable to P1: 
-        S0 is optimal for P1
-    elif distance rate is too big (#1):
-        no need to reoptimize it, just solve it from scratch
-    else
-        generate P1`:   #5
-             -> add penalty variable: -- #2
-             -> add penalty coefficient -- #3
-        fix S0 (get S0`)as a start point for P1` #4 
-        reoptimization process start:
-            within each iteration:
-                use S0` as a input to force the solver go the the direction of S0`. 
-                if (S1 is better than S0`)
-                    discard S0`
-        Stop when:
-            1. optimal solution is found
-            2. meet the stop criterion
-        get the solving time T2 and the result S2 
+        decreate \alpha
+10. return s^r 
 
 
 
-compare T1,T2 and S1,S2
+        // SCIP_CALL(SCIPcreate);  //create a SCIP object
+        // SCIP_CALL(SCIPcreateProb); // create the scip problem
+        // SCIP_CALL(SCIPcreateVar); // create varialbes
+        // SCIP_CALL(SCIPaddVar); // add the variables to the problem
+        // SCIP_CALL(SCIPcreateConsLinear); // create linear constraints 
+        // SCIP_CALL(SCIPaddConsLinear);// add the constraints into the problem
+        //         SCIP_CALL(SCIPreleaseCons); // release the constraint affter adding them into the problem
+        // SCIP_CALL(SCIPsolve);  //  initiate the solution process  
 
-
-#1 Distance
-    ?? distance rate = (Ei * Si)/(objective value in P0)
-                Ei * Si for varialbe i in C1 which coefficient is not zero, and Ei is the coefficient in objective 
-                function and Si is the corresponding value in S0;
-
-#2 Penalty variable
-    penalty variable = sum(the effect variables in C1)
-
-#3 penalty coefficient
-    ?? is there any good idea on this?
-
-#4 fix S0 for P1
-    -- with penalty function, the solution of P1` maybe quite far from S0
-    -- Another idea is: we fix S0, and add it into the sub-MIP at the first n iterations to force the solver go the the direction of S0`. 
-        in this process.
-        if (new solution < S0`):
-            discard S0`
-            get new incumbent 
-        else continue.
-    
-# different method to update the objective function
-    --> change the variables coefficients in objective function
-    --> https://scip.zib.de/doc-6.0.1/html/REOPT.php
-
-
-
-S0 is the solution to P0
-In P0, we maximise 
-We denote 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        // scip_call(SCIPreleaseVar()); // ralease the variables after solving

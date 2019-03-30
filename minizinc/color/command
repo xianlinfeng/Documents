@@ -1,0 +1,2 @@
+minizinc --solver CPLEX --cplex-dll /opt/ibm/ILOG/CPLEX_Studio129/cplex/bin/x86-64_linux/libcplex1290.so 2color.mzn color.dzn -c --writeModel model.lp
+

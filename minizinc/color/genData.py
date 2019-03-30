@@ -2,7 +2,7 @@
 
 import random
 
-V = 40
+V = 20
 
 start = "E = ["
 end = "|];"
@@ -13,7 +13,7 @@ l = 0
 
 for i in range (1,V):
     for j in range (i+1,V+1):
-        if random.random() > 0.3:
+        if random.random() > 0.6:
             print("|",i,",",j,",")
             l += 1
 
