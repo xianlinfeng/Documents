@@ -1,6 +1,7 @@
 # server.R
 library(shiny)
 library(ggplot2)
+library(leaflet)
 
 function(input, output) {
   df <- read.csv('assignment-02-data-formated.csv',header = TRUE,stringsAsFactors = FALSE)
@@ -31,16 +32,12 @@ function(input, output) {
     markerColor = getColor(df))
   
   output$coralPlot <- renderPlot({
-    g0 <- ggplot(data = df[which(df$coralType == input$coral),], aes(x=year, y = value)) + geom_point(aes(color = location)) + facet_wrap(~location,nrow = 2 )+theme_bw()
-    
-    if(input$smooth){
-      g0 + geom_smooth(method = "lm",formula = y ~ x,color = "black",size = 0.2,se=F)
-    }else{
-      g0
-    }
-
-  })
+    ggplot(data = df[which(df$coralType == input$coral),], aes(x=year, y = value)) + geom_point(aes(color = location),size = 5) + 
+      facet_wrap(~location,nrow = 2 )+theme_bw()+geom_smooth(method = input$smooth,color = "blue",size = 0.6,se=T) + 
+      ggtitle(paste("Bleaching Situation of ",input$coral))
+    })
   
+  # geom_smooth(method = input$smooth,color = "black",size = 0.2,se=F)
   output$siteMap <- renderLeaflet({ # create leaflet map
     leaflet(dd[which(dd$coralType == input$coral),]) %>% addTiles() %>% addAwesomeMarkers(~longitude, ~latitude, icon=icons)
   })

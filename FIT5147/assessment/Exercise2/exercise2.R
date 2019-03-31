@@ -1,5 +1,6 @@
 library(ggplot2)
 library(shiny)
+library(leaflet)
 
 # task 1
 df <- read.csv('assignment-02-data-formated.csv',header = TRUE,stringsAsFactors = FALSE)
@@ -15,11 +16,11 @@ df
 g0 <- ggplot(data = df, aes(x=year, y = value))
 g1 <- g0 + geom_point(aes(color = location))
 g2 <- g1 + facet_grid(coralType~location)
-g3 <- g2 + geom_smooth(method = "lm",formula = y ~ x,color = "black",size = 0.2,se=F)
+g3 <- g2 + geom_smooth(method = "lm",formula = y ~ x,color = "blue",size = 0.5,se=F)
 g4 <- g3 + theme_bw() +
   scale_x_continuous("the year, location and coral type") +
   scale_y_continuous("the bleaching of corals") +
-  theme(legend.position = "buttom", legend.direction = "horizontal")
+  theme(legend.position = "buttom", legend.direction = "horizontal") + ggtitle("Coral Bleaching Situation for five Corals")
 g4 
 #########################################################################################
 # task 4
