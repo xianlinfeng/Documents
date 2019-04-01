@@ -33,9 +33,6 @@ main(
    /* initialize SCIP */
    SCIP_CALL( SCIPcreate(&scip) );
 
-   /* we explicitly enable the use of a debug solution for this main SCIP instance */
-   SCIPenableDebugSol(scip);
-
    /***********************
     * Version information *
     ***********************/
@@ -50,6 +47,8 @@ main(
     ********************/
    SCIPinfoMessage(scip, NULL, "read problem <%s> ...\n\n", argv[1]);
    SCIP_CALL( SCIPreadProb(scip, argv[1], NULL) );
+   SCIP_CALL( SCIPprintOrigProblem(scip,NULL,NULL,TRUE) );
+//    SCIP_CALL( SCIPprintTransProblem(scip,NULL,NULL,TRUE) );
 
    /********************
     * Read Solution *
@@ -85,56 +84,129 @@ main(
    SCIP_Real obj0 = 0;
    SCIP_Real alpha = 0;
    int k = atoi(argv[3]);
-   printf("the value h is %d\n", k);
+   printf("the value k is %d\n", k);
    obj0 = SCIPsolGetOrigObj(sol);
    SCIPinfoMessage(scip, NULL, "The objective value of solution <%s>  is %f \n\n",argv[2],obj0);
-   alpha = obj0 * k;
+   /* is there multiplication in scip?  */
+   alpha = obj0 * k; 
    SCIPinfoMessage(scip, NULL, "The value of alpha is %f \n\n",alpha);
    
 
    /************************************
     * Create variables and constraints *
     ************************************/
-   SCIP_VAR* x;
+   SCIP_VAR** x;
+   SCIP_VAR** y;
    int n = SCIPgetNVars(scip);  //get the number of variables
    int i;
+   int j = 0;
+   
 
-   for (i = 0;i<n;++i)
-   {
-        SCIP_CALL( SCIPcreateVarBasic(scip,&x,NULL,-SCIPinfinity(scip),SCIPinfinity(scip),0.0,SCIP_VARTYPE_CONTINUOUS) );
-     //    x++;
-   }
+   x = SCIPgetVars(scip);       // get the variables
 
-//    x = SCIPgetVars(scip);
-   SCIP_CALL(SCIPprintVar(scip,x,NULL));
-  
-//    for(i = 0; i < n; i++)
-//    {    
-//         if(SCIPvarGetType(x[i]) == SCIP_VARTYPE_INTEGER)  // if the var type is integer
-//         { 
-//           SCIP_VAR* y;
-//           SCIP_CONS* cons;
-//           char name[SCIP_MAXSTRLEN];
+    for (i=0;i<n;i++)
+    {
+         SCIP_CALL( SCIPprintVar(scip,x[i],NULL));         // print the variables x
+    }
 
-//           SCIP_CALL( SCIPcreateVarBasic(scip, &y, "y", -SCIPinfinity(scip), SCIPinfinity(scip), 1.0, SCIP_VARTYPE_INTEGER) );
-//           SCIP_CALL( SCIPaddVar(scip, y) );
+     /* allocate array to store variables and coefficients */
+     SCIP_CALL( SCIPallocBufferArray(scip, &y, n) );
 
-//           SCIP_CALL( SCIPcreateVarBasic(scip, &y, "y", -SCIPinfinity(scip), SCIPinfinity(scip), 1.0, SCIP_VARTYPE_INTEGER) );
-//           SCIP_CALL( SCIPaddVar(scip, y) );
-     
-//           snprintf(name,SCIP_MAXSTRLEN, "y%d", i);  // assignment the name to the constraint
-//           SCIP_CALL( SCIPcreateConsBasicSOC(scip, &cons, name, 2, ab, NULL, xy, 0.0, r, 1.0, 0.0) );
-//           SCIP_CALL( SCIPcreateConsBasicLinear(scip, &cons, name, 2, ab, NULL, xy, 0.0, r, 1.0, 0.0) );  // create a linear constraint
+     SCIPinfoMessage(scip, NULL, "Start to test variable y\n");
+
+     for( i = 0; i < n; ++i )
+     {   
+        if(SCIPvarGetType(x[i]) == SCIP_VARTYPE_INTEGER  || SCIPvarGetType(x[i]) == SCIP_VARTYPE_BINARY )  // if the var type is integer or binary
+        { 
+          /* create variable y_j and add it into problem p2 */
+          char yname[SCIP_MAXSTRLEN];
+          (void) SCIPsnprintf(yname, SCIP_MAXSTRLEN, "y_%d", j);
+          SCIP_CALL( SCIPcreateVarBasic(scip, &y[j], yname, 0.0, SCIPinfinity(scip), 1.0, SCIP_VARTYPE_INTEGER) );
+          SCIP_CALL( SCIPaddVar(scip, y[j]) );
+          SCIP_CALL( SCIPprintVar(scip,y[j],NULL));    
+          j++;
+
+          /*  add one constraint to problem p^2 */
+          SCIP_VAR** vars;
+          SCIP_CONS* cons;
+          SCIP_Real* coefs;
+          char ConName[SCIP_MAXSTRLEN];
+          (void) SCIPsnprintf(ConName, SCIP_MAXSTRLEN, "y_%d_1", j);
+
+          vars[1] = y[j];
+          vars[2] = x[i];
+          SCIP_CALL( SCIPallocBufferArray(scip, &coefs, 2) );
+          coefs[0] = -1.0;
+          coefs[1] = 1.0;
+
+          // SCIP_Real v0 = SCIPgetSolVal(scip,sol,x[i]);  // get the value of variable xi in solution s0
+          /* The variable name in scip and sol are not same. see ./build/output 
+             I think this maybe because the sol file contains the transformed variable name */
+
+
+          //  SCIP_CALL( SCIPcreateConsBasicLinear(
+          //      scip,                    /* SCIP data structure */
+          //      &cons,                   /* pointer to hold the created constraint */
+          //      ConName,                 /* name of constraint */
+          //      2,                       /* number of nonzeros in the constraint */
+          //      vars,                    /* array with variables of constraint entries */
+          //      coefs,                   /* array with variables of constraint entries */
+          //      -SCIPinfinity(scip),     /* left hand side of constraint */
+          //      v0                       /* right hand side of constraint */
+          //      ) );  // create a linear constraint
+
+          // /* change the coefficient and add another constraint */
+          // coefs[0] = -1.0;
+          // coefs[1] = -1.0;
+          //  SCIP_CALL( SCIPcreateConsBasicLinear(
+          //      scip,                    /* SCIP data structure */
+          //      &cons,                   /* pointer to hold the created constraint */
+          //      ConName,                 /* name of constraint */
+          //      2,                       /* number of nonzeros in the constraint */
+          //      vars,                    /* array with variables of constraint entries */
+          //      coefs,                   /* array with variables of constraint entries */
+          //      -SCIPinfinity(scip),     /* left hand side of constraint */
+          //      -v0                       /* right hand side of constraint */
+          //      ) );  // create a linear constraint
+
+
+// SCIPgetSolVal   // get the variable value in the solution
+//          
 //           SCIP_CALL( SCIPaddCons(scip, cons) );
 //           SCIP_CALL( SCIPreleaseCons(scip, &cons) );
+        }
+   }
+   SCIPinfoMessage(scip, NULL, "This is the end of test variable y\n");
 
-//            /* release variables */
-//           SCIP_CALL( SCIPreleaseVar(scip, &y) );
 
-//         }
-//    }
 
-     // SCIPaddObjoffset(); add the penalty function to objective
+
+   /************************************
+    * change the objective value *
+    ************************************/
+//    SCIPinfoMessage(scip, NULL, "This is the beginning of the reoptimization process \n");
+     int r = 1;
+     while(alpha > 0 ){
+          alpha = alpha - alpha / k;
+          for (i = 0; i <j; i++)
+          {
+               SCIP_CALL( SCIPchgVarObj(scip,y[i],alpha) );
+          }
+          SCIPinfoMessage(scip, NULL, "This is the %d-th iteration ...\n\n",r);
+          // need to reoptimize the problem
+          //  SCIP_CALL( SCIPsolve(scip) );
+     }
+     
+
+
+
+
+   /************************************
+    * change the objective value *
+    ************************************/
+   // SCIPchgVarObj()
+
+
 
 
    /*******************
@@ -157,6 +229,12 @@ main(
     * Deinitialization *
     ********************/
    /* free SCIP */
+   //            /* release variables */
+//           SCIP_CALL( SCIPreleaseVar(scip, &y) );
+   for( i = j - 1; i >= 0; --i )
+   {
+      SCIP_CALL( SCIPreleaseVar(scip, &y[i]) );
+   }
    SCIP_CALL( SCIPfreeSol(scip,&sol) );
    SCIP_CALL( SCIPfree(&scip) );
    

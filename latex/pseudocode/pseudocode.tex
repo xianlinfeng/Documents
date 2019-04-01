@@ -82,16 +82,19 @@ Lp $relaxation$ is obtained by removing all integrity constraints $ \mathcal{I} 
  		} {
  			$\alpha \longleftarrow k \times c^Ts^0$ \;	 
  			\For{$j$ in $\mathcal{I}$} {  
- 				$\mathcal{P}^2 \longleftarrow $create new variables and add it to  $\mathcal{P}^1$ :  $y_j$ \tcp*[r]{add new variables} 
+ 				$\mathcal{P}^2 \longleftarrow$ create new variables $y_j$ with objective value $\alpha$ and add it to $\mathcal{P}^2$:\; 
+ 				   \tcp*[r]{add new variables} 
  				$\mathcal{P}^2 \longleftarrow $ add new constraints to $\mathcal{P}^2 \text{ : }y_j \geq x_j - s_j^0$ \tcp*[r]{add new constraints}
  				$\mathcal{P}^2 \longleftarrow $ add new constraints to $\mathcal{P}^2 \text{ : } y_j \geq s_j^0 - x_j$\;
- 				$\mathcal{P}^2 \longleftarrow $ add penalty function to $\mathcal{P}^2 \text{ : }\alpha \times y_j$\tcp*[r]{add penalty function} 
+ 				%$\mathcal{P}^2 \longleftarrow $ add penalty function to $\mathcal{P}^2 \text{ : }\alpha \times y_j$\tcp*[r]{add penalty function} 
  			}
  			
  			$r \longleftarrow 1$ \;
- 			\For{$\alpha \geq 0 $}{
+ 			\While{$\alpha > 0 $}{
+ 				$ \alpha \longleftarrow \alpha - \displaystyle{\frac{\alpha}{k}}$\;
+ 				update the variable $y_j$ coefficient\;
+ 				
 				$s^r \longleftarrow \text{ solve } \, \mathcal{P}_r^2$ ($r$-th iteration) to optimal or stop criterion with reoptimization\;
-				$ \alpha \longleftarrow \alpha - \displaystyle{\frac{\alpha}{k}}$\;
 				$ r \longleftarrow r + 1$\;
  				}
  			$s^* \longleftarrow s^r$ \;
