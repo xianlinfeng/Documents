@@ -74,19 +74,20 @@ Lp $relaxation$ is obtained by removing all integrity constraints $ \mathcal{I} 
 \begin{algorithm}[H]
 \SetAlgoLined
 \DontPrintSemicolon
-\KwIn{$k, \,  s^0$ and  $ \mathcal{P}^1$ where $C^0 \subsetneq C^1$}
+\KwIn{$ \mathcal{P}^1$ where $C^0 \subsetneq C^1$ and $\,  s^0$ , $k$}
 \KwOut{ optimal solution $s^* \text{ to } \mathcal{P}^1 $}
 \Begin{
 	\eIf{$s^0\text{ is feasible to }\mathcal{P}^1$}{
 			\textbf{return} $s^0$\;
  		} {
- 			$\alpha \longleftarrow k \times c^Ts^0$ \;	
- 			create new variables $y$ where $y_j \in \mathbb{Z},\, \forall j \in \mathcal{I}$ \tcp*[r]{add new variables} 
+ 			$\alpha \longleftarrow k \times c^Ts^0$ \;	 
  			\For{$j$ in $\mathcal{I}$} {  
- 				$\mathcal{P}^2 \longleftarrow $ add constraints to $\mathcal{P}^1 \text{ : }y_j \geq x_j - s_j^0$ \tcp*[r]{add new constraints}
- 				$\mathcal{P}^2 \longleftarrow $ add constraints to $\mathcal{P}^2 \text{ : } y_j \geq s_j^0 - x_j$\;
+ 				$\mathcal{P}^2 \longleftarrow $create new variables and add it to  $\mathcal{P}^1$ :  $y_j$ \tcp*[r]{add new variables} 
+ 				$\mathcal{P}^2 \longleftarrow $ add new constraints to $\mathcal{P}^2 \text{ : }y_j \geq x_j - s_j^0$ \tcp*[r]{add new constraints}
+ 				$\mathcal{P}^2 \longleftarrow $ add new constraints to $\mathcal{P}^2 \text{ : } y_j \geq s_j^0 - x_j$\;
+ 				$\mathcal{P}^2 \longleftarrow $ add penalty function to $\mathcal{P}^2 \text{ : }\alpha \times y_j$\tcp*[r]{add penalty function} 
  			}
- 			add penalty function to $\mathcal{P}^2$ : $ \alpha \times \sum \limits_j y_j \,, \,j\, \in\, \mathcal{I}$ \tcp*[r]{add penalty function} 
+ 			
  			$r \longleftarrow 1$ \;
  			\For{$\alpha \geq 0 $}{
 				$s^r \longleftarrow \text{ solve } \, \mathcal{P}_r^2$ ($r$-th iteration) to optimal or stop criterion with reoptimization\;

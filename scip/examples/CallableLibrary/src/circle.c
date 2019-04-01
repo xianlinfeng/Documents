@@ -84,7 +84,7 @@ SCIP_RETCODE setupProblem(
       xy[1] = -SCIPrandomGetReal(randnumgen, 1.0, 10.0);
 
       (void) SCIPsnprintf(name, SCIP_MAXSTRLEN, "point%d", i);
-      SCIP_CALL( SCIPcreateConsBasicSOC(scip, &cons, name, 2, ab, NULL, xy, 0.0, r, 1.0, 0.0) );
+      SCIP_CALL( SCIPcreateConsBasicSOC(scip, &cons, name, 2, ab, NULL, xy, 0.0, r, 1.0, 0.0) );  // create a linear constraint
       SCIP_CALL( SCIPaddCons(scip, cons) );
       SCIP_CALL( SCIPreleaseCons(scip, &cons) );
    }
