@@ -1,0 +1,1 @@
+/usr/bin/cc   -rdynamic CMakeFiles/reoptimization.dir/src/cmain.c.o  -o reoptimization -Wl,-rpath,/usr/local/lib /usr/local/lib/libscip.so.6.0.1.0 -lm 

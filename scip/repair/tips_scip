@@ -34,6 +34,8 @@
 Questions:
 1. How to assign value to a varialbe.
 2. How to compare the values of two variables.
-
+3. after create and add variables y into problem, should I use y, or read y from variables.
+4. what is the different between objective and coefficient? and LHS, RHS.
+5. the Pointer and array in C need allocate memory before use them? 
 
 
