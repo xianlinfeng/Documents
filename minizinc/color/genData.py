@@ -2,7 +2,7 @@
 
 import random
 
-V = 20
+V = 50
 
 start = "E = ["
 end = "|];"

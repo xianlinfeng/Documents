@@ -3,17 +3,15 @@
 
 int main(
     int argc,
-    char** argv
-)
+    char **argv)
 {
-    int a = 100;
-    int b = 101;
-    int **p;
-    // p = (int *)malloc( 2 * sizeof(int) );
-    p[0] = &a;
-    p[1] = &b;
-
-    printf("%d\n",*p[0]);
-
+    int j = 0;
+    int n = 10;
+    for (int i = 0; i < n; i++)
+    {
+        printf("The value of i is %d\n", i);
+        j++;
+    }
+    printf("The value of j is %d \n", j);
     return 0;
 }
