@@ -1,0 +1,2 @@
+make 
+./reoptimization mas76.lp 3

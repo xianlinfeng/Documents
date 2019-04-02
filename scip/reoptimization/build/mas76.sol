@@ -1,0 +1,18 @@
+solution status: optimal solution found
+objective value:                     38378.4543767001
+x10                                                 1 	(obj:1e-05)
+x27                                                 1 	(obj:1e-05)
+x49                                                 1 	(obj:1e-05)
+x60                                                 1 	(obj:1e-05)
+x65                                                 1 	(obj:1e-05)
+x80                                                 1 	(obj:1e-05)
+x84                                                 1 	(obj:1e-05)
+x86                                                 1 	(obj:1e-05)
+x94                                                 1 	(obj:1e-05)
+x111                                                1 	(obj:1e-05)
+x114                                                1 	(obj:1e-05)
+x120                                                1 	(obj:1e-05)
+x124                                                1 	(obj:1e-05)
+x129                                                1 	(obj:1e-05)
+x150                                                1 	(obj:1e-05)
+x151                                 38378.4542267001 	(obj:1)
