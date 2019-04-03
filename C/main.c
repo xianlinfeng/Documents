@@ -3,8 +3,12 @@
 // #include "one.h"
 int main()
 {
-    int x = 63;
-    printf("%d\n",x );
+    int sum;
+    for (int i = 0; i < 100; i++)
+    {
+        sum += i;
+        printf("The value of i is %d \n ", i);
+    }
     printf("Hello world!\n");
     return 0;
 }

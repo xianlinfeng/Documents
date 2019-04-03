@@ -1,0 +1,1 @@
+/usr/bin/cc   -rdynamic CMakeFiles/FIRSTIP.dir/src/cmain.c.o  -o FIRSTIP 
