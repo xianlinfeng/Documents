@@ -1,2 +1,3 @@
+cmake
 make 
-./reoptimization mas76.lp 3
+./reoptimization cats1658.lp 3

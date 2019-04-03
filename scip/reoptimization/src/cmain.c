@@ -79,10 +79,11 @@ int main(
    SCIPinfoMessage(scip, NULL, "Reoptimization parameter have been setted ! \n\n");
 
    /* stop criterion for solving process */
-   SCIP_CALL(SCIPsetLongintParam(scip, "limits/nodes", 999));
+   // SCIP_CALL(SCIPsetLongintParam(scip, "limits/nodes", 500));
    // solving stops, if the given number of nodes was processed since the last improvement of the primal solution value
-   SCIP_CALL(SCIPsetLongintParam(scip, "limits/stallnodes", 500));
-   SCIP_CALL(SCIPsetRealParam(scip, "limits/time", 30.0));
+   // SCIP_CALL(SCIPsetLongintParam(scip, "limits/stallnodes", 300));
+   // SCIP_CALL(SCIPsetRealParam(scip, "limits/time", 10.0));
+   SCIP_CALL(SCIPsetRealParam(scip, "limits/gap", 0.5));
    SCIPinfoMessage(scip, NULL, "Stop parameter have been setted ! \n\n");
 
    /* get objective sense */
@@ -101,25 +102,28 @@ int main(
       /* solve the problem first */
       SCIP_CALL(SCIPsolve(scip));
       SCIP_CALL(SCIPfreeReoptSolve(scip));
-      for (int i = 130; i < n; i++)
+      for (int i = 900; i < n; i++)
       {
-         coefs[i] = alpha;
+         coefs[i] = alpha * 500;
       }
       SCIPinfoMessage(scip, NULL, "Coefs have been resetted!! \n\n");
       SCIP_CALL(SCIPchgReoptObjective(scip, sense, vars, coefs, n));
       SCIPinfoMessage(scip, NULL, "Problem have been changed !! \n\n");
-      SCIP_CALL(SCIPprintOrigProblem(scip, NULL, NULL, TRUE));
+      // SCIP_CALL(SCIPprintOrigProblem(scip, NULL, NULL, TRUE));
       alpha--;
       r++;
-   } while (alpha >= 1);
+   } while (alpha >= 0);
 
    /**************************************************
    * restore the limits and solve the last iteration *
    ***************************************************/
-   SCIP_CALL(SCIPsetLongintParam(scip, "limits/nodes", -1));
-   SCIP_CALL(SCIPsetLongintParam(scip, "limits/stallnodes", -1));
-   SCIP_CALL(SCIPsetRealParam(scip, "limits/time", 40));
+   SCIPinfoMessage(scip, NULL, "This is the last iteration \n\n\n");
+   // SCIP_CALL(SCIPsetLongintParam(scip, "limits/nodes", -1));
+   // SCIP_CALL(SCIPsetLongintParam(scip, "limits/stallnodes", -1));
+   // SCIP_CALL(SCIPsetRealParam(scip, "limits/time", 10000));
+   SCIP_CALL(SCIPsetRealParam(scip, "limits/gap", 0.0));
    /* solve the IP */
+   // SCIP_CALL(SCIPprintOrigProblem(scip, NULL, NULL, TRUE)); // print the last problem
    SCIP_CALL(SCIPsolve(scip));
 
    /* print best solution */

@@ -97,7 +97,6 @@ int main(
    SCIP_VAR **x;
    SCIP_VAR **y;
    int n = SCIPgetNVars(scip); //get the number of variables
-   int i;
 
    printf("No. of variables is %d\n\n", n);
 
@@ -119,19 +118,19 @@ int main(
    SCIP_CALL(SCIPallocBufferArray(scip, &y, n));
 
    SCIPinfoMessage(scip, NULL, "Start to add variable y and new constraints \n\n");
-
+   int i;
    int j = 0;
    for (i = 0; i < n; ++i)
    {
       if (SCIPvarGetType(x[i]) == SCIP_VARTYPE_INTEGER || SCIPvarGetType(x[i]) == SCIP_VARTYPE_BINARY) // if the var type is integer or binary
       {                                                                                                // SCIP_CALL(SCIPprintVar(scip, x[i], NULL));
-         // printf("i %d, status %d, %s\n", i, SCIPvarGetStatus(x[i]), SCIPvarGetName(x[i]));
+         printf("i %d, status %d, %s\n", i, SCIPvarGetStatus(x[i]), SCIPvarGetName(x[i]));
          /* create variable y_j and add it into problem p2 */
          char yname[SCIP_MAXSTRLEN];
          (void)SCIPsnprintf(yname, SCIP_MAXSTRLEN, "y%d", j);
          SCIP_CALL(SCIPcreateVarBasic(scip, &y[j], yname, 0.0, SCIPinfinity(scip), alpha, SCIP_VARTYPE_CONTINUOUS)); // yj is continuous so scip won't branch on y
          SCIP_CALL(SCIPaddVar(scip, y[j]));
-         // SCIP_CALL(SCIPprintVar(scip, y[j], NULL));  // print the variable y
+         SCIP_CALL(SCIPprintVar(scip, y[j], NULL)); // print the variable y
 
          /*  add one constraint to problem p^2 */
          SCIP_CONS *cons;
@@ -153,9 +152,9 @@ int main(
              -SCIPinfinity(scip), /* left hand side of constraint */
              varValue             /* right hand side of constraint */
              ));                  // create a linear constraint
-         // SCIPinfoMessage(scip, NULL, "End of create constraint  \n\n");
          /* add constraint to SCIP */
          SCIP_CALL(SCIPaddCons(scip, cons));
+         SCIPinfoMessage(scip, NULL, "The first constraint is added!!  \n");
 
          // /* change the coefficient and add another constraint */
          (void)SCIPsnprintf(ConName, SCIP_MAXSTRLEN, "y%d_2", j);
@@ -172,20 +171,23 @@ int main(
              ));                  // create a linear constraint
          /* add constraint to SCIP */
          SCIP_CALL(SCIPaddCons(scip, cons));
+         SCIPinfoMessage(scip, NULL, "The seconde= constraint is added!!  \n\n");
 
          /* release constraint (if not needed anymore) */
+         SCIP_CALL(SCIPreleaseVar(scip, vars));
          SCIP_CALL(SCIPreleaseCons(scip, &cons));
          j++;
       }
    }
    j--;
+
    /* after add y and constraints into the problem */
    /*******************
     * print variables *
     *******************/
-   // n = SCIPgetNVars(scip);
+   n = SCIPgetNVars(scip);
    // x = SCIPgetVars(scip);
-   // SCIPinfoMessage(scip, NULL, "New, No. of variables is %d\n\n ", n);
+   SCIPinfoMessage(scip, NULL, "New, No. of variables is %d\n\n ", n);
    // for (i = 0; i < n; i++)
    // {
    //    SCIP_CALL(SCIPprintVar(scip, x[i], NULL));
@@ -206,12 +208,12 @@ int main(
    /************************
     * print the problem *
     *************************/
-   // SCIP_CALL(SCIPprintOrigProblem(scip, NULL, NULL, FALSE));
+   SCIP_CALL(SCIPprintOrigProblem(scip, NULL, NULL, FALSE));
 
    /*************************************************
     * write the problem to a file  *
     *************************************************/
-   SCIP_CALL(SCIPwriteOrigProblem(scip, "newbell5.lp", "lp", FALSE));
+   // SCIP_CALL(SCIPwriteOrigProblem(scip, "newbell5.lp", "lp", FALSE));
 
    // SCIP_CALL(SCIPprintOrigProblem(scip, NULL, NULL, FALSE));  // print the problem
 
@@ -255,11 +257,13 @@ int main(
    /**********************
     * Solve the problem  *
     **********************/
+   /* change the stop criterion */
+   SCIP_CALL(SCIPsetRealParam(scip, "limits/gap", 0.8));
    /* solve the IP */
    SCIP_CALL(SCIPsolve(scip));
 
    /* print best solution */
-   SCIP_CALL(SCIPprintBestSol(scip, NULL, TRUE));
+   // SCIP_CALL(SCIPprintBestSol(scip, NULL, TRUE));
 
    /**************
     * Statistics *
@@ -274,14 +278,26 @@ int main(
     ********************/
    /* free SCIP */
    /* release variables */
-   x = SCIPgetVars(scip);
-   for (i = n - 1; i >= 0; i--)
+   i = j;
+   while (i <= 0)
    {
-      // SCIP_CALL(SCIPprintVar(scip, x[i], NULL));
-      SCIP_CALL(SCIPreleaseVar(scip, &x[i]));
+      SCIP_CALL(SCIPreleaseVar(scip, &y[i]));
+      i--;
    }
+   i = n;
+   while (i <= 0)
+   {
+      SCIP_CALL(SCIPreleaseVar(scip, &x[i]));
+      i--;
+   }
+   // x = SCIPgetVars(scip);
+   // for (i = n - 1; i >= 0; i--)
+   // {
+   //    // SCIP_CALL(SCIPprintVar(scip, x[i], NULL));
+   //    SCIP_CALL(SCIPreleaseVar(scip, &x[i]));
+   // }
    SCIP_CALL(SCIPfreeSol(scip, &sol));
-   // SCIP_CALL(SCIPfree(&scip));
+   SCIP_CALL(SCIPfree(&scip));
 
    /* check block memory */
    BMScheckEmptyMemory();
