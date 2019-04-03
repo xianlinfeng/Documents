@@ -89,7 +89,7 @@ int main(
    /* get objective sense */
    SCIP_OBJSENSE sense = SCIPgetObjsense(scip);
    SCIP_Real *coefs;
-   SCIP_CALL(SCIPallocBufferArray(scip, &coefs, n));
+   SCIP_CALL(SCIPallocMemoryArray(scip, &coefs, n));
    for (int i = 0; i < n; i++)
    {
       coefs[i] = SCIPvarGetObj(vars[i]);

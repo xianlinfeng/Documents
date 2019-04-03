@@ -115,12 +115,12 @@ int main(
    // SCIP_CALL(SCIPprintCons(scip, *conss, NULL));
 
    /* allocate array to store variables*/
-   SCIP_CALL(SCIPallocBufferArray(scip, &y, n));
+   SCIP_CALL(SCIPallocMemoryArray(scip, &y, n));
 
    SCIPinfoMessage(scip, NULL, "Start to add variable y and new constraints \n\n");
    int i;
    int j = 0;
-   for (i = 0; i < n; ++i)
+   for (i = 0; i < n; i++)
    {
       if (SCIPvarGetType(x[i]) == SCIP_VARTYPE_INTEGER || SCIPvarGetType(x[i]) == SCIP_VARTYPE_BINARY) // if the var type is integer or binary
       {                                                                                                // SCIP_CALL(SCIPprintVar(scip, x[i], NULL));
@@ -130,7 +130,7 @@ int main(
          (void)SCIPsnprintf(yname, SCIP_MAXSTRLEN, "y%d", j);
          SCIP_CALL(SCIPcreateVarBasic(scip, &y[j], yname, 0.0, SCIPinfinity(scip), alpha, SCIP_VARTYPE_CONTINUOUS)); // yj is continuous so scip won't branch on y
          SCIP_CALL(SCIPaddVar(scip, y[j]));
-         SCIP_CALL(SCIPprintVar(scip, y[j], NULL)); // print the variable y
+         // SCIP_CALL(SCIPprintVar(scip, y[j], NULL)); // print the variable y
 
          /*  add one constraint to problem p^2 */
          SCIP_CONS *cons;
@@ -174,20 +174,20 @@ int main(
          SCIPinfoMessage(scip, NULL, "The seconde= constraint is added!!  \n\n");
 
          /* release constraint (if not needed anymore) */
-         SCIP_CALL(SCIPreleaseVar(scip, vars));
+         SCIP_CALL(SCIPreleaseVar(scip, &vars[0]));
+         SCIP_CALL(SCIPreleaseVar(scip, &vars[1]));
          SCIP_CALL(SCIPreleaseCons(scip, &cons));
          j++;
       }
    }
-   j--;
 
    /* after add y and constraints into the problem */
    /*******************
     * print variables *
     *******************/
-   n = SCIPgetNVars(scip);
+   // n = SCIPgetNVars(scip);
    // x = SCIPgetVars(scip);
-   SCIPinfoMessage(scip, NULL, "New, No. of variables is %d\n\n ", n);
+   // SCIPinfoMessage(scip, NULL, "New, No. of variables is %d\n\n ", n);
    // for (i = 0; i < n; i++)
    // {
    //    SCIP_CALL(SCIPprintVar(scip, x[i], NULL));
@@ -258,44 +258,29 @@ int main(
     * Solve the problem  *
     **********************/
    /* change the stop criterion */
-   SCIP_CALL(SCIPsetRealParam(scip, "limits/gap", 0.8));
+   SCIP_CALL(SCIPsetRealParam(scip, "limits/gap", 0.1));
    /* solve the IP */
    SCIP_CALL(SCIPsolve(scip));
 
    /* print best solution */
    // SCIP_CALL(SCIPprintBestSol(scip, NULL, TRUE));
 
-   /**************
-    * Statistics *
-    **************/
-   // SCIPinfoMessage(scip, NULL, "Statistics:\n");
-   // SCIP_CALL( SCIPprintStatistics(scip, NULL) );
-
+   /******************
+    * check solution *
+    ******************/
    // set/checksol    to double check the solution to the original problem
 
    /********************
     * Deinitialization *
     ********************/
-   /* free SCIP */
    /* release variables */
-   i = j;
-   while (i <= 0)
+   for (i = 0; i < j; i++)
    {
+      // SCIP_CALL(SCIPprintVar(scip, y[i], NULL));
       SCIP_CALL(SCIPreleaseVar(scip, &y[i]));
-      i--;
    }
-   i = n;
-   while (i <= 0)
-   {
-      SCIP_CALL(SCIPreleaseVar(scip, &x[i]));
-      i--;
-   }
-   // x = SCIPgetVars(scip);
-   // for (i = n - 1; i >= 0; i--)
-   // {
-   //    // SCIP_CALL(SCIPprintVar(scip, x[i], NULL));
-   //    SCIP_CALL(SCIPreleaseVar(scip, &x[i]));
-   // }
+
+   /* free sol and SCIP */
    SCIP_CALL(SCIPfreeSol(scip, &sol));
    SCIP_CALL(SCIPfree(&scip));
 

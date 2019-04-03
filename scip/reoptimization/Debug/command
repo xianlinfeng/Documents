@@ -1,0 +1,2 @@
+make 
+gdb --args ./reoptimization ../build/cats1658.lp 3

@@ -132,6 +132,9 @@ CMAKE_OBJCOPY:FILEPATH=/usr/bin/objcopy
 //Path to a program.
 CMAKE_OBJDUMP:FILEPATH=/usr/bin/objdump
 
+//No help, variable specified on the command line.
+CMAKE_PREFIX_PATH:UNINITIALIZED=~/scip_installation/Release/
+
 //Value Computed by CMake
 CMAKE_PROJECT_NAME:STATIC=Repair
 
@@ -201,7 +204,7 @@ Repair_BINARY_DIR:STATIC=/home/arthur/Documents/scip/repair/build
 Repair_SOURCE_DIR:STATIC=/home/arthur/Documents/scip/repair
 
 //The directory containing a CMake configuration file for SCIP.
-SCIP_DIR:PATH=/usr/local/lib/cmake/scip
+SCIP_DIR:PATH=/home/arthur/scip_installation/Release/lib/cmake/scip
 
 
 ########################
@@ -215,9 +218,9 @@ CMAKE_CACHEFILE_DIR:INTERNAL=/home/arthur/Documents/scip/repair/build
 //Major version of cmake used to create the current loaded cache
 CMAKE_CACHE_MAJOR_VERSION:INTERNAL=3
 //Minor version of cmake used to create the current loaded cache
-CMAKE_CACHE_MINOR_VERSION:INTERNAL=12
+CMAKE_CACHE_MINOR_VERSION:INTERNAL=10
 //Patch version of cmake used to create the current loaded cache
-CMAKE_CACHE_PATCH_VERSION:INTERNAL=1
+CMAKE_CACHE_PATCH_VERSION:INTERNAL=2
 //ADVANCED property for variable: CMAKE_COLOR_MAKEFILE
 CMAKE_COLOR_MAKEFILE-ADVANCED:INTERNAL=1
 //Path to CMake executable.
@@ -314,7 +317,7 @@ CMAKE_PLATFORM_INFO_INITIALIZED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_RANLIB
 CMAKE_RANLIB-ADVANCED:INTERNAL=1
 //Path to CMake installation.
-CMAKE_ROOT:INTERNAL=/usr/share/cmake-3.12
+CMAKE_ROOT:INTERNAL=/usr/share/cmake-3.10
 //ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS
 CMAKE_SHARED_LINKER_FLAGS-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS_DEBUG

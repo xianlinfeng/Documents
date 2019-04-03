@@ -1,3 +1,3 @@
-cmake ..
+cmake -DCMAKE_PREFIX_PATH=~/scip_installation/Release/ ..
 make 
 ./repair bell5.lp bell5.sol 10
