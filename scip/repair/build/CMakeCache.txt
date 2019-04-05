@@ -128,6 +128,9 @@ CMAKE_OBJCOPY:FILEPATH=/usr/bin/objcopy
 //Path to a program.
 CMAKE_OBJDUMP:FILEPATH=/usr/bin/objdump
 
+//No help, variable specified on the command line.
+CMAKE_PREFIX_PATH:UNINITIALIZED=~/scip_installation/Release/
+
 //Value Computed by CMake
 CMAKE_PROJECT_NAME:STATIC=Repair
 
@@ -187,7 +190,7 @@ Repair_BINARY_DIR:STATIC=/home/arthur/Documents/scip/repair/build
 Repair_SOURCE_DIR:STATIC=/home/arthur/Documents/scip/repair
 
 //The directory containing a CMake configuration file for SCIP.
-SCIP_DIR:PATH=SCIP_DIR-NOTFOUND
+SCIP_DIR:PATH=/home/arthur/scip_installation/Release/lib/cmake/scip
 
 
 ########################

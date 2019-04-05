@@ -1,2 +1,2 @@
-cmake ..
+cmake -DCMAKE_PREFIX_PATH=~/scip_installation/Release/ ..
 make 

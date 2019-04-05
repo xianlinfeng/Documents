@@ -8,8 +8,11 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/repair",
-            "args": [],
+            "program": "${workspaceFolder}/Debug/reoptimization",
+            "args": [
+                "cats1658.lp",
+                "3"
+            ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],
@@ -22,7 +25,8 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            // "preLaunchTask": "make"
         }
     ]
 }

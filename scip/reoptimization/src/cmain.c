@@ -12,8 +12,8 @@
 
 /** main method */
 int main(
-    int argc,   /**< number of arguments from the shell */
-    char **argv /**< array of shell arguments */
+    int argc,    /**< number of arguments from the shell */
+    char *argv[] /**< array of shell arguments */
 )
 {
    SCIP *scip = NULL;
@@ -83,7 +83,7 @@ int main(
    // solving stops, if the given number of nodes was processed since the last improvement of the primal solution value
    // SCIP_CALL(SCIPsetLongintParam(scip, "limits/stallnodes", 300));
    // SCIP_CALL(SCIPsetRealParam(scip, "limits/time", 10.0));
-   SCIP_CALL(SCIPsetRealParam(scip, "limits/gap", 0.5));
+   SCIP_CALL(SCIPsetRealParam(scip, "limits/gap", 0.7));
    SCIPinfoMessage(scip, NULL, "Stop parameter have been setted ! \n\n");
 
    /* get objective sense */

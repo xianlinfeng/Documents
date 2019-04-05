@@ -8,8 +8,12 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/repair",
-            "args": [],
+            "program": "${workspaceFolder}/Debug/repair",
+            "args": [
+                "/build/bell5.lp",
+                "bell5.sol",
+                "10"
+            ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],
@@ -22,7 +26,8 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "preLaunchTask": "make"
         }
     ]
 }

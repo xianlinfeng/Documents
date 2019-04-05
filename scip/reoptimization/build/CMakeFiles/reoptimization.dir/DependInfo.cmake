@@ -10,8 +10,8 @@ set(CMAKE_C_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH
-  "/usr/local/lib/cmake/scip/../../../include"
-  "/usr/local/include"
+  "/home/arthur/scip_installation/Release/lib/cmake/scip/../../../include"
+  "/home/arthur/scip_installation/Release/include"
   )
 
 # Targets to which this target links.

@@ -2,12 +2,14 @@
 cmake .. -DSOPLEX_DIR=~/Downloads/scipoptsuite-6.0.1/soplex/build -DCMAKE_INSTALL_PREFIX=~/scip_installation/Release -DCMAKE_BUILD_TYPE=Debug
 cmake .. -DSOPLEX_DIR=~/Downloads/scipoptsuite-6.0.1/soplex/build -DCMAKE_INSTALL_PREFIX=~/scip_installation/Release
 
-1. cmake application in Debug model
+1. cmake Code in Debug model
 cmake -DCMAKE_PREFIX_PATH=~/scip_installation/Debug/ -DCMAKE_BUILD_TYPE=Debug ..
 Debug the code:  gdb --args ./reoptimization ../build/cats1658.lp 3
 
-2. cmake scip in  Release model
+2. cmake Code in  Release model
 cmake -DCMAKE_PREFIX_PATH=~/scip_installation/Release/ .. 
+
+
 
 
 3. memory management

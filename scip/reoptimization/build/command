@@ -1,3 +1,2 @@
-cmake
 make 
 ./reoptimization cats1658.lp 3

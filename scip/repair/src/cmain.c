@@ -21,7 +21,7 @@ int main(
 
    if (argc != 4)
    {
-      printf("There must exist 3 arguments:\"solution s^0\", \" new problem p^1\", and a integer number k \n\n");
+      printf("There must exist 3 arguments:\"Problem p^0\", \" solution s^1\", and a integer number k \n\n");
       return 1;
    }
 
@@ -81,14 +81,9 @@ int main(
    /**************
     * Create alpha *
     **************/
-   SCIP_Real obj0 = 0;
-   SCIP_Real alpha = 0;
+   SCIP_Real alpha = SCIPsolGetOrigObj(sol);
    int k = atoi(argv[3]);
    printf("the value k is %d\n", k);
-   obj0 = SCIPsolGetOrigObj(sol);
-   SCIPinfoMessage(scip, NULL, "The objective value of solution <%s>  is %f \n", argv[2], obj0);
-   /* is there multiplication in scip?  */
-   alpha = obj0 * k;
    SCIPinfoMessage(scip, NULL, "The value of alpha is %f \n\n", alpha);
 
    /************************************
@@ -96,39 +91,26 @@ int main(
     ************************************/
    SCIP_VAR **x;
    SCIP_VAR **y;
+   /* get the number of the variables in scip */
    int n = SCIPgetNVars(scip); //get the number of variables
-
+   x = SCIPgetVars(scip);      // get the variables
    printf("No. of variables is %d\n\n", n);
-
-   x = SCIPgetVars(scip); // get the variables
-
-   // for (i = 0; i < n; i++)
-   // {
-   //    SCIP_CALL(SCIPprintVar(scip, x[i], NULL)); // print the variables x
-   // }
-
-   // SCIP_CALL(SCIPprintSol(scip, sol, NULL, FALSE));
-
-   /* print the constraints */
-   // SCIP_CONS **conss;
-   // conss = SCIPgetConss(scip);
-   // SCIP_CALL(SCIPprintCons(scip, *conss, NULL));
 
    /* allocate array to store variables*/
    SCIP_CALL(SCIPallocMemoryArray(scip, &y, n));
 
    SCIPinfoMessage(scip, NULL, "Start to add variable y and new constraints \n\n");
-   int i;
    int j = 0;
-   for (i = 0; i < n; i++)
+   for (int i = 0; i < n; i++)
    {
+      // printf("i %d, status %d, %s\n", i, SCIPvarGetStatus(x[i]), SCIPvarGetName(x[i]));
       if (SCIPvarGetType(x[i]) == SCIP_VARTYPE_INTEGER || SCIPvarGetType(x[i]) == SCIP_VARTYPE_BINARY) // if the var type is integer or binary
       {                                                                                                // SCIP_CALL(SCIPprintVar(scip, x[i], NULL));
-         printf("i %d, status %d, %s\n", i, SCIPvarGetStatus(x[i]), SCIPvarGetName(x[i]));
          /* create variable y_j and add it into problem p2 */
          char yname[SCIP_MAXSTRLEN];
          (void)SCIPsnprintf(yname, SCIP_MAXSTRLEN, "y%d", j);
-         SCIP_CALL(SCIPcreateVarBasic(scip, &y[j], yname, 0.0, SCIPinfinity(scip), alpha, SCIP_VARTYPE_CONTINUOUS)); // yj is continuous so scip won't branch on y
+         SCIP_CALL(SCIPcreateVarBasic(scip, &y[j], yname, 0.0, SCIPinfinity(scip), alpha, SCIP_VARTYPE_CONTINUOUS));
+         // yj is continuous so scip won't branch on y
          SCIP_CALL(SCIPaddVar(scip, y[j]));
          // SCIP_CALL(SCIPprintVar(scip, y[j], NULL)); // print the variable y
 
@@ -154,7 +136,7 @@ int main(
              ));                  // create a linear constraint
          /* add constraint to SCIP */
          SCIP_CALL(SCIPaddCons(scip, cons));
-         SCIPinfoMessage(scip, NULL, "The first constraint is added!!  \n");
+         // SCIPinfoMessage(scip, NULL, "The first constraint is added!!  \n");
 
          // /* change the coefficient and add another constraint */
          (void)SCIPsnprintf(ConName, SCIP_MAXSTRLEN, "y%d_2", j);
@@ -171,7 +153,7 @@ int main(
              ));                  // create a linear constraint
          /* add constraint to SCIP */
          SCIP_CALL(SCIPaddCons(scip, cons));
-         SCIPinfoMessage(scip, NULL, "The seconde= constraint is added!!  \n\n");
+         // SCIPinfoMessage(scip, NULL, "The seconde= constraint is added!!  \n\n");
 
          /* release constraint (if not needed anymore) */
          SCIP_CALL(SCIPreleaseVar(scip, &vars[0]));
@@ -181,17 +163,22 @@ int main(
       }
    }
 
+   SCIPinfoMessage(scip, NULL, "Finish to create the y and constraint ! \n\n");
+   SCIPinfoMessage(scip, NULL, "n = %d,  j = %d ! \n\n", n, j);
+   /* release the variables y */
+   for (int i = j - 1; i >= 0; --i)
+   {
+      SCIP_CALL(SCIPreleaseVar(scip, &y[i]));
+   }
+
+   SCIPinfoMessage(scip, NULL, "variables have been released ! \n\n");
    /* after add y and constraints into the problem */
    /*******************
     * print variables *
     *******************/
    // n = SCIPgetNVars(scip);
-   // x = SCIPgetVars(scip);
    // SCIPinfoMessage(scip, NULL, "New, No. of variables is %d\n\n ", n);
-   // for (i = 0; i < n; i++)
-   // {
-   //    SCIP_CALL(SCIPprintVar(scip, x[i], NULL));
-   // }
+   // x = SCIPgetVars(scip);
 
    /************************
     * print the constraints *
@@ -215,74 +202,115 @@ int main(
     *************************************************/
    // SCIP_CALL(SCIPwriteOrigProblem(scip, "newbell5.lp", "lp", FALSE));
 
-   // SCIP_CALL(SCIPprintOrigProblem(scip, NULL, NULL, FALSE));  // print the problem
+   /************************************
+   * Set up reoptimize parameters *
+   ************************************/
+   SCIPinfoMessage(scip, NULL, "set all parameters to default! \n\n");
+   SCIP_CALL(SCIPresetParams(scip));
 
-   //    SCIPinfoMessage(scip, NULL, "This is the end of test variable y\n");
-
-   //    /************************************
-   //     * reoptimize the problem  *
-   //     ************************************/
-   //   SCIPinfoMessage(scip, NULL, "This is the beginning of the reoptimization process \n");
-   //   /* enable reoptimization */
-   //   SCIP_CALL(  SCIPenableReoptimization(scip,TRUE) );
+   /* enable reoptimization */
+   SCIP_CALL(SCIPenableReoptimization(scip, TRUE));
+   SCIPinfoMessage(scip, NULL, "Reoptimization is enabled! \n\n");
 
    /* thresholds to trigger a restart from scratch */
-   //   SCIP_CALL( SCIPsetIntParam(scip, "reoptimization/advanced/maxsavednodes", 2147483647) );
-   //   SCIP_CALL( SCIPsetIntParam(scip, "reoptimization/advanced/delay",-1));
-   //   SCIP_CALL( SCIPsetIntParam(scip, "reoptimization/advanced/forceheurrestart",5));
+   SCIP_CALL(SCIPsetIntParam(scip, "reoptimization/maxsavednodes", 2147483647));
+   SCIP_CALL(SCIPsetRealParam(scip, "reoptimization/delay", -1));
+   SCIP_CALL(SCIPsetIntParam(scip, "reoptimization/forceheurrestart", 3));
+   SCIPinfoMessage(scip, NULL, "Reoptimization parameter have been setted ! \n\n");
 
    /* stop criterion for solving process */
-   //   SCIP_CALL( SCIPsetIntParam(scip, "limits/node", 99999) );
-   //   SCIP_CALL( SCIPsetIntParam(scip, "limits/stallnodes", 2000) );
-   //   SCIP_CALL( SCIPsetIntParam(scip, "limits/time", 120) );
+   // SCIP_CALL(SCIPsetLongintParam(scip, "limits/nodes", 500));
+   // solving stops, if the given number of nodes was processed since the last improvement of the primal solution value
+   // SCIP_CALL(SCIPsetLongintParam(scip, "limits/stallnodes", 300));
+   // SCIP_CALL(SCIPsetRealParam(scip, "limits/time", 10.0));
+   SCIP_CALL(SCIPsetRealParam(scip, "limits/gap", 0.5));
+   SCIPinfoMessage(scip, NULL, "Stop parameter have been setted ! \n\n");
 
-   //      int r = 1;
-   //   while(alpha > 0 ){
-   //        alpha = alpha - alpha / k;
-   //        for (i = 0; i <j ; i++)
-   //        {
-   //             SCIP_CALL( SCIPchgVarObj(scip,y[i],alpha) );   // should I read the variables from problem again?
-   //        }
-   //        SCIPinfoMessage(scip, NULL, "This is the %d-th iteration ...\n\n",r);
+   /* get objective sense */
+   SCIP_OBJSENSE sense = SCIPgetObjsense(scip);
+   SCIP_Real *coefs;
+   SCIP_CALL(SCIPallocMemoryArray(scip, &coefs, n + j));
 
-   /* change objective */
-   // SCIPchgVarObj()
-   //  for( i=0;i<j;i++)
-   //  {
-   //       SCIP_CALL( SCIPchgVarObj(scip,y[i],alpha) );
-   //  }
-   //   SCIP_CALL( SCIPsolve(scip) );
-   // }
+   SCIPinfoMessage(scip, NULL, "Memory for coefs have allocated ! \n\n");
+   SCIPinfoMessage(scip, NULL, "n = %d,  j = %d ! \n\n", n, j);
+   n = SCIPgetNVars(scip); //get the number of variables
+   x = SCIPgetVars(scip);  // get the variables
+   for (int i = 0; i < n; i++)
+   {
+      SCIP_CALL(SCIPprintVar(scip, x[i], NULL));
+      coefs[i] = SCIPvarGetObj(x[i]);
+      SCIPinfoMessage(scip, NULL, "The variable x%d coefficient is %f ! \n", i, coefs[i]);
+   }
 
-   /**********************
-    * Solve the problem  *
-    **********************/
-   /* change the stop criterion */
-   SCIP_CALL(SCIPsetRealParam(scip, "limits/gap", 0.1));
+   SCIPinfoMessage(scip, NULL, "Coefficients have been captured ! \n\n");
+
+   /************************************
+   * Reoptimization iteration begins   *
+   ************************************/
+   int r = 1;
+   do
+   {
+      SCIPinfoMessage(scip, NULL, "alpha = %f, n = %d, j = %d, ! \n", alpha, n, j);
+      SCIPinfoMessage(scip, NULL, "This is the %d-th iteration ! \n\n", r);
+      /* solve the problem first */
+      SCIP_CALL(SCIPsolve(scip));
+      SCIP_CALL(SCIPfreeReoptSolve(scip));
+      k--;
+      alpha = alpha * k;
+      for (int i = n - j; i < n; i++)
+      {
+         coefs[i] = alpha;
+      }
+      SCIPinfoMessage(scip, NULL, "Coefs have been resetted!! \n\n");
+      SCIP_CALL(SCIPchgReoptObjective(scip, sense, x, coefs, n));
+      SCIPinfoMessage(scip, NULL, "Problem have been changed !! \n\n");
+      // SCIP_CALL(SCIPprintOrigProblem(scip, NULL, NULL, TRUE));
+      r++;
+   } while (k > 0);
+
+   /**************************************************
+   * restore the limits and solve the last iteration *
+   ***************************************************/
+   SCIPinfoMessage(scip, NULL, "This is the last iteration \n\n\n");
+   SCIPinfoMessage(scip, NULL, "alpha = %f, ! \n", alpha);
+   SCIP_CALL(SCIPsetRealParam(scip, "limits/gap", 0.0));
    /* solve the IP */
+   SCIP_CALL(SCIPprintOrigProblem(scip, NULL, NULL, TRUE)); // print the last problem
+   // SCIP_CALL(SCIPprintTransProblem(scip, NULL, NULL, TRUE));
    SCIP_CALL(SCIPsolve(scip));
 
-   /* print best solution */
+   // /* print best solution */
    // SCIP_CALL(SCIPprintBestSol(scip, NULL, TRUE));
 
    /******************
     * check solution *
     ******************/
-   // set/checksol    to double check the solution to the original problem
+   SCIP_SOL *sol1 = SCIPgetBestSol(scip);
+   SCIP_CALL(SCIPreadProb(scip, argv[1], NULL));
+   SCIP_CALL(SCIPprintOrigProblem(scip, NULL, NULL, FALSE));
+
+   if (feasible = TRUE)
+   {
+      SCIPinfoMessage(scip, NULL, "The optimal solution got from reoptimization is feasible to p^0 \n\n\n");
+   }
+   else
+   {
+      SCIPinfoMessage(scip, NULL, "Not feasible to p^0 !!!! \n\n\n");
+   }
 
    /********************
     * Deinitialization *
     ********************/
-   /* release variables */
-   for (i = 0; i < j; i++)
-   {
-      // SCIP_CALL(SCIPprintVar(scip, y[i], NULL));
-      SCIP_CALL(SCIPreleaseVar(scip, &y[i]));
-   }
+
+   /* free the coefs */
+   // SCIPfreeBufferArray(scip, &coefs);
+
+   /* free the variables  */
+   SCIPfreeBufferArray(scip, &x);
 
    /* free sol and SCIP */
    SCIP_CALL(SCIPfreeSol(scip, &sol));
-   SCIP_CALL(SCIPfree(&scip));
+   // SCIP_CALL(SCIPfree(&scip));
 
    /* check block memory */
    BMScheckEmptyMemory();
