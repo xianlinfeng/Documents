@@ -80,25 +80,36 @@ Lp $relaxation$ is obtained by removing all integrity constraints $ \mathcal{I} 
 	\eIf{$s^0\text{ is feasible to }\mathcal{P}^1$}{
 			\textbf{return} $s^0$\;
  		} {
- 			$\alpha \longleftarrow k \times c^Ts^0$ \;	 
- 			\For{$j$ in $\mathcal{I}$} {  
- 				$\mathcal{P}^2 \longleftarrow$ create new variables $y_j$ with objective value $\alpha$ and add it to $\mathcal{P}^2$:\; 
+ 			$\alpha \longleftarrow c^Ts^0 \times k$ \;	 
+ 			\For{$i$ in $\mathcal{I}$} {  
+ 				$\mathcal{P}^2 \longleftarrow$ create new variables $y_i$ with objective value $\alpha$ and add it to $\mathcal{P}^1$:\; 
  				   \tcp*[r]{add new variables} 
- 				$\mathcal{P}^2 \longleftarrow $ add new constraints to $\mathcal{P}^2 \text{ : }y_j \geq x_j - s_j^0$ \tcp*[r]{add new constraints}
- 				$\mathcal{P}^2 \longleftarrow $ add new constraints to $\mathcal{P}^2 \text{ : } y_j \geq s_j^0 - x_j$\;
+ 				$\mathcal{P}^2 \longleftarrow $ add new constraints to $\mathcal{P}^2 \text{ : }y_i \geq x_i - s_i^0$ \tcp*[r]{add new constraints}
+ 				$\mathcal{P}^2 \longleftarrow $ add new constraints to $\mathcal{P}^2 \text{ : } y_i \geq s_i^0 - x_i$\;
  				%$\mathcal{P}^2 \longleftarrow $ add penalty function to $\mathcal{P}^2 \text{ : }\alpha \times y_j$\tcp*[r]{add penalty function} 
  			}
- 			
+ 			enable Reoptimization Feature\;
+ 			stop gap $\longleftarrow 0.5$\;
+ 			$j \longleftarrow $ number of variables in $y$\;
+ 			coefs $[\,] \longleftarrow$ array of coefficients for all varialbes in $\mathcal{P}^2 $\;
+ 			\If{the sense of $\mathcal{P}^2$ is minimize }{
+				the sense of $\mathcal{P}^2 \longleftarrow minimize $\;	
+ 			}
  			$r \longleftarrow 1$ \;
- 			\While{$\alpha > 0 $}{
- 				$ \alpha \longleftarrow \alpha - \displaystyle{\frac{\alpha}{k}}$\;
- 				update the variable $y_j$ coefficient\;
- 				
-				$s^r \longleftarrow \text{ solve } \, \mathcal{P}_r^2$ ($r$-th iteration) to optimal or stop criterion with reoptimization\;
+ 			\While{$k > 0 $}{
+ 				solving the sub-MIP problem in r-th iteration to stop criterion\;
+ 				frees branch and bound tree and all solution process data\; 
+ 				$k \longleftarrow k - 1$\;
+ 				$ \alpha \longleftarrow \alpha \times k $\;
+ 				change the last $j$ coefficients in coefs[ ] $\longleftarrow \alpha $\;
 				$ r \longleftarrow r + 1$\;
  				}
- 			$s^* \longleftarrow s^r$ \;
- 			\textbf{return} $s^*$\;
+ 			stop gap $\longleftarrow 0.0$\;
+ 			$s^* \longleftarrow $ solve the sub-MIP problem in the last interation\;
+ 			\If{$s^*$ is feasiable to $\mathcal{P}^1$}{
+ 				\textbf{return} $s^*$\;
+ 			}
+ 			
 % $p^0_{(y)} \longleftarrow \alpha \times \sum \limits_j y_j, \,j\, \in\, \mathcal{I}$ \tcp*[r]{create penalty function}	 	
 % $p^1_{(x,y)} \longleftarrow \min \{c^Tx + p^0 \} $ \;
 	 	
