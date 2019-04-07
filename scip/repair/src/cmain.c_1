@@ -99,18 +99,17 @@ int main(
    int j = 0;
 
    SCIPinfoMessage(scip, NULL, "Start to add variable y and new constraints \n\n");
-
    for (int i = 0; i < n; i++)
    {
-      // SCIP_CALL(SCIPprintVar(scip, x[i], NULL));
-      // SCIPinfoMessage(scip, NULL, "\n\n No error since here!\n");
+      SCIP_CALL(SCIPprintVar(scip, x[i], NULL));
+      SCIPinfoMessage(scip, NULL, "\n\n No error since here!\n");
       if (SCIPvarGetType(x[i]) == SCIP_VARTYPE_INTEGER || SCIPvarGetType(x[i]) == SCIP_VARTYPE_BINARY) // if the var type is integer or binary
       {
          /* create variable y_j and add it into problem p2 */
          char yname[SCIP_MAXSTRLEN];
          (void)SCIPsnprintf(yname, SCIP_MAXSTRLEN, "y%d", j);
          SCIP_CALL(SCIPcreateVarBasic(scip, &y[j], yname, 0.0, SCIPinfinity(scip), alpha, SCIP_VARTYPE_CONTINUOUS));
-         // SCIP_CALL(SCIPaddVar(scip, y[j]));
+         SCIP_CALL(SCIPaddVar(scip, y[j]));
          SCIP_CALL(SCIPprintVar(scip, y[j], NULL)); // print the variable y
 
          SCIP_Real varValue = SCIPgetSolVal(scip, sol, x[i]); // get the value of variable xi in solution s0
@@ -133,10 +132,8 @@ int main(
              varValue             /* right hand side of constraint */
              ));                  // create a linear constraint
          SCIP_CALL(SCIPaddCons(scip, cons_1));
-         SCIP_CALL(SCIPprintCons(scip, cons_1, NULL));
          SCIP_CALL(SCIPreleaseCons(scip, &cons_1));
          // // SCIPinfoMessage(scip, NULL, "The first constraint is added!!  \n");
-         SCIPinfoMessage(scip, NULL, "\n");
 
          /* change the coefficient and add another constraint */
          (void)SCIPsnprintf(ConName, SCIP_MAXSTRLEN, "y%d_2", j);
@@ -153,7 +150,6 @@ int main(
              -varValue            /* right hand side of constraint */
              ));                  // create a linear constraint
          SCIP_CALL(SCIPaddCons(scip, cons_2));
-         SCIP_CALL(SCIPprintCons(scip, cons_2, NULL));
          SCIP_CALL(SCIPreleaseCons(scip, &cons_2));
          // SCIPinfoMessage(scip, NULL, "The seconde= constraint is added!!  \n\n");
 
@@ -161,22 +157,15 @@ int main(
          SCIP_CALL(SCIPreleaseVar(scip, &vars[0]));
          SCIP_CALL(SCIPreleaseVar(scip, &vars[1]));
          j++;
-         SCIPinfoMessage(scip, NULL, "\n\n");
       }
    }
 
-   // /* add variables y into scip */
-   // for (int i = 0; i < j; i++)
-   // {
-   //    SCIP_CALL(SCIPaddVar(scip, y[i]));
-   // }
-
+   return 0;
    SCIPinfoMessage(scip, NULL, "Finish to create the y and constraint ! \n\n");
    SCIPinfoMessage(scip, NULL, "n = %d,  j = %d ! \n\n", n, j);
    /* release the variables y */
    for (int i = j - 1; i >= 0; --i)
    {
-      SCIP_CALL(SCIPaddVar(scip, y[i]));
       SCIP_CALL(SCIPreleaseVar(scip, &y[i]));
    }
    SCIPinfoMessage(scip, NULL, "y have been released ! \n\n");
@@ -286,6 +275,10 @@ int main(
 
    // /* print best solution */
    // SCIP_CALL(SCIPprintBestSol(scip, NULL, TRUE));
+
+   /******************
+    * check solution *
+    ******************/
 
    /********************
     * Deinitialization *

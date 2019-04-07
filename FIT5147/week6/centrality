@@ -1,0 +1,16 @@
+Centrality of a node in a network
+    --  measure the importance or centrality of nodes
+1. Degree: 
+    连接到这个node的edges的数量
+
+2. Closeness centrality:
+    用来度量该节点是否靠近其他节点。与该节点到其他所有节点的距离和呈反比
+
+3. Betweenness centrality：
+    度量了该node在其他节点之间的程度。计算通过该node的最短路径的数量。
+
+4. Eigenvalues：
+    如果该node有重要的邻居，则该节点更重要。
+
+Question：
+1. package“sna” cannot be installed
