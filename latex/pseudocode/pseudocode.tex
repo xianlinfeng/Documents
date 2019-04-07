@@ -80,38 +80,32 @@ Lp $relaxation$ is obtained by removing all integrity constraints $ \mathcal{I} 
 	\eIf{$s^0\text{ is feasible to }\mathcal{P}^1$}{
 			\textbf{return} $s^0$\;
  		} {
- 			$\alpha \longleftarrow c^Ts^0 \times k$ \;	 
+ 			$\mathcal{I} \longleftarrow$ index set of integer or binary variables\;
  			\For{$i$ in $\mathcal{I}$} {  
- 				$\mathcal{P}^2 \longleftarrow$ create new variables $y_i$ with objective value $\alpha$ and add it to $\mathcal{P}^1$:\; 
- 				   \tcp*[r]{add new variables} 
+ 				$\mathcal{P}^2 \longleftarrow$ create new variables $y_i$ and add it to $\mathcal{P}^1$: \tcp*[r]{add new variables} 
  				$\mathcal{P}^2 \longleftarrow $ add new constraints to $\mathcal{P}^2 \text{ : }y_i \geq x_i - s_i^0$ \tcp*[r]{add new constraints}
  				$\mathcal{P}^2 \longleftarrow $ add new constraints to $\mathcal{P}^2 \text{ : } y_i \geq s_i^0 - x_i$\;
  				%$\mathcal{P}^2 \longleftarrow $ add penalty function to $\mathcal{P}^2 \text{ : }\alpha \times y_j$\tcp*[r]{add penalty function} 
  			}
+ 			coefs[\,] $\longleftarrow$ array of coefficients for all varialbes in $\mathcal{P}^2 $\;
+ 			\If{the sense of $\mathcal{P}^2$ is not minimize }{
+				change the sense of $\mathcal{P}^2$ to minimize\;	
+ 			}
  			enable Reoptimization Feature\;
  			stop gap $\longleftarrow 0.5$\;
- 			$j \longleftarrow $ number of variables in $y$\;
- 			coefs $[\,] \longleftarrow$ array of coefficients for all varialbes in $\mathcal{P}^2 $\;
- 			\If{the sense of $\mathcal{P}^2$ is minimize }{
-				the sense of $\mathcal{P}^2 \longleftarrow minimize $\;	
- 			}
- 			$r \longleftarrow 1$ \;
- 			\While{$k > 0 $}{
- 				solving the sub-MIP problem in r-th iteration to stop criterion\;
- 				frees branch and bound tree and all solution process data\; 
- 				$k \longleftarrow k - 1$\;
- 				$ \alpha \longleftarrow \alpha \times k $\;
- 				change the last $j$ coefficients in coefs[ ] $\longleftarrow \alpha $\;
-				$ r \longleftarrow r + 1$\;
+ 			\For{$l$ in $ \{k, k-1,\cdots, 0  \} $}{
+ 				$ \alpha \longleftarrow \alpha \times l $\;
+ 				change the last $	\mathbf{card}(\mathcal{I})$ coefficients in coefs[\,] $\longleftarrow \alpha $\;
+ 				\If{$l = 0$}{
+ 					stop gap $\longleftarrow 0.0$\;
  				}
- 			stop gap $\longleftarrow 0.0$\;
- 			$s^* \longleftarrow $ solve the sub-MIP problem in the last interation\;
- 			\If{$s^*$ is feasiable to $\mathcal{P}^1$}{
- 				\textbf{return} $s^*$\;
- 			}
+ 				$s' \longleftarrow $ solving the sub-MIP problem to stop criterion\;
+ 				frees branch and bound tree and all solution process data\; 
+ 				}
  			
-% $p^0_{(y)} \longleftarrow \alpha \times \sum \limits_j y_j, \,j\, \in\, \mathcal{I}$ \tcp*[r]{create penalty function}	 	
-% $p^1_{(x,y)} \longleftarrow \min \{c^Tx + p^0 \} $ \;
+ 			$s^* \longleftarrow s' $\; 
+ 			\textbf{return} $s^*$\;
+ 			
 	 	
  		}
 }
