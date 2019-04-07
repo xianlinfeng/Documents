@@ -83,11 +83,21 @@ int main(
    // solving stops, if the given number of nodes was processed since the last improvement of the primal solution value
    // SCIP_CALL(SCIPsetLongintParam(scip, "limits/stallnodes", 300));
    // SCIP_CALL(SCIPsetRealParam(scip, "limits/time", 10.0));
-   SCIP_CALL(SCIPsetRealParam(scip, "limits/gap", 0.7));
+   SCIP_CALL(SCIPsetRealParam(scip, "limits/gap", 0.4));
    SCIPinfoMessage(scip, NULL, "Stop parameter have been setted ! \n\n");
 
    /* get objective sense */
    SCIP_OBJSENSE sense = SCIPgetObjsense(scip);
+
+   if (sense == SCIP_OBJSENSE_MAXIMIZE)
+   {
+      sense = SCIP_OBJSENSE_MINIMIZE;
+      SCIP_CALL(SCIPsetObjsense(scip, sense));
+   }
+
+   SCIP_CALL(SCIPprintOrigProblem(scip, NULL, NULL, TRUE));
+   return 0;
+
    SCIP_Real *coefs;
    SCIP_CALL(SCIPallocMemoryArray(scip, &coefs, n));
    for (int i = 0; i < n; i++)
@@ -127,7 +137,7 @@ int main(
    SCIP_CALL(SCIPsolve(scip));
 
    /* print best solution */
-   SCIP_CALL(SCIPprintBestSol(scip, NULL, TRUE));
+   // SCIP_CALL(SCIPprintBestSol(scip, NULL, TRUE));
 
    /**************
     * Statistics *

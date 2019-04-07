@@ -82,7 +82,7 @@ int main(
     * Create alpha *
     **************/
    int k = atoi(argv[3]);
-   SCIP_Real alpha = SCIPsolGetOrigObj(sol) * 3;
+   SCIP_Real alpha = SCIPsolGetOrigObj(sol) * k;
    SCIPinfoMessage(scip, NULL, "obj = %f, k = %d, alpha = %f \n\n", SCIPsolGetOrigObj(sol), k, alpha);
 
    /************************************
@@ -230,34 +230,21 @@ int main(
 
    /* stop criterion for solving process */
    SCIP_CALL(SCIPsetIntParam(scip, "misc/usesymmetry", 0));
-   SCIP_CALL(SCIPsetRealParam(scip, "limits/gap", 0.1));
+   SCIP_CALL(SCIPsetRealParam(scip, "limits/gap", 0.5));
    SCIPinfoMessage(scip, NULL, "Stop parameter have been setted ! \n\n");
 
    /* get objective sense and coefficients */
-   SCIP_OBJSENSE orgSense = SCIPgetObjsense(scip);
-   SCIP_OBJSENSE min = SCIP_OBJSENSE_MINIMIZE;
+   SCIP_OBJSENSE sense = SCIPgetObjsense(scip);
    SCIP_Real *coefs;
    SCIP_CALL(SCIPallocMemoryArray(scip, &coefs, n + j));
    SCIPinfoMessage(scip, NULL, "Memory for coefs have allocated ! \n\n");
 
    n = SCIPgetNVars(scip); //get the number of variables
    x = SCIPgetVars(scip);  // get the variables
-
-   if (orgSense == SCIP_OBJSENSE_MINIMIZE)
+   for (int i = 0; i < n; i++)
    {
-      for (int i = 0; i < n; i++)
-      {
-         coefs[i] = SCIPvarGetObj(x[i]);
-      }
-   }
-   else
-   {
-      for (int i = 0; i < n; i++)
-      {
-         coefs[i] = -SCIPvarGetObj(x[i]);
-      }
-      SCIP_CALL(SCIPsetObjsense(scip, min));
-      // alpha = -alpha;
+      coefs[i] = SCIPvarGetObj(x[i]);
+      // SCIPinfoMessage(scip, NULL, "The variable x%d coefficient is %f ! \n", i, coefs[i]);
    }
 
    SCIPinfoMessage(scip, NULL, "Coefficients have been captured ! \n\n");
@@ -266,22 +253,21 @@ int main(
    * Reoptimization iteration begins   *
    ************************************/
    int r = 1;
-   int m = k;
-   while (m > 0)
+   while (k > 0)
    {
-      SCIPinfoMessage(scip, NULL, "alpha = %f, n = %d, j = %d, m = %d \n", alpha, n, j, m);
+      SCIPinfoMessage(scip, NULL, "alpha = %f, n = %d, j = %d, ! \n", alpha, n, j);
       SCIPinfoMessage(scip, NULL, "This is the %d-th iteration ! \n\n", r);
       /* solve the problem first */
       SCIP_CALL(SCIPsolve(scip));
       SCIP_CALL(SCIPfreeReoptSolve(scip));
-      m--;
-      alpha = alpha * m / k;
+      k--;
+      alpha = alpha * k;
       for (int i = n - j; i < n; i++)
       {
          coefs[i] = alpha;
       }
       SCIPinfoMessage(scip, NULL, "Coefs have been resetted!! \n\n");
-      SCIP_CALL(SCIPchgReoptObjective(scip, min, x, coefs, n));
+      SCIP_CALL(SCIPchgReoptObjective(scip, sense, x, coefs, n));
       SCIPinfoMessage(scip, NULL, "Problem have been changed !! \n\n");
       // SCIP_CALL(SCIPprintOrigProblem(scip, NULL, NULL, TRUE));
       r++;
