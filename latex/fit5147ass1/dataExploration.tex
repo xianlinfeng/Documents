@@ -28,7 +28,18 @@ Road traffic accident is a threat to all people in their daily life. According t
 \section{Data Wrangling} 
 \label{dataWrangling}
 \subsection{the Dataset}
-
+The name of the dataset is "CrashStats", which is provided by VicRoad for educational purposes. The dataset could be download from the website https://www.data.vic.gov.au and the dataset is consist with 12 tables in the following list:
+\begin{enumerate}
+	\item \textbf{accident}:	contain the besic information about the accident, such as date, time, location, environment codition and severity.
+	\item \textbf{vehicle}:	vehicle information, such as make, body type, year of manufacture, fuel type, vechicle capacity and so on.
+	\item \textbf{person}:	person details, such as age, sex, sitting position, passengers or driver, license state etc.	
+	\item \textbf{accident$\_$event}: the sequence of events during the accident, such as ran off carriageway, collision, fell from vehicle, and so on.
+	\item \textbf{road$\_$surface$\_$cond}:	the codition of the road: wet, dry, or icy.
+	\item \textbf{atmospheric$\_$cond}:	weather condition: clear, wind, dust and so on.
+	\item \textbf{sub$\_$dca}:	describing the crash detail with code.
+	\item \textbf{accident$\_$node}:	more detailed location about the crash.
+	\item \textbf{•}
+\end{enumerate}
 \subsection{Delete outdate data}
 The crash happed more ten years ago is not considered in this report, so they will be delete form the dataset in the first step. Fortunately, every crash in the dataset have a accident number, the number include the date information, so I could just delete the instances before 1/1/2009 and after 31/12/2018 in each subset.  
 
