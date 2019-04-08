@@ -1,0 +1,17 @@
+solution status: optimal solution found
+objective value:                                    0
+L8                                                  1 	(obj:0)
+A0                                                  1 	(obj:0)
+B1                                                  1 	(obj:0)
+B5                                                  1 	(obj:0)
+B6                                                  1 	(obj:0)
+E_4                                                 1 	(obj:0)
+H1                                                  1 	(obj:0)
+H3                                                  1 	(obj:0)
+I9                                                  1 	(obj:0)
+L1                                                  1 	(obj:0)
+L2                                                  1 	(obj:0)
+L3                                                  1 	(obj:0)
+L5                                                  1 	(obj:0)
+L6                                                  1 	(obj:0)
+L7                                                  1 	(obj:0)

@@ -1,4 +1,4 @@
 make clean
 cmake -DCMAKE_PREFIX_PATH=~/scip_installation/Release/ ..
 make 
-./repair cats1.lp cats0.sol 11
+./repair cats1.lp cats0.sol 1 6

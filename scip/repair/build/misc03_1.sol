@@ -1,0 +1,18 @@
+solution status: optimal solution found
+objective value:                                 3360
+COL158                                              1 	(obj:0)
+COL004                                              1 	(obj:0)
+COL040                                              1 	(obj:0)
+COL062                                              1 	(obj:0)
+COL081                                              1 	(obj:0)
+COL096                                              1 	(obj:0)
+COL120                                              1 	(obj:0)
+COL127                                              1 	(obj:0)
+COL134                                              1 	(obj:0)
+COL148                                              1 	(obj:0)
+COL149                                              1 	(obj:0)
+COL151                                              1 	(obj:0)
+COL153                                              1 	(obj:0)
+COL155                                              1 	(obj:0)
+COL156                                              1 	(obj:0)
+COL160                                           3360 	(obj:1)

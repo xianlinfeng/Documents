@@ -16,14 +16,22 @@ int main(
     char **argv /**< array of shell arguments */
 )
 {
-   SCIP *scip = NULL;
-   SCIP_RETCODE retcode;
-
-   if (argc != 4)
+   if (argc != 5)
    {
-      printf("There must exist 3 arguments:\"Problem p^1\", \" solution s^0\", and a integer number k \n\n");
+      printf("There must exist 4 arguments:  p^1,  s^0,  p, k. \n");
+      printf("File p^1:    the problem with added constraints.\n");
+      printf("File s^0:    the solution to the original problem.\n");
+      printf("Integer u:   alpha = u * obj_s0 \n");
+      printf("Iteger k:    the number of iterations\n\n");
       return 1;
    }
+   int u = atoi(argv[3]);
+   int k = atoi(argv[4]);
+   assert(u > 0);
+   assert(k > 0);
+
+   SCIP *scip = NULL;
+   SCIP_RETCODE retcode;
 
    /*********
     * Setup *
@@ -81,8 +89,7 @@ int main(
    /**************
     * Create alpha *
     **************/
-   int k = atoi(argv[3]);
-   SCIP_Real alpha = SCIPsolGetOrigObj(sol) * 3;
+   SCIP_Real alpha = SCIPsolGetOrigObj(sol) * u;
    SCIPinfoMessage(scip, NULL, "obj = %f, k = %d, alpha = %f \n\n", SCIPsolGetOrigObj(sol), k, alpha);
 
    /************************************
@@ -134,7 +141,7 @@ int main(
              varValue             /* right hand side of constraint */
              ));                  // create a linear constraint
          SCIP_CALL(SCIPaddCons(scip, cons_1));
-         SCIP_CALL(SCIPprintCons(scip, cons_1, NULL));
+         // SCIP_CALL(SCIPprintCons(scip, cons_1, NULL));
          SCIP_CALL(SCIPreleaseCons(scip, &cons_1));
          // // SCIPinfoMessage(scip, NULL, "The first constraint is added!!  \n");
          SCIPinfoMessage(scip, NULL, "\n");
@@ -154,7 +161,7 @@ int main(
              -varValue            /* right hand side of constraint */
              ));                  // create a linear constraint
          SCIP_CALL(SCIPaddCons(scip, cons_2));
-         SCIP_CALL(SCIPprintCons(scip, cons_2, NULL));
+         // SCIP_CALL(SCIPprintCons(scip, cons_2, NULL));
          SCIP_CALL(SCIPreleaseCons(scip, &cons_2));
          // SCIPinfoMessage(scip, NULL, "The seconde= constraint is added!!  \n\n");
 
@@ -162,25 +169,20 @@ int main(
          SCIP_CALL(SCIPreleaseVar(scip, &vars[0]));
          SCIP_CALL(SCIPreleaseVar(scip, &vars[1]));
          j++;
-         SCIPinfoMessage(scip, NULL, "\n\n");
       }
    }
+   /* free the solution */
+   SCIP_CALL(SCIPfreeSol(scip, &sol));
 
-   // /* add variables y into scip */
-   // for (int i = 0; i < j; i++)
-   // {
-   //    SCIP_CALL(SCIPaddVar(scip, y[i]));
-   // }
-
-   SCIPinfoMessage(scip, NULL, "Finish to create the y and constraint ! \n\n");
-   SCIPinfoMessage(scip, NULL, "n = %d,  j = %d ! \n\n", n, j);
-   /* release the variables y */
+   /* add and release the variables y */
    for (int i = j - 1; i >= 0; --i)
    {
       SCIP_CALL(SCIPaddVar(scip, y[i]));
       SCIP_CALL(SCIPreleaseVar(scip, &y[i]));
    }
    SCIPinfoMessage(scip, NULL, "y have been released ! \n\n");
+   SCIPinfoMessage(scip, NULL, "Finish to create the y and constraint ! \n\n");
+   SCIPinfoMessage(scip, NULL, "n = %d,  j = %d ! \n\n", n, j);
 
    /*******************
     * print variables *
@@ -234,32 +236,17 @@ int main(
    SCIPinfoMessage(scip, NULL, "Stop parameter have been setted ! \n\n");
 
    /* get objective sense and coefficients */
-   SCIP_OBJSENSE orgSense = SCIPgetObjsense(scip);
-   SCIP_OBJSENSE min = SCIP_OBJSENSE_MINIMIZE;
-   SCIP_Real *coefs;
-   SCIP_CALL(SCIPallocMemoryArray(scip, &coefs, n + j));
-   SCIPinfoMessage(scip, NULL, "Memory for coefs have allocated ! \n\n");
-
+   SCIP_OBJSENSE sense = SCIPgetObjsense(scip);
    n = SCIPgetNVars(scip); //get the number of variables
    x = SCIPgetVars(scip);  // get the variables
+   SCIP_Real *coefs;
+   SCIP_CALL(SCIPallocMemoryArray(scip, &coefs, n));
+   SCIPinfoMessage(scip, NULL, "Memory for coefs have allocated ! \n\n");
 
-   if (orgSense == SCIP_OBJSENSE_MINIMIZE)
+   for (int i = 0; i < n; i++)
    {
-      for (int i = 0; i < n; i++)
-      {
-         coefs[i] = SCIPvarGetObj(x[i]);
-      }
+      coefs[i] = SCIPvarGetObj(x[i]);
    }
-   else
-   {
-      for (int i = 0; i < n; i++)
-      {
-         coefs[i] = -SCIPvarGetObj(x[i]);
-      }
-      SCIP_CALL(SCIPsetObjsense(scip, min));
-      // alpha = -alpha;
-   }
-
    SCIPinfoMessage(scip, NULL, "Coefficients have been captured ! \n\n");
 
    /************************************
@@ -281,7 +268,7 @@ int main(
          coefs[i] = alpha;
       }
       SCIPinfoMessage(scip, NULL, "Coefs have been resetted!! \n\n");
-      SCIP_CALL(SCIPchgReoptObjective(scip, min, x, coefs, n));
+      SCIP_CALL(SCIPchgReoptObjective(scip, sense, x, coefs, n));
       SCIPinfoMessage(scip, NULL, "Problem have been changed !! \n\n");
       // SCIP_CALL(SCIPprintOrigProblem(scip, NULL, NULL, TRUE));
       r++;
@@ -310,7 +297,6 @@ int main(
 
    /* free sol and SCIP */
    // SCIPinfoMessage(scip, NULL, "No error here ! \n");
-   SCIP_CALL(SCIPfreeSol(scip, &sol));
    SCIP_CALL(SCIPfree(&scip));
 
    /* check block memory */
