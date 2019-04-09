@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.26)  26 MAR 2019 19:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.4.3)  9 APR 2019 09:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -488,8 +488,8 @@ LaTeX Warning: There were undefined references.
  ) 
 Here is how much of TeX's memory you used:
  4281 strings out of 492982
- 59720 string characters out of 6134896
- 138201 words of memory out of 5000000
+ 59720 string characters out of 6134897
+ 138203 words of memory out of 5000000
  7755 multiletter control sequences out of 15000+600000
  19764 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -513,7 +513,7 @@ dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
 blic/amsfonts/symbols/msbm10.pfb>
-Output written on ecercise.pdf (14 pages, 505365 bytes).
+Output written on ecercise.pdf (14 pages, 505112 bytes).
 PDF statistics:
  132 PDF objects out of 1000 (max. 8388607)
  93 compressed objects within 1 object stream

@@ -1,0 +1,4 @@
+make clean
+cmake -DCMAKE_PREFIX_PATH=~/scip_installation/Release/ ..
+make 
+./repair CATS-d_regions-goods200-bids1000_0719_1.lp CATS-d_regions-goods200-bids1000_0719_0.sol 1 10

@@ -34,18 +34,25 @@ The name of the dataset is "CrashStats", which is provided by VicRoad for educat
 	\item \textbf{vehicle}:	vehicle information, such as make, body type, year of manufacture, fuel type, vechicle capacity and so on.
 	\item \textbf{person}:	person details, such as age, sex, sitting position, passengers or driver, license state etc.	
 	\item \textbf{accident$\_$event}: the sequence of events during the accident, such as ran off carriageway, collision, fell from vehicle, and so on.
+	\item \textbf{accident$\_$location}:	the location information of the accident.
 	\item \textbf{road$\_$surface$\_$cond}:	the codition of the road: wet, dry, or icy.
 	\item \textbf{atmospheric$\_$cond}:	weather condition: clear, wind, dust and so on.
 	\item \textbf{sub$\_$dca}:	describing the crash detail with code.
 	\item \textbf{accident$\_$node}:	more detailed location about the crash.
-	\item \textbf{•}
+	\item \textbf{accident$\_$chainage}:	chainage information of the node.
+	\item \textbf{node$\_$id$\_$complex$\_$int$\_$id}:	if the node locate in a complex intersection or not.
+	\item \textbf{statistic checks}:	the statistic information of the crashes in this dataset.
 \end{enumerate}
-\subsection{Delete outdate data}
+Before the data wrangling and data cleaning, we need to understand the characteristics of each data table, for example, in the table of "accident", each accident has exact one record, however, as one accident may involved two or more people, one accident may have two or more records in the table "person". Same situation happens in table "vehicle", "accident$\_$event" and other tables too, this is another reason why this dataset separate to 12 data tables. Due to this reason, when we process data wrangling, data cleaning, or data exploration, we should be extra careful with the multiple records for one accident. 
+	
+\subsection{Delete expired data}
 The crash happed more ten years ago is not considered in this report, so they will be delete form the dataset in the first step. Fortunately, every crash in the dataset have a accident number, the number include the date information, so I could just delete the instances before 1/1/2009 and after 31/12/2018 in each subset.  
-
 
 \section{Data Checking}
 \label{dataChecking}
+\subsection{Checking with Table3au Public}
+After data wrangling, the data should be check to eliminate outlier. It is the process to detect and correct the inaccurate, incomplete, incorrect, or irrelevant part from the dataset. After 
+The data exploration process can only be implemented after the data check, otherwise, the wrong data source will definitly lead the wrong results and conclusions. Data 
 
 \section{Data Exploration}
 \label{dataExploration}

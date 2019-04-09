@@ -232,7 +232,7 @@ int main(
 
    /* stop criterion for solving process */
    SCIP_CALL(SCIPsetIntParam(scip, "misc/usesymmetry", 0));
-   SCIP_CALL(SCIPsetRealParam(scip, "limits/gap", 0.1));
+   SCIP_CALL(SCIPsetRealParam(scip, "limits/gap", 0.0));
    SCIPinfoMessage(scip, NULL, "Stop parameter have been setted ! \n\n");
 
    /* get objective sense and coefficients */

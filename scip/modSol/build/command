@@ -1,0 +1,4 @@
+cmake -DCMAKE_PREFIX_PATH=~/scip_installation/Release/ ..
+make 
+./modSol blend1.lp blend1.sol
+
