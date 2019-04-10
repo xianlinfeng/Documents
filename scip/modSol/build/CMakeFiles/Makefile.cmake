@@ -11,8 +11,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.10.2/CMakeCCompiler.cmake"
   "CMakeFiles/3.10.2/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.10.2/CMakeSystem.cmake"
-  "/home/arthur/Downloads/scipoptsuite-6.0.1/soplex/build/soplex-config.cmake"
-  "/home/arthur/Downloads/scipoptsuite-6.0.1/soplex/build/soplex-targets.cmake"
   "/home/arthur/scip_installation/Release/lib/cmake/scip/scip-config.cmake"
   "/home/arthur/scip_installation/Release/lib/cmake/scip/scip-targets-release.cmake"
   "/home/arthur/scip_installation/Release/lib/cmake/scip/scip-targets.cmake"

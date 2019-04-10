@@ -193,6 +193,9 @@ Repair_SOURCE_DIR:STATIC=/home/arthur/Documents/scip/modSol
 //The directory containing a CMake configuration file for SCIP.
 SCIP_DIR:PATH=/home/arthur/scip_installation/Release/lib/cmake/scip
 
+//The directory containing a CMake configuration file for SOPLEX.
+SOPLEX_DIR:PATH=SOPLEX_DIR-NOTFOUND
+
 //Value Computed by CMake
 modSol_BINARY_DIR:STATIC=/home/arthur/Documents/scip/modSol/build
 

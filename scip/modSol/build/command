@@ -1,4 +1,8 @@
+#!/bin/bash
+
 cmake -DCMAKE_PREFIX_PATH=~/scip_installation/Release/ ..
 make 
-./modSol blend1.lp blend1.sol
+# ./modSol comp07-2idx.mps comp07-2idx.sol
+
+./modSol comp21-2idx.mps comp21-2idx.sol
 

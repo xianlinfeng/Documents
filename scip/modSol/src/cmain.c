@@ -53,6 +53,10 @@ int main(
    /* print the solution */
    // SCIPinfoMessage(scip, NULL, "print the original solution from file <%d> ...\n\n", argv[2]);
    // SCIP_CALL(SCIPprintSol(scip, sol, NULL, TRUE)); // print the solution
+
+   // SCIPinfoMessage(scip, NULL, "No error here \n\n");
+   // return 0;
+
    char solution[40];
    char *name;
    strcpy(solution, argv[1]);
@@ -82,16 +86,21 @@ int main(
       if (SCIPvarGetType(x[i]) == SCIP_VARTYPE_BINARY)
       {
          SCIP_Real varValue = SCIPgetSolVal(scip, sol, x[i]);
-         SCIP_Real rand = -SCIPrandomGetReal(randnumgen, 1.0, 100.0);
-         if (rand <= 50)
+         SCIP_Real rand = SCIPrandomGetReal(randnumgen, 1.0, 100.0);
+         if (rand <= 7.0)
          {
+            SCIPinfoMessage(scip, NULL, "rand = %f \n", rand);
+            SCIPinfoMessage(scip, NULL, "varValue = %f \n", varValue);
+            SCIPinfoMessage(scip, NULL, "varObj = %f \n", varObj);
             if (varObj > 0 && varValue == 1)
             {
+               SCIPinfoMessage(scip, NULL, "The obj > 0, and varValue == 1 \n\n");
                SCIP_CALL(SCIPsetSolVal(scip, sol, x[i], 0.0));
             }
 
             if (varObj < 0 && varValue == 0)
             {
+               SCIPinfoMessage(scip, NULL, "The obj < 0, and varValue == 0 \n\n");
                SCIP_CALL(SCIPsetSolVal(scip, sol, x[i], 1.0));
             }
          }
