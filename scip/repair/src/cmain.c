@@ -118,10 +118,10 @@ int main(
          (void)SCIPsnprintf(yname, SCIP_MAXSTRLEN, "y%d", j);
          SCIP_CALL(SCIPcreateVarBasic(scip, &y[j], yname, 0.0, SCIPinfinity(scip), alpha, SCIP_VARTYPE_CONTINUOUS));
          // SCIP_CALL(SCIPaddVar(scip, y[j]));
-         SCIP_CALL(SCIPprintVar(scip, y[j], NULL)); // print the variable y
+         // SCIP_CALL(SCIPprintVar(scip, y[j], NULL)); // print the variable y
 
          SCIP_Real varValue = SCIPgetSolVal(scip, sol, x[i]); // get the value of variable xi in solution s0
-         SCIPinfoMessage(scip, NULL, "value of var in sol is %f  \n", varValue);
+         // SCIPinfoMessage(scip, NULL, "value of var in sol is %f  \n", varValue);
 
          SCIP_VAR *vars[] = {y[j], x[i]};
          /*  add one constraint to problem p^2 */
@@ -144,7 +144,7 @@ int main(
          // SCIP_CALL(SCIPprintCons(scip, cons_1, NULL));
          SCIP_CALL(SCIPreleaseCons(scip, &cons_1));
          // // SCIPinfoMessage(scip, NULL, "The first constraint is added!!  \n");
-         SCIPinfoMessage(scip, NULL, "\n");
+         // SCIPinfoMessage(scip, NULL, "\n");
 
          /* change the coefficient and add another constraint */
          (void)SCIPsnprintf(ConName, SCIP_MAXSTRLEN, "y%d_2", j);
@@ -232,7 +232,7 @@ int main(
 
    /* stop criterion for solving process */
    SCIP_CALL(SCIPsetIntParam(scip, "misc/usesymmetry", 0));
-   SCIP_CALL(SCIPsetRealParam(scip, "limits/gap", 0.0));
+   SCIP_CALL(SCIPsetRealParam(scip, "limits/gap", 0.06));
    SCIPinfoMessage(scip, NULL, "Stop parameter have been setted ! \n\n");
 
    /* get objective sense and coefficients */
@@ -274,6 +274,9 @@ int main(
       r++;
    }
 
+   /* free the coefs */
+   SCIPfreeMemoryArray(scip, &coefs);
+
    /**************************************************
    * restore the limits and solve the last iteration *
    ***************************************************/
@@ -292,9 +295,6 @@ int main(
    /********************
     * Deinitialization *
     ********************/
-   /* free the coefs */
-   SCIPfreeMemoryArray(scip, &coefs);
-
    /* free sol and SCIP */
    // SCIPinfoMessage(scip, NULL, "No error here ! \n");
    SCIP_CALL(SCIPfree(&scip));

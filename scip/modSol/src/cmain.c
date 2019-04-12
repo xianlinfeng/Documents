@@ -87,7 +87,7 @@ int main(
       {
          SCIP_Real varValue = SCIPgetSolVal(scip, sol, x[i]);
          SCIP_Real rand = SCIPrandomGetReal(randnumgen, 1.0, 100.0);
-         if (rand <= 7.0)
+         if (rand <= 25.0)
          {
             SCIPinfoMessage(scip, NULL, "rand = %f \n", rand);
             SCIPinfoMessage(scip, NULL, "varValue = %f \n", varValue);

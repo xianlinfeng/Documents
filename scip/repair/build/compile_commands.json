@@ -1,7 +1,7 @@
 [
 {
   "directory": "/home/arthur/Documents/scip/repair/build",
-  "command": "/usr/bin/c99-gcc  -I/home/arthur/scip_installation/Release/lib/cmake/scip/../../../include -isystem /home/arthur/scip_installation/Release/include  -g   -o CMakeFiles/repair.dir/src/cmain.c.o   -c /home/arthur/Documents/scip/repair/src/cmain.c",
+  "command": "/usr/bin/gcc  -I/home/arthur/scip_installation/Release/lib/cmake/scip/../../../include -isystem /home/arthur/scip_installation/Release/include  -g   -o CMakeFiles/repair.dir/src/cmain.c.o   -c /home/arthur/Documents/scip/repair/src/cmain.c",
   "file": "/home/arthur/Documents/scip/repair/src/cmain.c"
 }
 ]

@@ -1,6 +1,6 @@
 0. cmake scip in Debug and Release model
-cmake .. -DSOPLEX_DIR=~/Downloads/scipoptsuite-6.0.1/soplex/build -DCMAKE_INSTALL_PREFIX=~/scip_installation/Release -DCMAKE_BUILD_TYPE=Debug
-cmake .. -DSOPLEX_DIR=~/Downloads/scipoptsuite-6.0.1/soplex/build -DCMAKE_INSTALL_PREFIX=~/scip_installation/Release
+cmake ..  -DCMAKE_INSTALL_PREFIX=~/scip_installation/Debug -DCMAKE_BUILD_TYPE=Debug
+cmake ..  -DCMAKE_INSTALL_PREFIX=~/scip_installation/Release
 
 1. cmake Code in Debug model
 cmake -DCMAKE_PREFIX_PATH=~/scip_installation/Debug/ -DCMAKE_BUILD_TYPE=Debug ..

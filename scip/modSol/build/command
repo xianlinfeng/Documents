@@ -4,5 +4,11 @@ cmake -DCMAKE_PREFIX_PATH=~/scip_installation/Release/ ..
 make 
 # ./modSol comp07-2idx.mps comp07-2idx.sol
 
-./modSol comp21-2idx.mps comp21-2idx.sol
+# ./modSol comp21-2idx.mps comp21-2idx.sol
+
+# ./modSol dsjc125.9.mps dsjc125.9.sol
+
+./modSol dsjc250.9.mps dsjc250.9.sol
+
+
 
