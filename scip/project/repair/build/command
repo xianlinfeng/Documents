@@ -1,0 +1,12 @@
+#!/bin/bash
+make clean
+cmake -DCMAKE_C_COMPILER=/usr/bin/gcc -DCMAKE_PREFIX_PATH=~/scip_installation/Release/ ..
+make 
+# ./repair rgn1.lp rgn0.sol 2 10
+
+./repair dsjc250.9.lp dsjc250002.sol 1 7 
+
+
+
+
+

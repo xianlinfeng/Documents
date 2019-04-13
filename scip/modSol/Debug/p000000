@@ -1,2 +1,0 @@
-make 
-gdb --args ./repair p1.lp p0.sol 5

@@ -1,4 +1,0 @@
-make clean
-cmake -DCMAKE_PREFIX_PATH=~/scip_installation/Release/ ..
-make 
-./repair egout1.lp egout0.sol 5 10

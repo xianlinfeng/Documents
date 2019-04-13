@@ -1,4 +1,0 @@
-make clean
-cmake -DCMAKE_PREFIX_PATH=~/scip_installation/Release/ ..
-make 
-./repair flugpl1.lp flugpl0.sol 3 10

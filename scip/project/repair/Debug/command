@@ -1,0 +1,2 @@
+make 
+gdb --args ./repair bell5_p1.lp bell5_p0.sol 3

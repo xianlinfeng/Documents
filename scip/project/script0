@@ -1,0 +1,9 @@
+#!/bin/bash
+# this script will find all the problm in benchmark/ with the name in file ins 
+# and put them in the new directory instance/
+for file in `cat ins`
+do
+	# cp "result/${file}.sol" instance/  2>/dev/null ;
+	cp "benchmark/${file}.mps" instance/  2>/dev/null ;
+done
+

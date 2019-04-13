@@ -1,0 +1,9 @@
+#!/bin/bash
+cd instances ;
+
+for file in `ls`
+do
+	log=`echo $file | awk -F . '{ print $1}'`;
+	(time scip -c "read $file opt quit") > ../logs/"$log.log" 2>&1;
+	#echo $file
+done

@@ -1,0 +1,63 @@
+SCIP version 6.0.1 [precision: 8 byte] [memory: block] [mode: optimized] [LP solver: SoPlex 4.0.1] [GitHash: a27ecc0]
+Copyright (C) 2002-2019 Konrad-Zuse-Zentrum fuer Informationstechnik Berlin (ZIB)
+
+External codes: 
+  Readline 8.0         GNU library for command line editing (gnu.org/s/readline)
+  SoPlex 4.0.1         Linear Programming Solver developed at Zuse Institute Berlin (soplex.zib.de) [GitHash: e89d7d5]
+  CppAD 20180000.0     Algorithmic Differentiation of C++ algorithms developed by B. Bell (www.coin-or.org/CppAD)
+  ZLIB 1.2.11          General purpose compression library by J. Gailly and M. Adler (zlib.net)
+  GMP 6.1.2            GNU Multiple Precision Arithmetic Library developed by T. Granlund (gmplib.org)
+
+user parameter file <scip.set> not found - using default parameters
+
+
+read problem <neos-787933.mps>
+============
+
+original problem has 236376 variables (236376 bin, 0 int, 0 impl, 0 cont) and 1897 constraints
+
+feasible solution found by trivial heuristic after 0.6 seconds, objective value 1.764000e+03
+presolving:
+(round 1, fast)       172668 del vars, 0 del conss, 0 add conss, 0 chg bounds, 0 chg sides, 1764 chg coeffs, 0 upgd conss, 0 impls, 0 clqs
+(round 2, exhaustive) 172668 del vars, 0 del conss, 0 add conss, 0 chg bounds, 0 chg sides, 1764 chg coeffs, 133 upgd conss, 0 impls, 0 clqs
+(round 3, exhaustive) 172668 del vars, 0 del conss, 0 add conss, 0 chg bounds, 0 chg sides, 1764 chg coeffs, 1897 upgd conss, 0 impls, 0 clqs
+(round 4, medium)     234612 del vars, 63708 del conss, 61944 add conss, 0 chg bounds, 0 chg sides, 1764 chg coeffs, 1897 upgd conss, 0 impls, 0 clqs
+(round 5, medium)     234612 del vars, 63710 del conss, 61944 add conss, 0 chg bounds, 0 chg sides, 1764 chg coeffs, 1897 upgd conss, 0 impls, 0 clqs
+   (1.3s) probing: 51/1764 (2.9%) - 0 fixings, 0 aggregations, 0 implications, 0 bound changes
+   (1.3s) probing aborted: 50/50 successive totally useless probings
+presolving (6 rounds: 6 fast, 5 medium, 3 exhaustive):
+ 234612 deleted vars, 63710 deleted constraints, 61944 added constraints, 0 tightened bounds, 0 added holes, 0 changed sides, 1764 changed coefficients
+ 0 implications, 0 cliques
+presolved problem has 1764 variables (1764 bin, 0 int, 0 impl, 0 cont) and 131 constraints
+    131 constraints of type <knapsack>
+transformed objective value is always integral (scale: 1)
+Presolving Time: 1.01
+
+ time | node  | left  |LP iter|LP it/n| mem |mdpt |frac |vars |cons |cols |rows |cuts |confs|strbr|  dualbound   | primalbound  |  gap   
+t 1.3s|     1 |     0 |     0 |     - | 638M|   0 |   - |1764 | 131 |   0 |   0 |   0 |   0 |   0 | 3.000000e+00 | 1.764000e+03 |  Large 
+b 1.4s|     1 |     0 |     0 |     - | 643M|   0 |   - |1764 | 131 |1764 | 130 |   0 |   0 |   0 | 3.000000e+00 | 3.600000e+01 |1100.00%
+  1.4s|     1 |     0 |   315 |     - | 643M|   0 |  10 |1764 | 131 |1764 | 130 |   0 |   0 |   0 | 3.000000e+01 | 3.600000e+01 |  20.00%
+r 1.4s|     1 |     0 |   315 |     - | 643M|   0 |  10 |1764 | 131 |1764 | 130 |   0 |   0 |   0 | 3.000000e+01 | 3.500000e+01 |  16.67%
+R 1.4s|     1 |     0 |   323 |     - | 644M|   0 |   8 |1764 | 131 |1764 | 130 |   0 |   0 |   0 | 3.000000e+01 | 3.400000e+01 |  13.33%
+s 1.4s|     1 |     0 |   323 |     - | 645M|   0 |   8 |1764 | 131 |1764 | 130 |   0 |   0 |   0 | 3.000000e+01 | 3.300000e+01 |  10.00%
+b 1.4s|     1 |     0 |   323 |     - | 647M|   0 |   8 |1764 | 131 |1764 | 130 |   0 |   0 |   0 | 3.000000e+01 | 3.100000e+01 |   3.33%
+  1.5s|     1 |     0 |   328 |     - | 647M|   0 |  11 |1764 | 131 |1764 | 132 |   2 |   0 |   0 | 3.000000e+01 | 3.100000e+01 |   3.33%
+  1.5s|     1 |     0 |   328 |     - | 647M|   0 |  11 |1764 | 131 |1764 | 132 |   2 |   0 |   0 | 3.000000e+01 | 3.100000e+01 |   3.33%
+  1.5s|     1 |     0 |   336 |     - | 648M|   0 |  17 |1764 | 131 |1764 | 134 |   4 |   0 |   0 | 3.000000e+01 | 3.100000e+01 |   3.33%
+  1.6s|     1 |     0 |   341 |     - | 650M|   0 |  16 |1764 | 131 |1764 | 136 |   6 |   0 |   0 | 3.000000e+01 | 3.100000e+01 |   3.33%
+  1.6s|     1 |     0 |   343 |     - | 651M|   0 |  18 |1764 | 131 |1764 | 137 |   7 |   0 |   0 | 3.000000e+01 | 3.100000e+01 |   3.33%
+  1.6s|     1 |     0 |   345 |     - | 652M|   0 |  19 |1764 | 131 |1764 | 138 |   8 |   0 |   0 | 3.000000e+01 | 3.100000e+01 |   3.33%
+  1.7s|     1 |     0 |   352 |     - | 652M|   0 |  22 |1764 | 131 |1764 | 139 |   9 |   0 |   0 | 3.000000e+01 | 3.100000e+01 |   3.33%
+  1.7s|     1 |     0 |   355 |     - | 654M|   0 |  15 |1764 | 131 |1764 | 140 |  10 |   0 |   0 | 3.000000e+01 | 3.100000e+01 |   3.33%
+ time | node  | left  |LP iter|LP it/n| mem |mdpt |frac |vars |cons |cols |rows |cuts |confs|strbr|  dualbound   | primalbound  |  gap   
+  1.7s|     1 |     0 |   356 |     - | 655M|   0 |   0 |1764 | 131 |1764 | 141 |  11 |   0 |   0 | 3.000000e+01 | 3.100000e+01 |   3.33%
+* 1.8s|     1 |     0 |   356 |     - | 656M|   0 |   - |1764 | 131 |1764 | 141 |  11 |   0 |   0 | 3.000000e+01 | 3.000000e+01 |   0.00%
+
+SCIP Status        : problem is solved [optimal solution found]
+Solving Time (sec) : 1.77
+Solving Nodes      : 1
+Primal Bound       : +3.00000000000000e+01 (14 solutions)
+Dual Bound         : +3.00000000000000e+01
+Gap                : 0.00 %
+
+

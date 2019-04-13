@@ -1,0 +1,8 @@
+1. invalid SCIP stage <10>
+    a. when obj of s0 = 0. like total binary problem: "enigma.lp"
+    b. most of time can be eliminated by deleting some constraints on p0
+
+2. the instance "cast1.lp" 
+    a. I use scip change the sense from max to min
+    b. but with added y and constraints, the problem become unbounded.
+

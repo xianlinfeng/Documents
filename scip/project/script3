@@ -1,0 +1,8 @@
+#!/bin/bash
+
+for file in `cat insName`
+do
+	# echo $file;
+	# ls "instances/$file.mps" && ls "solution/$file.sol";
+	modSol "instances/$file.mps" "solution/$file.sol" 10 > /dev/null 2>&1; 
+done

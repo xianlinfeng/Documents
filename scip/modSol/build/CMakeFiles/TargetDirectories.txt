@@ -1,3 +1,0 @@
-/home/arthur/Documents/scip/modSol/build/CMakeFiles/rebuild_cache.dir
-/home/arthur/Documents/scip/modSol/build/CMakeFiles/modSol.dir
-/home/arthur/Documents/scip/modSol/build/CMakeFiles/edit_cache.dir

@@ -1,4 +1,0 @@
-make clean
-cmake -DCMAKE_PREFIX_PATH=~/scip_installation/Release/ ..
-make 
-./repair gt2_1.lp gt2_0.sol  1 6

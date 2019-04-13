@@ -1,4 +1,0 @@
-make clean
-cmake -DCMAKE_PREFIX_PATH=~/scip_installation/Release/ ..
-make 
-./repair rgn1.lp rgn0.sol 2 10

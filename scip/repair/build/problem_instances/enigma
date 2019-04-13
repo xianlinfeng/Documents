@@ -1,4 +1,0 @@
-make clean
-cmake -DCMAKE_PREFIX_PATH=~/scip_installation/Release/ ..
-make 
-./repair enigma1.lp enigma0.sol 9

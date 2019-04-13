@@ -1,1 +1,0 @@
-/usr/bin/cc -g  -rdynamic CMakeFiles/repair.dir/src/cmain.c.o  -o repair -Wl,-rpath,/home/arthur/scip_installation/Debug/lib /home/arthur/scip_installation/Debug/lib/libscip.so.6.0.1.0 -lm 

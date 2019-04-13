@@ -1,0 +1,4 @@
+make clean
+cmake -DCMAKE_PREFIX_PATH=~/scip_installation/Release/ ..
+make 
+./repair p0033_1.lp p0033_0.sol 1 5 

@@ -74,7 +74,7 @@ Lp $relaxation$ is obtained by removing all integrity constraints $ \mathcal{I} 
 \begin{algorithm}[H]
 \SetAlgoLined
 \DontPrintSemicolon
-\KwIn{$ \mathcal{P}^1$ where $C^0 \subsetneq C^1$ and $\,  s^0$ , $k$}
+\KwIn{$ \mathcal{P}^1$ where $C^0 \subsetneq C^1$ and $\,  s^0$ ,$u$, $k$}
 \KwOut{ optimal solution $s^* \text{ to } \mathcal{P}^1 $}
 \Begin{
 	\eIf{$s^0\text{ is feasible to }\mathcal{P}^1$}{
@@ -90,9 +90,10 @@ Lp $relaxation$ is obtained by removing all integrity constraints $ \mathcal{I} 
  			\If{the sense of $\mathcal{P}^2$ is not minimize }{
 				change the sense of $\mathcal{P}^2$ to minimize\;	
  			}
+ 			$\alpha \longleftarrow c^Ts^0$\;
  			stop gap $\longleftarrow 0.5$\;
  			\For{$l$ in $ \{k, k-1,\cdots, 0  \} $}{
- 				$ \alpha \longleftarrow \alpha \times l $\;
+ 				$ \alpha \longleftarrow \alpha \times u \times \dfrac{l}{k}  $\;
 				the coefficients of variables $y$ in $\mathcal{P}^2 \longleftarrow \alpha$\;			
  				\If{$l = 0$}{
  					stop gap $\longleftarrow 0.0$\;

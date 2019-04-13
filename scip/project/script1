@@ -1,0 +1,17 @@
+#!/bin/bash
+# This script will find all the solutions in result/ with the same name in benchmark 
+# and put them in the new directory solution/
+
+
+for file in ` cd instance && ls`
+do
+	#name=echo ${file} | awk -F . '{ print $1 }'
+	# cp "../result/`echo $file | awk -F . '{ print $1 }`.sol" ../solution/  2>/dev/null ;
+	name=`echo $file | awk -F . '{ print $1 }'`;
+	cp result/"$name.sol" solution/ 2>/dev/null && cp instance/"$name.mps" instances/ ;
+done
+
+
+# the final result in the directories solution/ and instances/ will be used in my research
+
+

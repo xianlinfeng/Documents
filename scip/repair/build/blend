@@ -1,3 +1,0 @@
-cmake -DCMAKE_PREFIX_PATH=~/scip_installation/Release/ ..
-make 
-./repair blend1.lp blend0.sol 3 10

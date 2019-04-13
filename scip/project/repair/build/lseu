@@ -1,0 +1,4 @@
+make clean
+cmake -DCMAKE_PREFIX_PATH=~/scip_installation/Release/ ..
+make 
+./repair lseu1.lp lseu0.sol 1 5

@@ -1,3 +1,0 @@
-/home/arthur/Documents/scip/repair/Debug/CMakeFiles/rebuild_cache.dir
-/home/arthur/Documents/scip/repair/Debug/CMakeFiles/repair.dir
-/home/arthur/Documents/scip/repair/Debug/CMakeFiles/edit_cache.dir
