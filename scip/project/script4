@@ -1,0 +1,12 @@
+#!/bin/bash
+# this script will read the name of MIP problem, then read the problem and solution(modified solution) from the directory instances/ and 10solution/ separatly. 
+# then the repair algorithm will try to solve the problem with reoptimaization.
+# the log file will be stored in the directory logs/
+
+
+for file in `cat insName`
+do
+	# echo $file;
+	# ls "instances/$file.mps" && ls "solution/$file.sol";
+	(time ./repair/build/repair $file 1 10 0.1) > "10logs/$file.log" 2>&1 ;
+done

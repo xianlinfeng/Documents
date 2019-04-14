@@ -1,0 +1,25 @@
+#!/bin/bash
+# this script will generate the modified solution base on the different percentage. and store them in different folder.
+# 
+
+
+
+for i in 10 15 20 30 40
+do
+	for u in 1 
+	do
+		for k in 3 5 8 10 15 20
+		do
+			for gap in 1.0 0.8 0.5 0.3 0.1 0.05 0.03 
+			do
+				for file in `cat insName`
+				do	
+					log="newLogs/"$file":"$i"_"$u"_"$k"_"$gap".log" ;
+					echo $log;
+					(time ./repair/build/repair $file $i $u $k $gap ) > $log 2>&1;
+				done
+			done
+
+		done
+	done
+done

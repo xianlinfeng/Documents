@@ -6,5 +6,5 @@ C_FLAGS =
 
 C_DEFINES = 
 
-C_INCLUDES = -I/home/arthur/scip_installation/Release/lib/cmake/scip/../../../include -isystem /home/arthur/scip_installation/Release/include 
+C_INCLUDES = -I/usr/local/lib/cmake/scip/../../../include 
 

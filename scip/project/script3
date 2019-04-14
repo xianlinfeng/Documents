@@ -1,8 +1,10 @@
 #!/bin/bash
+# this script will read the file name in the file insName, then read the MIP problem and solution in the direcotry instances and solution separtly, then change the solution base on the percentage of the given argument. 
+# fianlly, the changed solution will be stored in the directory 10solution/
 
 for file in `cat insName`
 do
 	# echo $file;
 	# ls "instances/$file.mps" && ls "solution/$file.sol";
-	modSol "instances/$file.mps" "solution/$file.sol" 10 > /dev/null 2>&1; 
+	./modSol/build/modSol $file 10;
 done

@@ -1,0 +1,18 @@
+parameters: irp_10_1_5_0.030000 
+
+SCIP version 6.0.1 [precision: 8 byte] [memory: block] [mode: optimized] [LP solver: SoPlex 4.0.1] [GitHash: a27ecc0]
+Copyright (C) 2002-2019 Konrad-Zuse-Zentrum fuer Informationstechnik Berlin (ZIB)
+
+read problem <instances/irp.mps> ...
+
+original problem has 20315 variables (20315 bin, 0 int, 0 impl, 0 cont) and 39 constraints
+read solution <10solution/irp_1.sol> ...
+
+check the feasibility of <10solution/irp_1.sol> for problem <instances/irp.mps> ...
+
+The solution <10solution/irp_1.sol> is optimal to <instances/irp.mps> 
+
+
+real	0m0.078s
+user	0m0.064s
+sys	0m0.013s

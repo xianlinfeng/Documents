@@ -1,0 +1,227 @@
+parameters: nu25-pr12_10_1_5_0.100000 
+
+SCIP version 6.0.1 [precision: 8 byte] [memory: block] [mode: optimized] [LP solver: SoPlex 4.0.1] [GitHash: a27ecc0]
+Copyright (C) 2002-2019 Konrad-Zuse-Zentrum fuer Informationstechnik Berlin (ZIB)
+
+read problem <instances/nu25-pr12.mps> ...
+
+original problem has 5868 variables (5832 bin, 36 int, 0 impl, 0 cont) and 2313 constraints
+read solution <10solution/nu25-pr12_1.sol> ...
+
+check the feasibility of <10solution/nu25-pr12_1.sol> for problem <instances/nu25-pr12.mps> ...
+
+  [linear] <R0080>: <C0008>[B] (+0) +<C0089>[B] (+0) +<C0170>[B] (+0) +<C0251>[B] (+0) +<C0332>[B] (+0) -<C2924>[B] (+0) -<C3005>[B] (+0) -<C3086>[B] (+0) -<C3167>[B] (+0) -<C3248>[B] (+0) == 1;
+;
+violation: left hand side is violated by 1
+  [linear] <R0103>: <C0031>[B] (+0) +<C0112>[B] (+0) +<C0193>[B] (+0) +<C0274>[B] (+0) +<C0355>[B] (+0) -<C2947>[B] (+0) -<C3028>[B] (+1) -<C3109>[B] (+0) -<C3190>[B] (+0) -<C3271>[B] (+0) == 0;
+;
+violation: left hand side is violated by 0.999999999999955
+  [linear] <R0124>: <C0052>[B] (+0) +<C0133>[B] (+0) +<C0214>[B] (+1) +<C0295>[B] (+0) +<C0376>[B] (+0) -<C2968>[B] (+0) -<C3049>[B] (+0) -<C3130>[B] (+0) -<C3211>[B] (+0) -<C3292>[B] (+0) == 0;
+;
+violation: right hand side is violated by 1
+  [linear] <R0130>: <C0058>[B] (+0) +<C0139>[B] (+0) +<C0220>[B] (+0) +<C0301>[B] (+0) +<C0382>[B] (+0) -<C2974>[B] (+0) -<C3055>[B] (+0) -<C3136>[B] (+0) -<C3217>[B] (+1) -<C3298>[B] (+0) == 0;
+;
+violation: left hand side is violated by 1
+  [linear] <R0131>: <C0059>[B] (+0) +<C0140>[B] (+0) +<C0221>[B] (+1) +<C0302>[B] (+0) +<C0383>[B] (+0) -<C2975>[B] (+0) -<C3056>[B] (+0) -<C3137>[B] (+0) -<C3218>[B] (+0) -<C3299>[B] (+0) == 0;
+;
+violation: right hand side is violated by 1
+  [linear] <R0154>: <C0406>[B] (+0) -<C3322>[B] (+0) == -1;
+;
+violation: right hand side is violated by 1
+  [linear] <R0242>:  -<C0170>[B] (+0) +<C0494>[B] (+1) +<C0575>[B] (+0) +<C0656>[B] (+0) +<C3086>[B] (+0) -<C3410>[B] (+0) -<C3491>[B] (+0) -<C3572>[B] (+0) == 0;
+;
+violation: right hand side is violated by 1
+  [linear] <R0246>:  -<C0174>[B] (+0) +<C0498>[B] (+0) +<C0579>[B] (+0) +<C0660>[B] (+0) +<C3090>[B] (+0) -<C3414>[B] (+0) -<C3495>[B] (+0) -<C3576>[B] (+0) == 1;
+;
+violation: left hand side is violated by 1
+  [linear] <R0258>:  -<C0186>[B] (+0) +<C0510>[B] (+0) +<C0591>[B] (+1) +<C0672>[B] (+0) +<C3102>[B] (+0) -<C3426>[B] (+0) -<C3507>[B] (+0) -<C3588>[B] (+0) == 0;
+;
+violation: right hand side is violated by 1
+  [linear] <R0275>:  -<C0203>[B] (+0) +<C0527>[B] (+1) +<C0608>[B] (+0) +<C0689>[B] (+0) +<C3119>[B] (+0) -<C3443>[B] (+0) -<C3524>[B] (+0) -<C3605>[B] (+0) == 0;
+;
+violation: right hand side is violated by 1
+  [linear] <R0284>:  -<C0212>[B] (+1) +<C0536>[B] (+0) +<C0617>[B] (+0) +<C0698>[B] (+0) +<C3128>[B] (+0) -<C3452>[B] (+0) -<C3533>[B] (+0) -<C3614>[B] (+0) == 0;
+;
+violation: left hand side is violated by 1
+  [linear] <R0292>:  -<C0220>[B] (+0) +<C0544>[B] (+1) +<C0625>[B] (+0) +<C0706>[B] (+0) +<C3136>[B] (+0) -<C3460>[B] (+0) -<C3541>[B] (+0) -<C3622>[B] (+0) == 0;
+;
+violation: right hand side is violated by 1
+  [linear] <R0295>:  -<C0223>[B] (+0) +<C0547>[B] (+1) +<C0628>[B] (+0) +<C0709>[B] (+0) +<C3139>[B] (+0) -<C3463>[B] (+0) -<C3544>[B] (+0) -<C3625>[B] (+0) == 0;
+;
+violation: right hand side is violated by 1
+  [linear] <R0299>:  -<C0227>[B] (+1) +<C0551>[B] (+0) +<C0632>[B] (+0) +<C0713>[B] (+0) +<C3143>[B] (+0) -<C3467>[B] (+0) -<C3548>[B] (+0) -<C3629>[B] (+0) == 0;
+;
+violation: left hand side is violated by 1
+  [linear] <R0368>: <C0782>[B] (+0) +<C0863>[B] (+0) +<C0944>[B] (+0) -<C3698>[B] (+0) -<C3779>[B] (+0) -<C3860>[B] (+1) == 0;
+;
+violation: left hand side is violated by 1
+  [linear] <R0375>: <C0789>[B] (+1) +<C0870>[B] (+0) +<C0951>[B] (+0) -<C3705>[B] (+0) -<C3786>[B] (+0) -<C3867>[B] (+0) == 0;
+;
+violation: right hand side is violated by 1
+  [linear] <R0439>:  -<C0286>[B] (+0) +<C1015>[B] (+0) +<C1096>[B] (+0) +<C1177>[B] (+0) +<C3202>[B] (+0) -<C3931>[B] (+1) -<C4012>[B] (+0) -<C4093>[B] (+0) == 0;
+;
+violation: left hand side is violated by 1
+  [linear] <R0455>:  -<C0302>[B] (+0) +<C1031>[B] (+0) +<C1112>[B] (+0) +<C1193>[B] (+0) +<C3218>[B] (+0) -<C3947>[B] (+0) -<C4028>[B] (+0) -<C4109>[B] (+1) == 0;
+;
+violation: left hand side is violated by 1
+  [linear] <R0457>:  -<C0304>[B] (+0) +<C1033>[B] (+0) +<C1114>[B] (+0) +<C1195>[B] (+0) +<C3220>[B] (+0) -<C3949>[B] (+0) -<C4030>[B] (+0) -<C4111>[B] (+1) == 0;
+;
+violation: left hand side is violated by 1
+  [linear] <R0463>:  -<C0310>[B] (+0) +<C1039>[B] (+0) +<C1120>[B] (+0) +<C1201>[B] (+0) +<C3226>[B] (+1) -<C3955>[B] (+0) -<C4036>[B] (+0) -<C4117>[B] (+0) == 0;
+;
+violation: right hand side is violated by 1
+  [linear] <R0466>:  -<C0313>[B] (+1) +<C1042>[B] (+0) +<C1123>[B] (+0) +<C1204>[B] (+0) +<C3229>[B] (+0) -<C3958>[B] (+0) -<C4039>[B] (+0) -<C4120>[B] (+0) == 0;
+;
+violation: left hand side is violated by 1
+  [linear] <R0501>:  -<C0024>[B] (+0) -<C0672>[B] (+0) +<C2940>[B] (+0) +<C3588>[B] (+0) == 1;
+;
+violation: left hand side is violated by 1
+  [linear] <R0601>:  -<C1015>[B] (+0) +<C1258>[B] (+0) +<C3931>[B] (+1) -<C4174>[B] (+0) == 0;
+;
+violation: right hand side is violated by 1
+  [linear] <R0680>:  -<C0122>[B] (+0) -<C0608>[B] (+0) -<C1256>[B] (+0) +<C3038>[B] (+0) +<C3524>[B] (+0) +<C4172>[B] (+0) == 1;
+;
+violation: left hand side is violated by 1
+  [linear] <R0682>:  -<C0124>[B] (+0) -<C0610>[B] (+0) -<C1258>[B] (+0) +<C3040>[B] (+0) +<C3526>[B] (+0) +<C4174>[B] (+0) == 1;
+;
+violation: left hand side is violated by 1
+  [linear] <R0813>:  -<C0336>[B] (+0) +<C3252>[B] (+0) == -1;
+;
+violation: right hand side is violated by 1
+  [linear] <R0832>:  -<C0355>[B] (+0) +<C3271>[B] (+0) == -1;
+;
+violation: right hand side is violated by 1
+  [linear] <R0853>:  -<C0376>[B] (+0) +<C3292>[B] (+0) == 1;
+;
+violation: left hand side is violated by 1
+  [linear] <R0919>: <C1414>[B] (+0) +<C1495>[B] (+0) +<C1576>[B] (+0) +<C1657>[B] (+0) -<C4330>[B] (+0) -<C4411>[B] (+0) -<C4492>[B] (+0) -<C4573>[B] (+1) == 0;
+;
+violation: left hand side is violated by 1
+  [linear] <R0921>: <C1416>[B] (+0) +<C1497>[B] (+0) +<C1578>[B] (+0) +<C1659>[B] (+0) -<C4332>[B] (+0) -<C4413>[B] (+0) -<C4494>[B] (+0) -<C4575>[B] (+1) == 0;
+;
+violation: left hand side is violated by 1
+  [linear] <R0952>: <C1447>[B] (+0) +<C1528>[B] (+0) +<C1609>[B] (+0) +<C1690>[B] (+1) -<C4363>[B] (+0) -<C4444>[B] (+0) -<C4525>[B] (+0) -<C4606>[B] (+0) == 0;
+;
+violation: right hand side is violated by 1
+  [linear] <R1006>:  -<C1177>[B] (+0) -<C1339>[B] (+0) +<C1744>[B] (+1) +<C4093>[B] (+0) +<C4255>[B] (+0) -<C4660>[B] (+0) == 0;
+;
+violation: right hand side is violated by 1
+  [linear] <R1030>:  -<C1201>[B] (+0) -<C1363>[B] (+0) +<C1768>[B] (+0) +<C4117>[B] (+0) +<C4279>[B] (+0) -<C4684>[B] (+1) == 0;
+;
+violation: left hand side is violated by 1
+  [linear] <R1071>:  -<C0837>[B] (+1) +<C1809>[B] (+0) +<C1890>[B] (+0) +<C1971>[B] (+0) +<C3753>[B] (+0) -<C4725>[B] (+0) -<C4806>[B] (+0) -<C4887>[B] (+0) == 0;
+;
+violation: left hand side is violated by 1
+  [linear] <R1097>:  -<C0863>[B] (+0) +<C1835>[B] (+0) +<C1916>[B] (+1) +<C1997>[B] (+0) +<C3779>[B] (+0) -<C4751>[B] (+0) -<C4832>[B] (+0) -<C4913>[B] (+0) == 0;
+;
+violation: right hand side is violated by 1
+  [linear] <R1110>:  -<C0876>[B] (+1) +<C1848>[B] (+0) +<C1929>[B] (+0) +<C2010>[B] (+0) +<C3792>[B] (+0) -<C4764>[B] (+0) -<C4845>[B] (+0) -<C4926>[B] (+0) == 0;
+;
+violation: left hand side is violated by 1
+  [linear] <R1195>:  -<C1771>[B] (+0) +<C2095>[B] (+1) +<C4687>[B] (+0) -<C5011>[B] (+0) == 0;
+;
+violation: right hand side is violated by 1
+  [linear] <R1245>:  -<C1416>[B] (+0) +<C2145>[B] (+0) +<C4332>[B] (+0) -<C5061>[B] (+0) == -1;
+;
+violation: right hand side is violated by 1
+  [linear] <R1276>:  -<C1447>[B] (+0) +<C2176>[B] (+0) +<C4363>[B] (+0) -<C5092>[B] (+0) == 1;
+;
+violation: left hand side is violated by 1
+  [linear] <R1314>:  -<C1890>[B] (+0) +<C2214>[B] (+0) +<C2295>[B] (+1) +<C2376>[B] (+0) +<C4806>[B] (+0) -<C5130>[B] (+0) -<C5211>[B] (+0) -<C5292>[B] (+0) == 0;
+;
+violation: right hand side is violated by 1
+  [linear] <R1353>:  -<C1929>[B] (+0) +<C2253>[B] (+0) +<C2334>[B] (+1) +<C2415>[B] (+0) +<C4845>[B] (+0) -<C5169>[B] (+0) -<C5250>[B] (+0) -<C5331>[B] (+0) == 0;
+;
+violation: right hand side is violated by 1
+  [linear] <R1774>:  -<C0406>[B] (+0) -<C2026>[B] (+1) +<C2836>[B] (+0) +<C3322>[B] (+0) +<C4942>[B] (+0) -<C5752>[B] (+0) == 0;
+;
+violation: left hand side is violated by 1
+  [linear] <R1802>:  -<C0434>[B] (+0) -<C2054>[B] (+1) +<C2864>[B] (+0) +<C3350>[B] (+0) +<C4970>[B] (+0) -<C5780>[B] (+0) == 0;
+;
+violation: left hand side is violated by 1
+  [linear] <R1964>:  -<C2864>[B] (+0) +<C5780>[B] (+0) == -1;
+;
+violation: right hand side is violated by 1
+  [linear] <R2053>:  -<C1576>[B] (+0) -<C2791>[B] (+0) +<C4492>[B] (+0) +<C5707>[B] (+0) == -1;
+;
+violation: right hand side is violated by 1
+  [linear] <R2228>:  -<C0536>[B] (+0) -<C0941>[B] (+0) +<C3452>[B] (+0) +<C3857>[B] (+1) == 0;
+;
+violation: right hand side is violated by 1
+  [linear] <R2238>:  -<C0546>[B] (+1) -<C0951>[B] (+0) +<C3462>[B] (+0) +<C3867>[B] (+0) == 0;
+;
+violation: left hand side is violated by 1
+  [linear] <R2243>:  -<C0551>[B] (+0) -<C0956>[B] (+0) +<C3467>[B] (+0) +<C3872>[B] (+1) == 0;
+;
+violation: right hand side is violated by 1
+The solution <10solution/nu25-pr12_1.sol> is not feasible to <instances/nu25-pr12.mps> 
+
+Tring to reoptimize the problem <instances/nu25-pr12.mps> ...  
+
+obj = 53485.000000, k = 5, alpha = 53485.000000 
+
+n = 5868 
+
+Start to add variable y and new constraints 
+
+y have been released ! 
+
+Finish to create the y and constraint ! 
+
+n = 5868,  j = 5868 ! 
+
+set all parameters to default! 
+
+Reoptimization is enabled! 
+
+Reoptimization parameter have been setted ! 
+
+Stop parameter have been setted ! 
+
+Memory for coefs have allocated ! 
+
+Coefficients have been captured ! 
+
+alpha = 53485.000000, n = 11736, j = 5868, m = 5 
+This is the 1-th iteration ! 
+
+presolving:
+(round 1, fast)       432 del vars, 6298 del conss, 0 add conss, 43 chg bounds, 0 chg sides, 0 chg coeffs, 0 upgd conss, 0 impls, 66 clqs
+(round 2, fast)       554 del vars, 6423 del conss, 0 add conss, 70 chg bounds, 0 chg sides, 0 chg coeffs, 0 upgd conss, 0 impls, 57 clqs
+(round 3, fast)       647 del vars, 6537 del conss, 0 add conss, 89 chg bounds, 0 chg sides, 0 chg coeffs, 0 upgd conss, 0 impls, 71 clqs
+(round 4, exhaustive) 647 del vars, 6556 del conss, 0 add conss, 90 chg bounds, 0 chg sides, 0 chg coeffs, 0 upgd conss, 0 impls, 87 clqs
+(round 5, exhaustive) 647 del vars, 6556 del conss, 0 add conss, 90 chg bounds, 0 chg sides, 0 chg coeffs, 5883 upgd conss, 0 impls, 87 clqs
+   (0.5s) probing: 1000/5213 (19.2%) - 0 fixings, 0 aggregations, 1523 implications, 0 bound changes
+   (0.5s) probing: 1001/5213 (19.2%) - 0 fixings, 0 aggregations, 1524 implications, 0 bound changes
+   (0.5s) probing aborted: 1000/1000 successive useless probings
+presolving (6 rounds: 6 fast, 3 medium, 3 exhaustive):
+ 647 deleted vars, 6556 deleted constraints, 0 added constraints, 90 tightened bounds, 0 added holes, 0 changed sides, 0 changed coefficients
+ 7184 implications, 155 cliques
+presolved problem has 11117 variables (5213 bin, 36 int, 0 impl, 5868 cont) and 7493 constraints
+   5796 constraints of type <varbound>
+     87 constraints of type <setppc>
+   1610 constraints of type <linear>
+Presolving Time: 0.52
+
+ time | node  | left  |LP iter|LP it/n| mem |mdpt |frac |vars |cons |cols |rows |cuts |confs|strbr|  dualbound   | primalbound  |  gap   
+* 0.6s|     1 |     0 |   540 |     - |  64M|   0 |   - |  11k|7514 |  11k|7493 |   0 |  21 |   0 | 1.498000e+06 | 1.498000e+06 |   0.00%
+  0.6s|     1 |     0 |   540 |     - |  64M|   0 |   - |  11k|7514 |  11k|7493 |   0 |  21 |   0 | 1.498000e+06 | 1.498000e+06 |   0.00%
+
+SCIP Status        : problem is solved [optimal solution found]
+Solving Time (sec) : 0.64 (over 1 runs: 0.64)
+Solving Nodes      : 1 (0 reactivated)
+Primal Bound       : +1.49800000000000e+06 (1 solutions)
+Dual Bound         : +1.49800000000000e+06
+Gap                : 0.00 %
+[/home/arthur/Downloads/Archive/scipoptsuite-6.0.1/scip/src/scip/scip_var.c:4229] ERROR: invalid SCIP stage <10>
+[/home/arthur/Downloads/Archive/scipoptsuite-6.0.1/scip/src/scip/cons_logicor.c:4676] ERROR: Error <-8> in function call
+[/home/arthur/Downloads/Archive/scipoptsuite-6.0.1/scip/src/scip/cons.c:7279] ERROR: Error <-8> in function call
+[/home/arthur/Downloads/Archive/scipoptsuite-6.0.1/scip/src/scip/conflictstore.c:330] ERROR: Error <-8> in function call
+[/home/arthur/Downloads/Archive/scipoptsuite-6.0.1/scip/src/scip/conflictstore.c:839] ERROR: Error <-8> in function call
+[/home/arthur/Downloads/Archive/scipoptsuite-6.0.1/scip/src/scip/scip_solve.c:1867] ERROR: Error <-8> in function call
+[/home/arthur/Downloads/Archive/scipoptsuite-6.0.1/scip/src/scip/scip_solve.c:3337] ERROR: Error <-8> in function call
+[/home/arthur/Documents/scip/project/repair/src/cmain.c:283] ERROR: Error <-8> in function call
+
+real	0m0.693s
+user	0m0.670s
+sys	0m0.020s

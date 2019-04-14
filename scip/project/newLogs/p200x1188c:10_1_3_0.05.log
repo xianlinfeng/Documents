@@ -1,0 +1,18 @@
+parameters: p200x1188c_10_1_3_0.050000 
+
+SCIP version 6.0.1 [precision: 8 byte] [memory: block] [mode: optimized] [LP solver: SoPlex 4.0.1] [GitHash: a27ecc0]
+Copyright (C) 2002-2019 Konrad-Zuse-Zentrum fuer Informationstechnik Berlin (ZIB)
+
+read problem <instances/p200x1188c.mps> ...
+
+original problem has 2376 variables (1188 bin, 0 int, 0 impl, 1188 cont) and 1388 constraints
+read solution <10solution/p200x1188c_1.sol> ...
+
+check the feasibility of <10solution/p200x1188c_1.sol> for problem <instances/p200x1188c.mps> ...
+
+The solution <10solution/p200x1188c_1.sol> is optimal to <instances/p200x1188c.mps> 
+
+
+real	0m0.014s
+user	0m0.014s
+sys	0m0.000s

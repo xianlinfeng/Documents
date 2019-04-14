@@ -1,0 +1,18 @@
+parameters: timtab1_10_1_5_0.030000 
+
+SCIP version 6.0.1 [precision: 8 byte] [memory: block] [mode: optimized] [LP solver: SoPlex 4.0.1] [GitHash: a27ecc0]
+Copyright (C) 2002-2019 Konrad-Zuse-Zentrum fuer Informationstechnik Berlin (ZIB)
+
+read problem <instances/timtab1.mps> ...
+
+original problem has 397 variables (77 bin, 94 int, 0 impl, 226 cont) and 171 constraints
+read solution <10solution/timtab1_1.sol> ...
+
+check the feasibility of <10solution/timtab1_1.sol> for problem <instances/timtab1.mps> ...
+
+The solution <10solution/timtab1_1.sol> is optimal to <instances/timtab1.mps> 
+
+
+real	0m0.008s
+user	0m0.008s
+sys	0m0.000s

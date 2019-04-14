@@ -1,0 +1,15 @@
+#!/bin/bash
+# this script will generate the modified solution base on the different percentage. and store them in different folder.
+# 
+
+
+
+
+for i in 10 15 20 30 40
+do
+	for file in `cat insName`
+	do
+		 ./modSol/build/modSol $file $i;
+	done
+done
+

@@ -1,0 +1,18 @@
+parameters: decomp2_10_1_5_0.800000 
+
+SCIP version 6.0.1 [precision: 8 byte] [memory: block] [mode: optimized] [LP solver: SoPlex 4.0.1] [GitHash: a27ecc0]
+Copyright (C) 2002-2019 Konrad-Zuse-Zentrum fuer Informationstechnik Berlin (ZIB)
+
+read problem <instances/decomp2.mps> ...
+
+original problem has 14387 variables (14387 bin, 0 int, 0 impl, 0 cont) and 10765 constraints
+read solution <10solution/decomp2_1.sol> ...
+
+check the feasibility of <10solution/decomp2_1.sol> for problem <instances/decomp2.mps> ...
+
+The solution <10solution/decomp2_1.sol> is optimal to <instances/decomp2.mps> 
+
+
+real	0m0.071s
+user	0m0.058s
+sys	0m0.014s

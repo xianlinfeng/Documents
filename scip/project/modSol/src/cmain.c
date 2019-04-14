@@ -1,10 +1,25 @@
-/**@file   repair/src/main.c
- * @brief  repair algorithm with reoptimization
+/**@file   modSol/src/main.c
+ * @brief  modify a solution for a MIP problem
  * @author Arthur Feng
  */
 
+/* Introduction
+   1. This program will read a MIP problem and a solution, then modify the binary variables of the solution base on a percentage,
+      the program will make the solution more optimal(infeasible). 
+   2. This program will read 3 prarmeters
+      argv[0]: the command;
+      argv[1]: the name of the problem, eg: neos-1122047
+      argv[2]: the integer number of percentage of binary variables to modify.
+      command: ./modSol neos-1122047 10
+   3. it will read the problem from the directory: instances/
+      it will read the solution form the directory: solution/
+   4. it will put the modified solution in the directory 10solution/,
+         which means 10% binary variables were modified
+*/
+
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 #include "scip/scip.h"
 #include "scip/scipdefplugins.h"
@@ -16,7 +31,7 @@ int main(
     char **argv /**< array of shell arguments */
 )
 {
-   if (argc != 4)
+   if (argc != 3)
    {
       printf("There should be exactly 3 arguments \n");
       return 1;
@@ -24,6 +39,8 @@ int main(
 
    SCIP *scip = NULL;
    SCIP_RETCODE retcode;
+   char name[40];
+   strcpy(name, argv[1]);
 
    /*********
     * Setup *
@@ -38,9 +55,13 @@ int main(
     * Problem Creation *
     ********************/
    // SCIPinfoMessage(scip, NULL, "read problem <%s> ...\n\n", argv[1]);
-   SCIP_CALL(SCIPreadProb(scip, argv[1], NULL));
+   char pro[] = "instances/";
+   strcat(pro, name);
+   strcat(pro, ".mps");
+   SCIP_CALL(SCIPreadProb(scip, pro, NULL));
    SCIP_CALL(SCIPresetParams(scip));
    // SCIP_CALL(SCIPprintOrigProblem(scip, NULL, NULL, FALSE));
+   strcpy(name, argv[1]);
 
    /********************
     * Read Solution *
@@ -50,20 +71,14 @@ int main(
    SCIP_Bool error = FALSE;
    // SCIPinfoMessage(scip, NULL, "read solution <%s> ...\n\n", argv[2]);
    SCIP_CALL(SCIPcreateSol(scip, &sol, NULL));
-   SCIP_CALL(SCIPreadSolFile(scip, argv[2], sol, FALSE, &partial, &error));
+   char solName[] = "solution/";
+   strcat(solName, name);
+   strcat(solName, ".sol");
+   SCIP_CALL(SCIPreadSolFile(scip, solName, sol, FALSE, &partial, &error));
    /* print the solution */
    // SCIPinfoMessage(scip, NULL, "print the original solution from file <%d> ...\n\n", argv[2]);
    // SCIP_CALL(SCIPprintSol(scip, sol, NULL, FALSE)); // print the solution
-
-   // SCIPinfoMessage(scip, NULL, "No error here \n\n");
-   // return 0;
-
-   char solution[40];
-   char *name;
-   strcpy(solution, argv[1]);
-   const char s[2] = ".";
-   name = strtok(solution, s);
-   // printf("The name of the solution is %s \n", name);
+   strcpy(name, argv[1]);
 
    /* create random number generator */
    static const unsigned int randseed = 42;
@@ -76,7 +91,12 @@ int main(
    SCIP_VAR **x;
    int n;
    SCIP_CALL(SCIPgetSolVarsData(scip, sol, &x, &n, NULL, NULL, NULL, NULL));
-   int r = atoi(argv[3]);
+   int r = atoi(argv[2]);
+   char sr[4];
+   // itoa(r, sr, 10);
+   // printf("sr = %s \n", sr);
+   sprintf(sr, "%d", r);
+   printf("sr = %s \n", sr);
 
    for (int i = 0; i < n; i++)
    {
@@ -111,14 +131,19 @@ int main(
    /* free random number generator */
    SCIPfreeRandom(scip, &randnumgen);
 
-   char dic[60] = "/home/arthur/Downloads/Archive/p0Solution/";
-   strcat(name, "_1.sol");
-   strcat(dic, name);
+   char dic[] = "/home/arthur/Documents/scip/project/";
+   strcat(dic, sr);
+   strcat(dic, "solution/");
+   // printf("dic = %s \n ", dic);
 
+   strcat(dic, name);
+   strcat(dic, "_1.sol");
+   SCIPinfoMessage(scip, NULL, "dic = %s \n\n", dic);
    FILE *file;
    file = fopen(dic, "w+");
    SCIP_CALL(SCIPprintSol(scip, sol, file, FALSE));
    fclose(file);
+   // SCIPinfoMessage(scip, NULL, "No error here \n\n");
 
    /* free the solution */
    SCIP_CALL(SCIPfreeSol(scip, &sol));

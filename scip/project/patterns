@@ -1,2 +1,5 @@
+parameters:
+SCIP Status
+real
 Solving Time
 Solving Nodes

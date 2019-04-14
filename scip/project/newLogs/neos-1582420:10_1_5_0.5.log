@@ -1,0 +1,83 @@
+parameters: neos-1582420_10_1_5_0.500000 
+
+SCIP version 6.0.1 [precision: 8 byte] [memory: block] [mode: optimized] [LP solver: SoPlex 4.0.1] [GitHash: a27ecc0]
+Copyright (C) 2002-2019 Konrad-Zuse-Zentrum fuer Informationstechnik Berlin (ZIB)
+
+read problem <instances/neos-1582420.mps> ...
+
+original problem has 10100 variables (10000 bin, 100 int, 0 impl, 0 cont) and 10180 constraints
+read solution <10solution/neos-1582420_1.sol> ...
+
+check the feasibility of <10solution/neos-1582420_1.sol> for problem <instances/neos-1582420.mps> ...
+
+  [linear] <R10072>: <C5192>[B] (+0) +<C6092>[B] (+0) +<C6192>[B] (+0) +<C6292>[B] (+0) +<C7092>[B] (+0) +<C7192>[B] (+0) +<C7292>[B] (+0) +<C7392>[B] (+0) +<C8092>[B] (+0) +<C8192>[B] (+0) +<C8292>[B] (+0) +<C8392>[B] (+0) +<C8492>[B] (+0) +<C9092>[B] (+0) +<C9192>[B] (+0) +<C9292>[B] (+0) +<C9392>[B] (+0) +<C9492>[B] (+0) +<C9592>[B] (+0) >= 1;
+;
+violation: left hand side is violated by 1
+The solution <10solution/neos-1582420_1.sol> is not feasible to <instances/neos-1582420.mps> 
+
+Tring to reoptimize the problem <instances/neos-1582420.mps> ...  
+
+obj = 90.000000, k = 5, alpha = 90.000000 
+
+n = 10100 
+
+Start to add variable y and new constraints 
+
+y have been released ! 
+
+Finish to create the y and constraint ! 
+
+n = 10100,  j = 10100 ! 
+
+set all parameters to default! 
+
+Reoptimization is enabled! 
+
+Reoptimization parameter have been setted ! 
+
+Stop parameter have been setted ! 
+
+Memory for coefs have allocated ! 
+
+Coefficients have been captured ! 
+
+alpha = 90.000000, n = 20200, j = 10100, m = 5 
+This is the 1-th iteration ! 
+
+presolving:
+(round 1, fast)       0 del vars, 10087 del conss, 0 add conss, 0 chg bounds, 0 chg sides, 0 chg coeffs, 0 upgd conss, 0 impls, 0 clqs
+(round 2, exhaustive) 0 del vars, 10087 del conss, 0 add conss, 0 chg bounds, 0 chg sides, 0 chg coeffs, 20192 upgd conss, 0 impls, 0 clqs
+   (3.1s) probing: 1000/10000 (10.0%) - 0 fixings, 0 aggregations, 99712 implications, 0 bound changes
+   (3.1s) probing: 1001/10000 (10.0%) - 0 fixings, 0 aggregations, 99812 implications, 0 bound changes
+   (3.1s) probing aborted: 1000/1000 successive useless probings
+presolving (3 rounds: 3 fast, 2 medium, 2 exhaustive):
+ 0 deleted vars, 10087 deleted constraints, 0 added constraints, 0 tightened bounds, 0 added holes, 0 changed sides, 0 changed coefficients
+ 119812 implications, 0 cliques
+presolved problem has 20200 variables (10000 bin, 100 int, 0 impl, 10100 cont) and 20293 constraints
+  20113 constraints of type <varbound>
+    101 constraints of type <linear>
+     79 constraints of type <logicor>
+Presolving Time: 3.09
+
+ time | node  | left  |LP iter|LP it/n| mem |mdpt |frac |vars |cons |cols |rows |cuts |confs|strbr|  dualbound   | primalbound  |  gap   
+* 3.4s|     1 |     0 |   214 |     - | 141M|   0 |   - |  20k|  20k|  20k|  20k|   0 |   4 |   0 | 1.810000e+02 | 1.810000e+02 |   0.00%
+  3.4s|     1 |     0 |   214 |     - | 141M|   0 |   - |  20k|  20k|  20k|  20k|   0 |   4 |   0 | 1.810000e+02 | 1.810000e+02 |   0.00%
+
+SCIP Status        : problem is solved [optimal solution found]
+Solving Time (sec) : 3.38 (over 1 runs: 3.38)
+Solving Nodes      : 1 (0 reactivated)
+Primal Bound       : +1.81000000000000e+02 (1 solutions)
+Dual Bound         : +1.81000000000000e+02
+Gap                : 0.00 %
+[/home/arthur/Downloads/Archive/scipoptsuite-6.0.1/scip/src/scip/scip_var.c:4229] ERROR: invalid SCIP stage <10>
+[/home/arthur/Downloads/Archive/scipoptsuite-6.0.1/scip/src/scip/cons_bounddisjunction.c:2737] ERROR: Error <-8> in function call
+[/home/arthur/Downloads/Archive/scipoptsuite-6.0.1/scip/src/scip/cons.c:7279] ERROR: Error <-8> in function call
+[/home/arthur/Downloads/Archive/scipoptsuite-6.0.1/scip/src/scip/conflictstore.c:330] ERROR: Error <-8> in function call
+[/home/arthur/Downloads/Archive/scipoptsuite-6.0.1/scip/src/scip/conflictstore.c:839] ERROR: Error <-8> in function call
+[/home/arthur/Downloads/Archive/scipoptsuite-6.0.1/scip/src/scip/scip_solve.c:1867] ERROR: Error <-8> in function call
+[/home/arthur/Downloads/Archive/scipoptsuite-6.0.1/scip/src/scip/scip_solve.c:3337] ERROR: Error <-8> in function call
+[/home/arthur/Documents/scip/project/repair/src/cmain.c:283] ERROR: Error <-8> in function call
+
+real	0m3.460s
+user	0m3.405s
+sys	0m0.047s

@@ -1,4 +1,4 @@
-set(CMAKE_C_COMPILER "/usr/bin/gcc")
+set(CMAKE_C_COMPILER "/usr/bin/cc")
 set(CMAKE_C_COMPILER_ARG1 "")
 set(CMAKE_C_COMPILER_ID "GNU")
 set(CMAKE_C_COMPILER_VERSION "8.2.1")
@@ -17,9 +17,9 @@ set(CMAKE_C_SIMULATE_VERSION "")
 
 
 set(CMAKE_AR "/usr/bin/ar")
-set(CMAKE_C_COMPILER_AR "/usr/bin/gcc-ar-7")
+set(CMAKE_C_COMPILER_AR "/usr/bin/gcc-ar")
 set(CMAKE_RANLIB "/usr/bin/ranlib")
-set(CMAKE_C_COMPILER_RANLIB "/usr/bin/gcc-ranlib-7")
+set(CMAKE_C_COMPILER_RANLIB "/usr/bin/gcc-ranlib")
 set(CMAKE_LINKER "/usr/bin/ld")
 set(CMAKE_MT "")
 set(CMAKE_COMPILER_IS_GNUCC 1)

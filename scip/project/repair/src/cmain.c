@@ -16,19 +16,31 @@ int main(
     char **argv /**< array of shell arguments */
 )
 {
-   if (argc != 5)
+   if (argc != 6)
    {
-      printf("There must exist 4 arguments:  p^1,  s^0,  p, k. \n");
-      printf("File p^1:    the problem with added constraints.\n");
-      printf("File s^0:    the solution to the original problem.\n");
+      printf("There must exist 3 arguments:  problem name,  u, k. \n");
+      printf("Integer d:   the percentage of the modified variables in original solution \n");
+      printf("name:        the name of the original problem.\n");
       printf("Integer u:   alpha = u * obj_s0 \n");
-      printf("Iteger k:    the number of iterations\n\n");
+      printf("Iteger k:    the number of iterations\n");
+      printf("Float gap:   the stop gap during the optimization \n");
       return 1;
    }
+   char name[40];
+   strcpy(name, argv[1]);
+   int d = atoi(argv[2]);
    int u = atoi(argv[3]);
    int k = atoi(argv[4]);
+   SCIP_Real gap = atof(argv[5]);
+   char solName[40]; // for read the solution from different directories
+   sprintf(solName, "%d", d);
+
+   assert(d > 0);
    assert(u > 0);
    assert(k > 0);
+
+   /*  print the parameters information */
+   printf("parameters: %s_%s_%d_%d_%f \n\n", name, solName, u, k, gap);
 
    SCIP *scip = NULL;
    SCIP_RETCODE retcode;
@@ -51,8 +63,11 @@ int main(
    /********************
     * Problem Creation *
     ********************/
-   SCIPinfoMessage(scip, NULL, "read problem <%s> ...\n\n", argv[1]);
-   SCIP_CALL(SCIPreadProb(scip, argv[1], NULL));
+   char pro[] = "instances/";
+   strcat(pro, argv[1]);
+   strcat(pro, ".mps");
+   SCIPinfoMessage(scip, NULL, "read problem <%s> ...\n\n", pro);
+   SCIP_CALL(SCIPreadProb(scip, pro, NULL));
    SCIP_CALL(SCIPresetParams(scip));
    // SCIP_CALL(SCIPprintOrigProblem(scip, NULL, NULL, FALSE));
 
@@ -62,28 +77,32 @@ int main(
    SCIP_SOL *sol = NULL;
    SCIP_Bool partial = TRUE;
    SCIP_Bool error = FALSE;
-   SCIPinfoMessage(scip, NULL, "read solution <%s> ...\n\n", argv[2]);
    SCIP_CALL(SCIPcreateSol(scip, &sol, NULL));
-   SCIP_CALL(SCIPreadSolFile(scip, argv[2], sol, FALSE, &partial, &error));
+   strcat(solName, "solution/");
+   strcat(solName, argv[1]);
+   strcat(solName, "_1.sol");
+   SCIPinfoMessage(scip, NULL, "read solution <%s> ...\n\n", solName);
+   SCIP_CALL(SCIPreadSolFile(scip, solName, sol, FALSE, &partial, &error));
+   // strcpy(name, argv[1]);
    /* print the solution */
    // SCIPinfoMessage(scip, NULL, "print the original solution from file <%d> ...\n\n", argv[2]);
-   // SCIP_CALL(SCIPprintSol(scip, sol, NULL, TRUE)); // print the solution
+   // SCIP_CALL(SCIPprintSol(scip, sol, NULL, FALSE)); // print the solution
 
    /*******************
     * Check Feasibility *
     *******************/
    SCIP_Bool feasible;
-   SCIPinfoMessage(scip, NULL, "check the feasibility of <%s> for problem <%s> ...\n\n", argv[2], argv[1]);
+   SCIPinfoMessage(scip, NULL, "check the feasibility of <%s> for problem <%s> ...\n\n", solName, pro);
    SCIP_CALL(SCIPcheckSolOrig(scip, sol, &feasible, TRUE, TRUE));
    if (feasible == TRUE)
    {
-      SCIPinfoMessage(scip, NULL, "The solution <%s> is optimal to <%s> \n\n", argv[2], argv[1]);
+      SCIPinfoMessage(scip, NULL, "The solution <%s> is optimal to <%s> \n\n", solName, pro);
       return 0; // stop when s^0 is feasible to p^1
    }
    else
    {
-      SCIPinfoMessage(scip, NULL, "The solution <%s> is not feasible to <%s> \n\n", argv[2], argv[1]);
-      SCIPinfoMessage(scip, NULL, "Tring to reoptimize the problem <%s> ...  \n\n", argv[1]);
+      SCIPinfoMessage(scip, NULL, "The solution <%s> is not feasible to <%s> \n\n", solName, pro);
+      SCIPinfoMessage(scip, NULL, "Tring to reoptimize the problem <%s> ...  \n\n", pro);
    }
 
    /**************
@@ -232,7 +251,8 @@ int main(
 
    /* stop criterion for solving process */
    SCIP_CALL(SCIPsetIntParam(scip, "misc/usesymmetry", 0));
-   SCIP_CALL(SCIPsetRealParam(scip, "limits/gap", 0.06));
+   SCIP_CALL(SCIPsetRealParam(scip, "limits/gap", gap));
+   SCIP_CALL(SCIPsetRealParam(scip, "limits/time", 20.0));
    SCIPinfoMessage(scip, NULL, "Stop parameter have been setted ! \n\n");
 
    /* get objective sense and coefficients */
@@ -283,12 +303,15 @@ int main(
    SCIPinfoMessage(scip, NULL, "This is the last iteration \n\n\n");
    SCIPinfoMessage(scip, NULL, "alpha = %f  \n", alpha);
    SCIP_CALL(SCIPsetRealParam(scip, "limits/gap", 0.0));
+   SCIP_CALL(SCIPsetRealParam(scip, "limits/time", 100.0));
 
    /* solve the IP */
    // SCIP_CALL(SCIPprintOrigProblem(scip, NULL, NULL, TRUE)); // print the last problem
    // SCIP_CALL(SCIPprintTransProblem(scip, NULL, NULL, TRUE));
    SCIP_CALL(SCIPsolve(scip));
+   SCIP_CALL(SCIPprintBestSol);
 
+   SCIP_CALL(SCIPprintStatistics(scip, NULL));
    // /* print best solution */
    // SCIP_CALL(SCIPprintBestSol(scip, NULL, TRUE));
 
@@ -296,7 +319,7 @@ int main(
     * Deinitialization *
     ********************/
    /* free sol and SCIP */
-   // SCIPinfoMessage(scip, NULL, "No error here ! \n");
+   SCIPinfoMessage(scip, NULL, "NoError here ! \n");
    SCIP_CALL(SCIPfree(&scip));
 
    /* check block memory */

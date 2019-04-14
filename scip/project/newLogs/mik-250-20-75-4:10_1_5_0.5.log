@@ -1,0 +1,18 @@
+parameters: mik-250-20-75-4_10_1_5_0.500000 
+
+SCIP version 6.0.1 [precision: 8 byte] [memory: block] [mode: optimized] [LP solver: SoPlex 4.0.1] [GitHash: a27ecc0]
+Copyright (C) 2002-2019 Konrad-Zuse-Zentrum fuer Informationstechnik Berlin (ZIB)
+
+read problem <instances/mik-250-20-75-4.mps> ...
+
+original problem has 270 variables (75 bin, 175 int, 0 impl, 20 cont) and 195 constraints
+read solution <10solution/mik-250-20-75-4_1.sol> ...
+
+check the feasibility of <10solution/mik-250-20-75-4_1.sol> for problem <instances/mik-250-20-75-4.mps> ...
+
+The solution <10solution/mik-250-20-75-4_1.sol> is optimal to <instances/mik-250-20-75-4.mps> 
+
+
+real	0m0.012s
+user	0m0.009s
+sys	0m0.003s

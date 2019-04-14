@@ -4,14 +4,13 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/arthur/Documents/scip/repair/src/cmain.c" "/home/arthur/Documents/scip/repair/build/CMakeFiles/repair.dir/src/cmain.c.o"
+  "/home/arthur/Documents/scip/project/repair/src/cmain.c" "/home/arthur/Documents/scip/project/repair/build/CMakeFiles/repair.dir/src/cmain.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH
-  "/home/arthur/scip_installation/Release/lib/cmake/scip/../../../include"
-  "/home/arthur/scip_installation/Release/include"
+  "/usr/local/lib/cmake/scip/../../../include"
   )
 
 # Targets to which this target links.
