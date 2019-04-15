@@ -22,13 +22,22 @@
 \maketitle
 
 \section{Introduction}
-Road traffic accident is a threat to all people in their daily life. According to the WHO's statistics in 2018, road traffic accidents are the eighth of the top 10 causes of death, which is the only reason of injuries, and all the remaining reason are diseases. In the worldwide, road injuries took 140 million lives in 2016, in which $74\%$ are were men and boys. (https://www.who.int/news-room/fact-sheets/detail/the-top-10-causes-of-death). Serious situation happened in Victorial too. There were 58 lives lost because of the road accident every day in 2018 just in Victorial. This number increased to 88 since 7 April 2019. In the last five years, the least worse situation happed in 2017, the daily lives lost was 64.  According to the TAC report, the lives lost of drivers takes nearly half ($48.2\%$) of the daily lives lost. The age of death is concentrated in 30-69 years old. The most lives lost in rural roads($58\%$).(http://www.tac.vic.gov.au/road-safety/statistics/lives-lost-year-to-date). The analysis of past traffic accidents can provide a basis for future road construction, accident prevention, and accident rescue. To achieve this goal, I found CrashStats data on Victorial government website for open data. The dataset was provide by VicRoad. The dataset includes the crash data of time, location, conditions and so on since 2000. In this report, I will try to analysis and explore the dataset to find the main cause of road crashes in Victoria, as well as the trend in the last 10 years. in the last part, I will provide some suggestions base on the result of the analysis. The main structure of this report is as follow: the data wrangling will be processed in section \ref{dataWrangling}, then the data will be checking in section \ref{dataChecking}. The data exploration will be carried out in section \ref{dataExploration}, followed by the section of conclusion. In the last section, there will be a reflection of this assessment. 
+Road traffic accident is a threat to all people in their daily life. According to the WHO's statistics in 2018, road traffic accidents are the eighth of the top 10 causes of death, which is the only reason of injuries, and all the remaining reason are diseases. In the worldwide, road injuries took 140 million lives in 2016, in which $74\%$ are were men and boys. (https://www.who.int/news-room/fact-sheets/detail/the-top-10-causes-of-death). Serious situation happened in Victoria too. There were 58 lives lost because of the road accident every day in 2018 just in Victoria. This number increased to 88 since 7 April 2019. In the last five years, the least worse situation happened in 2017, the daily lives lost was 64.  According to the TAC report, the lives lost of drivers takes nearly half ($48.2\%$) of the daily lives lost. The age of death is concentrated in 30-69 years old. The most lives lost in rural roads($58\%$).(http://www.tac.vic.gov.au/road-safety/statistics/lives-lost-year-to-date). The analysis of past traffic accidents can provide a basis for future road construction, accident prevention, and accident rescue. The following three question will be answered in this report:
+\begin{enumerate}
+	\item What is the main cause of road crashes in Victoria.
+	\item What is the trend in the last 10 years?
+	\item What suggestion we can provide for the people in different areas.
+\end{enumerate}
+To answer those three questions, I will try to analysis and explore the dataset to find the main cause of road crashes in Victoria, as well as the trend in the last 10 years. I will try to find one or more datasets, then perform data wrangling, data cleaning and data checking before data exploration. During the data exploration, I will perform different statistic tests and visualisation to explore the data set and obtain insight from the data. At last, I will provide some suggestions base on the result of the data exploration. The main structure of this report is as follow: the data wrangling will be processed in section \ref{dataWrangling}, then the data will be checking in section \ref{dataChecking}. The data exploration will be carried out in section \ref{dataExploration}, followed by the section of conclusion. In the last section, there will be a reflection of this assessment. 
 \par
+
+\{ draft\}
+
 
 \section{Data Wrangling} 
 \label{dataWrangling}
 \subsection{the Dataset}
-The name of the dataset is "CrashStats", which is provided by VicRoad for educational purposes. The dataset could be download from the website https://www.data.vic.gov.au and the dataset is consist with 12 tables in the following list:
+I found the data set named "CrashStats data" on Victoria government website for open data. The dataset was provide by VicRoad for educational purposes, which includes the crash data of time, location, conditions and so on since 2000. It could be download from the website https://www.data.vic.gov.au and the dataset is consist with 12 tables in the following list:
 \begin{enumerate}
 	\item \textbf{accident}:	contain the besic information about the accident, such as date, time, location, environment codition and severity.
 	\item \textbf{vehicle}:	vehicle information, such as make, body type, year of manufacture, fuel type, vechicle capacity and so on.
@@ -43,10 +52,12 @@ The name of the dataset is "CrashStats", which is provided by VicRoad for educat
 	\item \textbf{node$\_$id$\_$complex$\_$int$\_$id}:	if the node locate in a complex intersection or not.
 	\item \textbf{statistic checks}:	the statistic information of the crashes in this dataset.
 \end{enumerate}
-Before the data wrangling and data cleaning, we need to understand the characteristics of each data table, for example, in the table of "accident", each accident has exact one record, however, as one accident may involved two or more people, one accident may have two or more records in the table "person". Same situation happens in table "vehicle", "accident$\_$event" and other tables too, this is another reason why this dataset separate to 12 data tables. Due to this reason, when we process data wrangling, data cleaning, or data exploration, we should be extra careful with the multiple records for one accident. 
+Before the data wrangling and data cleaning, we need to understand the characteristics of each data table, for example, in the table of "accident", each accident has exact one record. But, as one accident may involved two or more people, one accident may have two or more records in the table "person". Same situation happens in table "vehicle", "accident$\_$event" and other tables too, this is another reason why this dataset separate to 12 data tables. Due to this reason, when we process data wrangling, data cleaning, or data exploration, extra careful should be paid with the multiple records for one accident. 
 	
 \subsection{Delete expired data}
-The crash happed more ten years ago is not considered in this report, so they will be delete form the dataset in the first step. Fortunately, every crash in the dataset have a accident number, the number include the date information, so I could just delete the instances before 1/1/2009 and after 31/12/2018 in each subset.  
+The crash happened more ten years ago is not considered in this report, so they will be delete form the dataset in the first step. Fortunately, every crash in the dataset have a accident number, the accident number consist with the date information and the index number, so the instances before 1/1/2009 and after 31/12/2018 should be delete first in each subset.  
+
+\textbf{data process pipline}
 
 \section{Data Checking}
 \label{dataChecking}
