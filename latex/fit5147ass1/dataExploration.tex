@@ -4,6 +4,7 @@
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{amsthm}
+\usepackage{graphicx} 
 \usepackage{fullpage}
 \usepackage[ruled,vlined,linesnumbered]{algorithm2e}
 
@@ -67,7 +68,8 @@ The data set I found for this project named "CrashStats data", which could be do
 	\item \textbf{statistic$\_$checks}:	the statistic information of the crashes in this dataset.
 \end{enumerate}
 Before the data wrangling and data cleaning, we need to understand the characteristics of each data table, for example, in the table of "accident", each accident has exact one record. But, as one accident may involved two or more people, one accident may have two or more records in the table "person". Same situation happens in table "vehicle", "accident$\_$event" and other tables too, this is another reason why this dataset separate to 12 data tables. Due to this reason, when we process data wrangling, data cleaning, or data exploration, extra careful should be paid with the multiple records for one accident. 
-	
+
+\subsection{Filter data}	
 \subsection{Delete expired data}
 The crash happened more ten years ago is not considered in this report, so they will be delete form the dataset in the first step. Fortunately, every crash in the dataset have a accident number, the accident number consist with the date information and the index number, so the instances before 1/1/2009 and after 31/12/2018 should be delete first in each subset.   This step was performed in Microsoft Excel. Then after deleting the expired data, there are 135226 instance in the data set.
 
@@ -84,12 +86,32 @@ Another important step after deleting expired data is selecting data. Each data 
 	\item \textbf{atmospheric$\_$cond}:	atmospheric condition.
 \end{enumerate}
 
+
+\subsection{Time series data handling}
+In the original data set, the time information is stored in the format \text{"hh.mm.ss"}, which is not the common time format, so that I change them to the format \text{"hh:mm:ss"} first. This step could easily perform in Microsoft Excel by just replacing every "." by ":". Then, the date and time information are separated into two columns, which is not very friendly to Tableau Public, so we need to combine them together first. In order to complete this task, I need to use a Excel formulation \text{"TEXT(B2,"d\/mm\/yyyy")\&" "\&TEXT(C2,"hh:mm:ss")"}. This formulation could combine the date information in cell "B2" and time information in cell "C2" without lose any information. By applying this formulation to all rows, a new column that contain both date and time information could be generated.
+
+
+
 \subsection{Format data}
 As the data set contains different types of data, for example, geographic data, date data, time data, numeric data, text data. Convert each data type into the correct format is essential and should be finished before dealing with the missing value and outlier. 
 
+
+\subsection{Join tables}
+\label{JoinTable}
+Because of the different characteristics of each table, it hard to join two tables into one table. But there still some work can be done. For example, If we perform a left outer join the table "accident" and the table "accident$\_$node", base on the "node ID", we could get the geographic information for each accident. This could be easily done in Tableau Public. We could also perform the left outer join between the table "accident" and  the table "road$\_$surface$\_$cond" base on "accident$\_$ID", table "accident" and the table "accident$\_$location" as well as "atmospheric$\_$cond" base on "node$\_$ID". The structure of the joins is showing below:
+\begin{figure}[h!]
+	\begin{center}
+		\includegraphics[scale=0.8]{leftouterjoin.png} 
+	\end{center}
+ 	\label{fig:leftOuterJoin}
+\caption{left outer joint structure}
+\end{figure}
+
+
 \section{Data Checking}
+Tableau Public is a powerful tool for data wrangling, as well as data checking. In this section I will demonstrate the main step I performed for data checking. Because we will check the table which is generated in section \ref{JoinTable}. 
 \label{dataChecking}
-\subsection{Checking with Table3au Public}
+\subsection{Checking with Tableau Public}
 After data wrangling, the data should be check to eliminate outlier. It is the process to detect and correct the inaccurate, incomplete, incorrect, or irrelevant part from the dataset. After 
 The data exploration process can only be implemented after the data check, otherwise, the wrong data source will definitly lead the wrong results and conclusions. Data 
 
