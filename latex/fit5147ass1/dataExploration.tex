@@ -8,7 +8,7 @@
 \usepackage[ruled,vlined,linesnumbered]{algorithm2e}
 
 \setlength{\parindent}{0em}  % set the indent of the paragraph
-\setlength{\parskip}{1em} % set the space of the paragraph
+\setlength{\parskip}{0em} % set the space of the paragraph
 
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[section] % add the section number in front of the definition number
@@ -31,13 +31,27 @@ Road traffic accident is a threat to all people in their daily life. According t
 To answer those three questions, I will try to analysis and explore the dataset to find the main cause of road crashes in Victoria, as well as the trend in the last 10 years. I will try to find one or more datasets, then perform data wrangling, data cleaning and data checking before data exploration. During the data exploration, I will perform different statistic tests and visualisation to explore the data set and obtain insight from the data. At last, I will provide some suggestions base on the result of the data exploration. The main structure of this report is as follow: the data wrangling will be processed in section \ref{dataWrangling}, then the data will be checking in section \ref{dataChecking}. The data exploration will be carried out in section \ref{dataExploration}, followed by the section of conclusion. In the last section, there will be a reflection of this assessment. 
 \par
 
-\{ draft\}
-
 
 \section{Data Wrangling} 
 \label{dataWrangling}
+Usually the data we get is messy and incomplete, which cannot be used for data analysis directly. Data wrangling is a process to manipulate data to make the data directly usable for analysis. According to "2016 Data Science Salary Survey",  data scientists spend 53\% of their time for data cleaning and data wrangling. (https://learning.oreilly.com/library/view/2016-data-science/9781492049029/). During the data wrangling, the raw data is transformed into the data that can be analysed to generate insights and valid results. Data wrangling is vital for data science project, which not only improves the efficiency of data analysis, but also reduces the error caused by erroneous data. In this section, I will divide the data wrangling process into the following small tasks base on the characteristics of the data set:
+\begin{enumerate}
+	\item Introduce the data set
+	\item delete expired data
+	\item select data
+	\item Drop missing or null values in the dataset
+	\item Time series data handling	
+	\item Filtering Data
+	\item Grouping Data
+	\item convert free text dates to standard format
+	\item deal with outliers or "illegal" values
+	\item discrete the data into a set of values
+	\item data checking
+\end{enumerate}
+
+
 \subsection{the Dataset}
-I found the data set named "CrashStats data" on Victoria government website for open data. The dataset was provide by VicRoad for educational purposes, which includes the crash data of time, location, conditions and so on since 2000. It could be download from the website https://www.data.vic.gov.au and the dataset is consist with 12 tables in the following list:
+The data set I found for this project named "CrashStats data", which could be downloaded on Victoria government open data website: https://www.data.vic.gov.au . The dataset was provide by VicRoad for educational purposes, and it includes the crash data of time, location, conditions and so on since 2000. The dataset is consist with 12 tables in the following list:
 \begin{enumerate}
 	\item \textbf{accident}:	contain the besic information about the accident, such as date, time, location, environment codition and severity.
 	\item \textbf{vehicle}:	vehicle information, such as make, body type, year of manufacture, fuel type, vechicle capacity and so on.
@@ -50,14 +64,28 @@ I found the data set named "CrashStats data" on Victoria government website for 
 	\item \textbf{accident$\_$node}:	more detailed location about the crash.
 	\item \textbf{accident$\_$chainage}:	chainage information of the node.
 	\item \textbf{node$\_$id$\_$complex$\_$int$\_$id}:	if the node locate in a complex intersection or not.
-	\item \textbf{statistic checks}:	the statistic information of the crashes in this dataset.
+	\item \textbf{statistic$\_$checks}:	the statistic information of the crashes in this dataset.
 \end{enumerate}
 Before the data wrangling and data cleaning, we need to understand the characteristics of each data table, for example, in the table of "accident", each accident has exact one record. But, as one accident may involved two or more people, one accident may have two or more records in the table "person". Same situation happens in table "vehicle", "accident$\_$event" and other tables too, this is another reason why this dataset separate to 12 data tables. Due to this reason, when we process data wrangling, data cleaning, or data exploration, extra careful should be paid with the multiple records for one accident. 
 	
 \subsection{Delete expired data}
-The crash happened more ten years ago is not considered in this report, so they will be delete form the dataset in the first step. Fortunately, every crash in the dataset have a accident number, the accident number consist with the date information and the index number, so the instances before 1/1/2009 and after 31/12/2018 should be delete first in each subset.  
+The crash happened more ten years ago is not considered in this report, so they will be delete form the dataset in the first step. Fortunately, every crash in the dataset have a accident number, the accident number consist with the date information and the index number, so the instances before 1/1/2009 and after 31/12/2018 should be delete first in each subset.   This step was performed in Microsoft Excel. Then after deleting the expired data, there are 135226 instance in the data set.
 
-\textbf{data process pipline}
+\subsection{Select data}
+Another important step after deleting expired data is selecting data. Each data instance contains lots of information related to the accident, however some of them are not related to our project. So that, select the useful data and information is essential for data analysis. This step is performed in Microsoft Excel too, and the data tables still stored in ".csv" format. The list blow indicate the selected attributes for each table:
+\begin{enumerate}
+	\item \textbf{accident}: accident number, date, time, type, day of week, accident type, light condition, node, involved vehicles, road condition and so on.
+	\item \textbf{person}: sex, age, injured level, seating position, role, license information, movement. 
+	\item \textbf{vehicle}: register state, make, model, year of manufacture, type, body style, number of person, color, level of damage, collision position. 
+	\item \textbf{accident$\_$node}:	node$\_$ID, type, latitude, longitude. postcode.  
+	\item \textbf{road$\_$surface$\_$cond}: road surface condition.
+	\item \textbf{accident$\_$event}: event sequence, event type, collision position and so on.
+	\item \textbf{accident$\_$location}:	 node$\_$ID, type of intersecting road, distance to the nearest intersecting road. 
+	\item \textbf{atmospheric$\_$cond}:	atmospheric condition.
+\end{enumerate}
+
+\subsection{Format data}
+As the data set contains different types of data, for example, geographic data, date data, time data, numeric data, text data. Convert each data type into the correct format is essential and should be finished before dealing with the missing value and outlier. 
 
 \section{Data Checking}
 \label{dataChecking}
