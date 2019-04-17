@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.4.13)  17 APR 2019 08:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.4.13)  17 APR 2019 14:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -191,36 +191,44 @@ Package: relsize 2013/03/29 ver 4.1
 \algocf@algoframe=\box35
 \algocf@algobox=\box36
 )
-\c@definition=\count105
+(/usr/share/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen120
+\WF@size=\dimen121
+\c@WF@wrappedlines=\count105
+\WF@box=\box37
+\WF@everypar=\toks29
+Package: wrapfig 2003/01/31  v 3.6
+)
+\c@definition=\count106
  (./dataExploration.aux)
 \openout1 = `dataExploration.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
 
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count106
-\scratchdimen=\dimen120
-\scratchbox=\box37
-\nofMPsegments=\count107
-\nofMParguments=\count108
-\everyMPshowfont=\toks29
-\MPscratchCnt=\count109
-\MPscratchDim=\dimen121
-\MPnumerator=\count110
-\makeMPintoPDFobject=\count111
-\everyMPtoPDFconversion=\toks30
+\scratchcounter=\count107
+\scratchdimen=\dimen122
+\scratchbox=\box38
+\nofMPsegments=\count108
+\nofMParguments=\count109
+\everyMPshowfont=\toks30
+\MPscratchCnt=\count110
+\MPscratchDim=\dimen123
+\MPnumerator=\count111
+\makeMPintoPDFobject=\count112
+\everyMPtoPDFconversion=\toks31
 ) (/usr/share/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -277,62 +285,86 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Try loading font information for U+msa on input line 23.
+LaTeX Font Info:    Try loading font information for U+msa on input line 24.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 23.
+LaTeX Font Info:    Try loading font information for U+msb on input line 24.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
-<leftouterjoin.png, id=18, 408.40079pt x 165.99516pt>
-File: leftouterjoin.png Graphic file (type png)
-<use leftouterjoin.png>
-Package pdftex.def Info: leftouterjoin.png  used on input line 104.
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
+Overfull \hbox (27.86304pt too wide) in paragraph at lines 73--74
+\OT1/cmr/m/n/10.95 in the cell "D2" use a Ex-cel for-mu-la-tion [].
+ []
+
+[3]
+<images/leftouterjoin.png, id=18, 408.40079pt x 165.99516pt>
+File: images/leftouterjoin.png Graphic file (type png)
+<use images/leftouterjoin.png>
+Package pdftex.def Info: images/leftouterjoin.png  used on input line 97.
 (pdftex.def)             Requested size: 326.72107pt x 132.7963pt.
- [4 <./leftouterjoin.png>] [5]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 164.
+
+Underfull \hbox (badness 10000) in paragraph at lines 106--107
+
+ []
+
+[4 <./images/leftouterjoin.png>]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 111.
 
 
 (/usr/share/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 164.
- [6] [7] (./dataExploration.aux)
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 111.
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+Overfull \hbox (1.4991pt too wide) in paragraph at lines 114--115
+\OT1/cmr/m/n/10.95 Pub-lic to iden-tify the du-pli-cate records in the key at-t
+ributes. For ex-am-ple, for the "ACCIDENT$[]$No"
+ []
 
- ) 
+<images/IdentifyMissingValue.png, id=24, 359.46797pt x 254.82703pt>
+File: images/IdentifyMissingValue.png Graphic file (type png)
+<use images/IdentifyMissingValue.png>
+Package pdftex.def Info: images/IdentifyMissingValue.png  used on input line 12
+4.
+(pdftex.def)             Requested size: 211.3883pt x 149.8567pt.
+
+Underfull \hbox (badness 1072) in paragraph at lines 130--130
+\OT1/cmr/m/n/10.95 ing value by sum-marise the ta-ble or each
+ []
+
+[5 <./images/IdentifyMissingValue.png>]
+<images/trend_year.png, id=31, 641.39626pt x 606.01407pt>
+File: images/trend_year.png Graphic file (type png)
+<use images/trend_year.png>
+Package pdftex.def Info: images/trend_year.png  used on input line 144.
+(pdftex.def)             Requested size: 211.3883pt x 199.72633pt.
+ [6 <./images/trend_year.png (PNG copy)>] (./dataExploration.aux) ) 
 Here is how much of TeX's memory you used:
- 3480 strings out of 492616
- 48141 string characters out of 6135177
- 127628 words of memory out of 5000000
- 7327 multiletter control sequences out of 15000+600000
- 13188 words of font info for 49 fonts, out of 8000000 for 9000
+ 3552 strings out of 492616
+ 49275 string characters out of 6135177
+ 126845 words of memory out of 5000000
+ 7395 multiletter control sequences out of 15000+600000
+ 12319 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,24n,41p,1238b,518s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/
-share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></
-usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf
--dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/ams
-fonts/symbols/msbm10.pfb>
-Output written on dataExploration.pdf (7 pages, 199732 bytes).
+ 41i,7n,27p,1238b,254s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr
+/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmti10.pfb>
+Output written on dataExploration.pdf (6 pages, 218297 bytes).
 PDF statistics:
- 91 PDF objects out of 1000 (max. 8388607)
- 64 compressed objects within 1 object stream
+ 61 PDF objects out of 1000 (max. 8388607)
+ 39 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
