@@ -1,48 +1,73 @@
 This is BibTeX, Version 0.99d (TeX Live 2018/Arch Linux)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: dataExploration.aux
-I found no \citation commands---while reading file dataExploration.aux
-I found no \bibdata command---while reading file dataExploration.aux
-I found no \bibstyle command---while reading file dataExploration.aux
-You've used 0 entries,
-            0 wiz_defined-function locations,
-            83 strings with 504 characters,
-and the built_in function-call counts, 0 in all, are:
-= -- 0
-> -- 0
-< -- 0
-+ -- 0
-- -- 0
-* -- 0
-:= -- 0
-add.period$ -- 0
-call.type$ -- 0
-change.case$ -- 0
+The style file: apacite.bst
+Reallocated glb_str_ptr (elt_size=8) to 20 items from 10.
+Reallocated global_strs (elt_size=20001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=8) to 20 items from 10.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated wiz_functions (elt_size=8) to 6000 items from 3000.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated wiz_functions (elt_size=8) to 9000 items from 6000.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Database file #1: mybibliography.bib
+Warning--entry type for "WHO2016" isn't style-file defined
+--line 3 of file mybibliography.bib
+Warning--string name "april" is undefined
+--line 11 of file mybibliography.bib
+Warning--entry type for "TAC2019" isn't style-file defined
+--line 15 of file mybibliography.bib
+Warning--string name "april" is undefined
+--line 23 of file mybibliography.bib
+Warning--entry type for "dataWranglingTomar" isn't style-file defined
+--line 27 of file mybibliography.bib
+Warning--string name "april" is undefined
+--line 35 of file mybibliography.bib
+Warning--entry type for "MetaData" isn't style-file defined
+--line 40 of file mybibliography.bib
+Warning--string name "april" is undefined
+--line 48 of file mybibliography.bib
+apacite.bst [2013/07/21 v6.03 APA bibliography style]
+You've used 4 entries,
+            6951 wiz_defined-function locations,
+            1295 strings with 11338 characters,
+and the built_in function-call counts, 6504 in all, are:
+= -- 973
+> -- 40
+< -- 208
++ -- 172
+- -- 14
+* -- 284
+:= -- 918
+add.period$ -- 16
+call.type$ -- 4
+change.case$ -- 68
 chr.to.int$ -- 0
-cite$ -- 0
-duplicate$ -- 0
-empty$ -- 0
-format.name$ -- 0
-if$ -- 0
+cite$ -- 8
+duplicate$ -- 121
+empty$ -- 273
+format.name$ -- 56
+if$ -- 1422
 int.to.chr$ -- 0
-int.to.str$ -- 0
+int.to.str$ -- 12
 missing$ -- 0
-newline$ -- 0
-num.names$ -- 0
-pop$ -- 0
-preamble$ -- 0
-purify$ -- 0
+newline$ -- 91
+num.names$ -- 32
+pop$ -- 86
+preamble$ -- 1
+purify$ -- 16
 quote$ -- 0
-skip$ -- 0
+skip$ -- 703
 stack$ -- 0
-substring$ -- 0
-swap$ -- 0
-text.length$ -- 0
+substring$ -- 191
+swap$ -- 57
+text.length$ -- 11
 text.prefix$ -- 0
-top$ -- 0
-type$ -- 0
+top$ -- 1
+type$ -- 608
 warning$ -- 0
-while$ -- 0
+while$ -- 20
 width$ -- 0
-write$ -- 0
-(There were 3 error messages)
+write$ -- 98
+(There were 8 warnings)

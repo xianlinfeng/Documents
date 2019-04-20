@@ -1,0 +1,101 @@
+\begin{thebibliography}{}
+
+\bibitem [\protect \citeauthoryear {%
+TAC%
+}{%
+TAC%
+}{%
+{\protect \APACyear {2019}}%
+}]{%
+TAC2019}
+\APACinsertmetastar {%
+TAC2019}%
+\begin{APACrefauthors}%
+TAC.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2019}{}{}.
+\newblock
+\APACrefbtitle {Lives Lost - Year to Date.} {Lives lost - year to date.}
+\newblock
+\begin{APACrefURL}
+  [{2019-4-20}]\url{http://www.tac.vic.gov.au/road-safety/statistics/lives-lost-year-to-date}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Tomar%
+}{%
+Tomar%
+}{%
+{\protect \APACyear {2019}}%
+}]{%
+dataWranglingTomar}
+\APACinsertmetastar {%
+dataWranglingTomar}%
+\begin{APACrefauthors}%
+Tomar, S\BPBI S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2019}{}{}.
+\newblock
+\APACrefbtitle {A Comprehensive Introduction to Data Wrangling.} {A
+  comprehensive introduction to data wrangling.}
+\newblock
+\begin{APACrefURL}
+  [{2019-4-20}]\url{https://www.springboard.com/blog/data-wrangling/}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+VicRoads%
+}{%
+VicRoads%
+}{%
+{\protect \APACyear {2019}}%
+}]{%
+MetaData}
+\APACinsertmetastar {%
+MetaData}%
+\begin{APACrefauthors}%
+VicRoads.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2019}{}{}.
+\newblock
+\APACrefbtitle {Crash Stats - Data Extract - Open Data.} {Crash stats - data
+  extract - open data.}
+\newblock
+\begin{APACrefURL}
+  [{2019-4-20}]\url{http://data.vicroads.vic.gov.au/metadata/Crash\%20Stats\%20-\%20Data\%20Extract\%20-\%20Open\%20Data.html}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+WHO%
+}{%
+WHO%
+}{%
+{\protect \APACyear {2019}}%
+}]{%
+WHO2016}
+\APACinsertmetastar {%
+WHO2016}%
+\begin{APACrefauthors}%
+WHO.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2019}{}{}.
+\newblock
+\APACrefbtitle {The top 10 causes of death.} {The top 10 causes of death.}
+\newblock
+\begin{APACrefURL}
+  [{2018-05-24}]\url{https://www.who.int/news-room/fact-sheets/detail/the-top-10-causes-of-death/}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\end{thebibliography}
